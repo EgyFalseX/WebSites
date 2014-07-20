@@ -1,0 +1,112 @@
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls" Assembly="System.Web.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.DynamicData" Assembly="System.Web.DynamicData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls.Expressions" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls.WebParts" Assembly="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" %>
+<%@ Register TagPrefix="asp" Namespace="System.Web.UI.WebControls" Assembly="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxEditors" Assembly="DevExpress.Web.ASPxEditors.v11.2, Version=11.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxGridView" Assembly="DevExpress.Web.ASPxGridView.v11.2, Version=11.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<dx:ASPxGridView runat="server" CssFilePath="../App_Themes/DevEx/{0}/styles.css" CssPostfix="DevEx" KeyFieldName="addno" AutoGenerateColumns="False" Caption="راســـــــــــــلنا" SummaryText="الملخص" RightToLeft="True" DataSourceID="DSData" Width="800px" EnableTheming="True"><TotalSummary>
+<dx:ASPxSummaryItem SummaryType="Count" FieldName="addno" DisplayFormat="العـدد : {0}" ShowInColumn="coname" ShowInGroupFooterColumn="coname"></dx:ASPxSummaryItem>
+</TotalSummary>
+<Columns>
+<dx:GridViewCommandColumn ButtonType="Image" ShowInCustomizationForm="True" Caption="العمليات" VisibleIndex="0">
+<EditButton Visible="True">
+<Image Url="../images/edit.png"></Image>
+</EditButton>
+
+<NewButton>
+<Image Url="../images/insert.png"></Image>
+</NewButton>
+
+<DeleteButton Visible="True" Text="حذف">
+<Image Url="../images/delete.png"></Image>
+</DeleteButton>
+
+<SelectButton>
+<Image Url="../images/accept.png"></Image>
+</SelectButton>
+
+<CancelButton>
+<Image Url="../images/delete.png"></Image>
+</CancelButton>
+
+<UpdateButton>
+<Image Url="../images/accept.png"></Image>
+</UpdateButton>
+
+<ClearFilterButton Visible="True"></ClearFilterButton>
+</dx:GridViewCommandColumn>
+<dx:GridViewDataTextColumn FieldName="coname" ShowInCustomizationForm="True" Caption="الاسم" VisibleIndex="1"></dx:GridViewDataTextColumn>
+<dx:GridViewDataComboBoxColumn FieldName="sefaid" ShowInCustomizationForm="True" Caption="الصفه" VisibleIndex="2">
+<PropertiesComboBox DataSourceID="DSsefa" TextField="sefa" ValueField="sefaid" ValueType="System.Int32"><Columns>
+<dx:ListBoxColumn FieldName="sefa" Caption="اسم الصفه"></dx:ListBoxColumn>
+</Columns>
+</PropertiesComboBox>
+</dx:GridViewDataComboBoxColumn>
+<dx:GridViewDataComboBoxColumn FieldName="contypeid" ShowInCustomizationForm="True" Caption="نوع الرساله" VisibleIndex="3">
+<PropertiesComboBox DataSourceID="DScontype" TextField="contype" ValueField="contypeid" ValueType="System.Int32"><Columns>
+<dx:ListBoxColumn FieldName="contype" Caption="اسم نوع الرساله"></dx:ListBoxColumn>
+</Columns>
+</PropertiesComboBox>
+</dx:GridViewDataComboBoxColumn>
+<dx:GridViewDataTextColumn FieldName="tel" ShowInCustomizationForm="True" Caption="تليفون" VisibleIndex="4"></dx:GridViewDataTextColumn>
+<dx:GridViewDataTextColumn FieldName="mail" ShowInCustomizationForm="True" Caption="البريد" VisibleIndex="5"></dx:GridViewDataTextColumn>
+<dx:GridViewDataMemoColumn FieldName="massage" ShowInCustomizationForm="True" Caption="نص الرساله" VisibleIndex="6">
+<CellStyle Wrap="False"></CellStyle>
+</dx:GridViewDataMemoColumn>
+<dx:GridViewDataDateColumn FieldName="condate" ShowInCustomizationForm="True" Caption="تاريخ الرساله" VisibleIndex="7">
+<PropertiesDateEdit DisplayFormatString="d/M/yyyy"></PropertiesDateEdit>
+</dx:GridViewDataDateColumn>
+<dx:GridViewDataMemoColumn FieldName="rply" ShowInCustomizationForm="True" Caption="الـــرد" VisibleIndex="8">
+<CellStyle Wrap="False"></CellStyle>
+</dx:GridViewDataMemoColumn>
+</Columns>
+
+<SettingsBehavior AllowFocusedRow="True" ColumnResizeMode="Control" ConfirmDelete="True" SortMode="DisplayText"></SettingsBehavior>
+
+<SettingsPager>
+<Summary AllPagesText="صفحات :  {0} - {1} ({2} عناصر)" Position="Right" Text="صفحه {0} of {1} ({2} عنصر)"></Summary>
+</SettingsPager>
+
+<Settings ShowTitlePanel="True" ShowFilterRow="True" ShowFilterRowMenu="True" ShowHeaderFilterButton="True" ShowGroupPanel="True" ShowFooter="True" ShowFilterBar="Visible"></Settings>
+
+<SettingsText GroupPanel="اسحب عمود ثم افلته هنا لصناعه مجموعه" ConfirmDelete="هل انت متأكد؟" CustomizationWindowCaption="خيارات" PopupEditFormCaption="صفحة المحرر" EmptyHeaders="راس فارغ" GroupContinuedOnNextPage="تستكمل المجموعه في الصفحه القادمه" EmptyDataRow="فارغ" CommandEdit="تعديل" CommandNew="جديد" CommandDelete="حذف" CommandSelect="اختار" CommandCancel="الغاء" CommandUpdate="تحديث" CommandClearFilter="مسح التصفيه" HeaderFilterShowAll="اظهار الكل" HeaderFilterShowBlanks="اظهار الفارغ" HeaderFilterShowNonBlanks="اظهار غير الفارغ" FilterControlPopupCaption="خيارات التصفيه" FilterBarClear="مسح التصفبه" FilterBarCreateFilter="صناعة تصفيه"></SettingsText>
+
+<Images SpriteCssFilePath="../App_Themes/DevEx/{0}/sprite.css">
+<LoadingPanelOnStatusBar Url="../App_Themes/DevEx/GridView/StatusBarLoading.gif"></LoadingPanelOnStatusBar>
+
+<LoadingPanel Url="../App_Themes/DevEx/GridView/Loading.gif"></LoadingPanel>
+</Images>
+
+<ImagesFilterControl>
+<LoadingPanel Url="../App_Themes/DevEx/GridView/Loading.gif"></LoadingPanel>
+</ImagesFilterControl>
+
+<Styles CssPostfix="DevEx" CssFilePath="../App_Themes/DevEx/{0}/styles.css">
+<Header SortingImageSpacing="5px" ImageSpacing="5px" HorizontalAlign="Center" Font-Bold="False" Font-Size="Medium"></Header>
+
+<Cell HorizontalAlign="Center"></Cell>
+
+<LoadingPanel ImageSpacing="5px"></LoadingPanel>
+
+<EditFormTable>
+<Border BorderColor="Gray" BorderStyle="Solid" BorderWidth="2px"></Border>
+</EditFormTable>
+
+<EditFormColumnCaption BackColor="Gray" ForeColor="White">
+<Border BorderColor="White" BorderStyle="Solid" BorderWidth="10px"></Border>
+</EditFormColumnCaption>
+</Styles>
+
+<StylesPager>
+<CurrentPageNumber Font-Bold="False"></CurrentPageNumber>
+
+<PageNumber Font-Bold="False"></PageNumber>
+</StylesPager>
+
+<StylesEditors ButtonEditCellSpacing="0">
+<ProgressBar Height="21px"></ProgressBar>
+</StylesEditors>
+</dx:ASPxGridView>

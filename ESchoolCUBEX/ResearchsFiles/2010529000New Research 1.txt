@@ -1,0 +1,25 @@
+1- DB = Datalibrary
+2- check if student is logged on
+3- search for book inside Library (Table = Book)->Library
+4- can search for book name, Owner(Masol)->Library
+5- Result For book name -> Lo3'at el teba3a,el far3, el ta5asos, el nasheer, Owner
+6- Result for Owner -> 
+7- Researve a book(Talab este3ara) a- 3ard el maktaba b- search by name
+2meen el maktaba, el taleb, el ketab , el tare5 -------> table for researving
+_________________________________________
+Maktabti
+kotob komt b este3arteha (estara) 
+el rakam el 3am(number) / Book name / Tare5 el2ste3ara / tare5 el2rga3 / el tare5 el f3li / 
+_________________________________________
+kotob komt b kera2tha
+(Table - motaraded)
+el rakam el 3am / Book name / Date( tare5 el kera2a )
+_________________________________________
+Ab7ath
+Table name (Search / Search1)
+Search---> Tare5 takdem el ba7th(date) / (subject) mawdo3 el ba7th / (aim_search)ahdaf el ba7th / mokademo el ba7th (Search1 - > Code Name)
+
+__________________________________________
+Arfak ba7th
+__________________________________________
+Ketab Kara2to

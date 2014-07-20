@@ -1,0 +1,50 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="EmpMasterPage.master.cs" Inherits="EmpInterface_EmpMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Employee Page</title>
+</head>
+<body style="background-color: #000099">
+    <form id="form1" runat="server">
+     <center>  <div style="background-color: #000099">
+     <table  style="border-left-color: #0066cc; border-bottom-color: #0066cc; border-top-style: groove; border-top-color: #0066cc; border-right-style: groove; border-left-style: groove; border-right-color: #0066cc; border-bottom-style: groove; height: 380px;" id="TABLE1"width="75%" >
+            <tr>
+                <td colspan="4">
+                    &nbsp;<img src="../images/P2.bmp" /></td>
+            </tr>
+         <tr>
+             <td colspan="3" style="border-top-style: none; border-right-style: none; border-left-style: none;
+                 height: 209px; background-color: #99ccff; border-bottom-style: none">
+                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                        
+                      
+        </asp:contentplaceholder> 
+                
+             </td>
+                 <td rowspan="1" style="width: 171px; background-color: #99ccff">
+                     </td>
+         </tr>
+            <tr>
+                <td style=" background-color: #99ccff; width: 31px; height: 21px;">
+                </td>
+                <td style=" background-color: #99ccff; width: 644px; height: 21px;">
+                <MARQUEE direction="right" style="width: 290%" ><P>׃ַָֽה ַבבו זַבֽדֿ בבו 
+      זבַ ַבו ַבַ ַבבו זַבבו ַßָׁ זבַ ֽזב זבַ Þזֹ ַבַ ַָבבו ַבÚבם ַבÚÙםד 
+      .......ַבבוד ַהÊ ָׁם בַ ַבו ַבַ ַהÊ ־בÞÊהם זַהַ Úָֿß זַהַ Úבם Úוֿß זזÚֿß 
+      דַ ַ׃Ê״ÚÊ ַÚז׀ ָß דה װׁ דַ ױהÚÊ ַָזֱ בß ָהÚדÊß Úבם זַָזֱ ָ׀הָם ÝַÛÝׁ בם 
+      Ýַהו בַ םÛÝׁ ַב׀הזָ ַבַ ַהÊ* </P></MARQUEE>
+                </td>
+                <td style=" background-color: #99ccff; height: 21px;">
+                </td>
+                <td style="width: 171px; height: 21px; background-color: #99ccff">
+                </td>
+                
+            </tr>
+        </table> 
+    </div></center>
+  
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Magazine.master.cs" Inherits="Magazine" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+<link rel="stylesheet" type="text/css" href="http://moderninfinityschool.com/css/style.css" />
+    <style type="text/css">
+        .style1
+        {
+            width: 1000px;
+            height: 159px;
+        }
+        </style>
+
+</head>
+<body bgcolor="#FFFFFF"><table align="center"><tr><td>
+    <form style="background-color:#99e2f0; width:1000px; alignment-adjust:central; text-align:center" id="form1" runat="server">
+    <div>
+        
+        <table  bgcolor="#99e2f0" align="center" class="style1" width="858" height="159">
+            <tr>
+                <td>&nbsp;
+                    <asp:Image ID="Image1" runat="server" ImageUrl="images/baner2.jpg" />
+                    </td>
+            </tr>
+        </table>
+		
+		
+		
+		
+		
+		
+		
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form></td></tr></table>
+   <table align="center" width="858">
+   <tr>
+    <td colspan="16" id="footer" valign="bottom" background="images/index_57.jpg" height="57">
+        <strong id="links">
+        <a href="http://moderninfinityschool.com/site.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>&nbsp;<strong id="rights">All rights reserved Modern Infinity school © 2011</strong>
+<p id="Designed">Designed By : <a href="http://www.e-e-soft.com/">e-e-soft.com</a></p>
+			</td>
+            </tr>
+            </table>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MMasterPage.master.cs" Inherits="EmpInterface_HWMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Motabaa Page</title>
+</head>
+<body alink="#000099" style="background-color: #000099">
+    <form id="form1" runat="server">
+    <div dir="rtl">
+        <center style="background-color: #000099"><table style="border-left-color: #0066cc; border-bottom-color: #0066cc; border-top-style: groove; border-top-color: #0066cc; border-right-style: groove; border-left-style: groove; border-right-color: #0066cc; border-bottom-style: groove; height:90%; background-color: #99ccff;" id="TABLE1"width="75%">
+            <tr>
+                <td style="border-left-color: #000099; border-bottom-color: #000099;
+                    border-top-style: groove; border-top-color: #000099; border-right-style: groove;
+                    border-left-style: groove;  background-color: #99ccff; border-right-color: #000099;
+                    border-bottom-style: groove" colspan="3">
+                    <img src="../images/P2.bmp"  width="100%" height="100%"/>
+                    
+                </td>
+            </tr>
+              <tr>
+                <td style="border-left-color: #000099; border-bottom-color: #000099; border-top-style: groove; border-top-color: #000099; border-right-style: groove; border-left-style: groove; background-color: #99ccff; border-right-color: #000099; border-bottom-style: groove; width: 10%;" rowspan="2">
+                     <table style="border-left-color: #0066cc; border-bottom-color: #0066cc; border-top-style: groove; border-top-color: #0066cc; border-right-style: groove; border-left-style: groove; border-right-color: #0066cc; border-bottom-style: groove;" id="TABLE2" width="100%">
+                         <tr>
+                             <td style="width: 133px; height: 18px">
+                                    <asp:Button ID="Button1" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                        Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button1_Click"
+                                        Text="ÇáÕÝÍÉ ÇáÑÆíÓíÉ" /></td>
+                         </tr>
+                                        <tr>
+                                            <td style="width: 133px; height: 18px;">
+                                                <asp:Button ID="Button2" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ÚÑÖ ßÑÇÓÉ ÇáãÊÇÈÚÉ" width="133px" OnClick="Button2_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 133px; height: 22px">
+                                                <asp:Button ID="Button3" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ãÊÇÈÚÉ íæã" width="131px" OnClick="Button3_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 133px">
+                                                <asp:Button ID="Button9" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ãÊÇÈÚÉ Êã ÇáÑÏ ÚáíåÇ" Width="131px" OnClick="Button9_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 20px; width: 133px;">
+                                                <asp:Button ID="Button5" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ãÊÇÈÚÉ áã íÊã ÇáÑÏ ÚáíåÇ" Width="131px" OnClick="Button5_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 133px">
+                                                <asp:Button ID="Button6" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ÅÖÇÝÉ ãÊÇÈÚÉ" Width="130px" OnClick="Button6_Click" /></td>
+                                        </tr>
+                         <tr>
+                             <td style="width: 133px; height: 30px;">
+                                                <asp:Button ID="Button14" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="ÊÓÌíá ÇáÎÑæÌ" Width="130px" OnClick="Button14_Click" /></td>
+                         </tr>
+                                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    </td>
+                  <td colspan="2" style="border-left-color: #000099; border-bottom-color: #000099;
+                      border-top-style: groove; border-top-color: #000099; border-right-style: groove;
+                      border-left-style: groove; height: 6px; background-color: #99ccff; border-right-color: #000099;
+                      border-bottom-style: groove">
+                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Larger"
+                        ForeColor="Red" Text="ãÑÍÈÜÜÜÇ "></asp:Label>
+                    <asp:Label ID="lbl_Fullname" runat="server" Font-Bold="True" ForeColor="#990000"
+                        Height="23px" Width="186px"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height: 224px">
+                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </td>
+                <td style="height: 224px; width: 43px;">
+                    </td>
+            </tr>
+            <tr>
+                <td style="width: 88px">
+                    right</td>
+                <td>
+                    bottom</td>
+                <td style="width: 43px">
+                    left</td>
+            </tr>
+        </table>
+        </center>
+    </div>
+    </form>
+</body>
+</html>

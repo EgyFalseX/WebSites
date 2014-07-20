@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Copy of Student.master.cs" Inherits="Student_Student" %>
+
+<%@ Register assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            text-align: center;
+        }
+        .style2
+        {
+        }
+        .style3
+        {
+            width: 676px;
+        }
+    </style>
+     <link type="text/css" href="../styles/StyleSheet.css" rel="Stylesheet" />
+</head>
+<body style="background-color: #000099">
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+    </div>
+    <center><table style="width:75%;">
+        <tr>
+            <td class="style1" colspan="3" style="background-image: url(../images/P1.bmp)">
+                <img src="../images/P2.bmp" /></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="background-color: #99ccff; text-align: center">
+                <asp:Label ID="StName" runat="server" Width="257px" Font-Bold="True" Font-Size="Large" ForeColor="#990000"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Larger" Text="مرحبا"
+                    Width="65px"></asp:Label></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center; background-color: #99ccff;">
+                <asp:Menu ID="Menu1" runat="server" BackColor="#FFFBD6" 
+                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
+                    ForeColor="#990000" Orientation="Horizontal" StaticSubMenuIndent="10px" 
+                    onmenuitemclick="Menu1_MenuItemClick">
+                    <StaticSelectedStyle BackColor="#FFCC66" />
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="#FFFBD6" />
+                    <DynamicSelectedStyle BackColor="#FFCC66" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                    <Items>
+                        <asp:MenuItem Text="النتائج" Value="النتائج">
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=1" Text="الترم الأول" 
+                                Value="الترم الأول"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=2" Text="الترم الثاني" 
+                                Value="الترم الثاني"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=3" Text="نتائج الأشهر" 
+                                Value="نتائج الأشهر"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Acountants.aspx" Text="الحسابات" Value="الحسابات">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="الجدول الدراسي" Value="فرع تاني" 
+                            NavigateUrl="StudentLectures.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="المتابعة اليومية" 
+                            Value="المتابعة اليومية">
+                            <asp:MenuItem NavigateUrl="GoingON.aspx" Text="الملاحظات" Value="الملاحظات">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="HomeWork.aspx" Text="الواجب المدرسي" 
+                                Value="الواجب المدرسي"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="شئون الطلاب" Value="شئون الطلاب">
+                            <asp:MenuItem Text="تفاصيل الطالب" Value="تفاصيل الطالب" 
+                                NavigateUrl="StudentDetails.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="المواهب والنشاطات" Value="المواهب والنشاطات" 
+                                NavigateUrl="StudentActiveties.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="السلوكيات والعقاب" Value="السلوكيات والعقاب" 
+                                NavigateUrl="StudentAtittudesPunish.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="مجموعات دراسية" Value="مجموعات دراسية" 
+                                NavigateUrl="theSubSubjectGroups.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="البطاقة العلاجية" Value="البطاقة العلاجية" 
+                                NavigateUrl="MedicalHis.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="الغياب" Value="الغياب" NavigateUrl="STAbsence.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2" style="background-color: #99ccff; text-align: center">
+                Right</td>
+            <td class="style3" style="background-color: #99ccff; text-align: center">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            &nbsp;</asp:ContentPlaceHolder>
+            </td>
+            <td style="background-color: #99ccff; text-align: center; width: 12px;">
+                <table style="width: 76px; height: 79px">
+                    <tr>
+                        <td colspan="3">
+                            <asp:Button ID="Button1" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button1_Click"
+                                Text="الصفحة الرئيسية" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <asp:Button ID="Button14" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button14_Click"
+                                Text="تسجيل الخروج" Width="130px" /></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td class="style2" colspan="3" style="background-color: #99ccff; text-align: center">
+                <h1 class="style1">
+                    Bottom</h1>
+            </td>
+        </tr>
+    </table></center>
+    </form>
+</body>
+</html>

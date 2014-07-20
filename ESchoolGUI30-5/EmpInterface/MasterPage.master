@@ -1,0 +1,148 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>School Page</title>
+
+</head>
+<body style="background-color: #000099">
+    <form id="form1" runat="server">
+  <center>  <div>
+     <table  style="border-left-color: #0066cc; border-bottom-color: #0066cc; border-top-style: groove; border-top-color: #0066cc; border-right-style: groove; border-left-style: groove; border-right-color: #0066cc; border-bottom-style: groove; height: 90%;" id="TABLE1"width="75%" >
+            <tr>
+                <td colspan="4">
+                    <img src="../images/P2.bmp"  width="100%" height="100%"/></td>
+            </tr>
+         <tr>
+             <td colspan="3" style="height: 6px; background-color: #99ccff">
+                 &nbsp;<asp:Label ID="lbl_Fullname" runat="server" Width="196px" Font-Bold="True" ForeColor="#0000C0" Height="23px"></asp:Label>
+                 <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Larger"
+                     ForeColor="Red" Text="„—Õ»‹‹‹« "></asp:Label></td>
+                 <td rowspan="2" style="width: 171px; background-color: #99ccff">
+                     <table  >
+                         <tr>
+                             <td style="width: 497px; height: 18px">
+                                 <asp:Button ID="Button15" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                     Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button15_Click"
+                                     Text="«·’›Õ… «·—∆Ì”Ì…" /></td>
+                         </tr>
+                         <tr>
+                             <td style="width: 497px; height: 18px">
+                                    <asp:Button ID="Button1" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                        Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button1_Click"
+                                        Text="«·»Ì«‰«  «·√”«”Ì…" /></td>
+                         </tr>
+                                        <tr>
+                                            <td style="width: 497px; height: 18px;">
+                                                <asp:Button ID="Button2" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«· ”·”· «·ÊŸÌ›Ì" OnClick="Button2_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px; height: 22px">
+                                                <asp:Button ID="Button3" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·»—«„Ã «· œ—Ì»Ì…" OnClick="Button3_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button9" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«· ﬁ«—Ì— «·”‰ÊÌ…" Width="130px" OnClick="Button9_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 20px; width: 497px;">
+                                                <asp:Button ID="Button5" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·œ—Ã« " Width="131px" OnClick="Button5_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button6" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·Ã“«¡« " Width="129px" OnClick="Button6_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button7" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·«” ∆–«‰" Width="132px" OnClick="Button7_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button8" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«· √ŒÌ—" Width="136px" OnClick="Button8_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button10" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·√Ã«“« " Width="139px" OnClick="Button10_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button4" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·„ƒÂ·« " Width="137px" OnClick="Button4_Click" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button11" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·€Ì«»" Width="142px" OnClick="Button11_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button12" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·≈⁄«—« " Width="141px" OnClick="Button12_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button13" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text="«·„— »" Width="144px" OnClick="Button13_Click" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 497px">
+                                                <asp:Button ID="Button14" runat="server" BackColor="LightSteelBlue" BorderStyle="Solid"
+                                                    Font-Bold="True" Font-Size="Medium" ForeColor="Navy" Text=" ”ÃÌ· «·Œ—ÊÃ" Width="144px" OnClick="Button14_Click" /></td>
+                                        </tr>
+                                    </table></td>
+             
+             
+         </tr>
+         <tr>
+             <td colspan="3" style="border-top-style: none; border-right-style: none; border-left-style: none;
+                 height: 209px; background-color: #99ccff; border-bottom-style: none">
+                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                        
+                      
+        </asp:contentplaceholder> 
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+                 <br />
+             </td>
+         </tr>
+            <tr>
+                <td style=" background-color: #99ccff; width: 31px; height: 21px;">
+                </td>
+                <td style=" background-color: #99ccff; width: 644px; height: 21px;">
+                <MARQUEE direction="right" style="width: 290%" ><P>”»Õ«‰ «··Â Ê«·Õ„œ ··Â 
+      Ê·« «·Â «·« «··Â Ê«··Â «ﬂ»— Ê·« ÕÊ· Ê·« ﬁÊ… «·« »«··Â «·⁄·Ì «·⁄ŸÌ„ 
+      .......«··Â„ «‰  —»Ì ·« «·Â «·« «‰  Œ·ﬁ ‰Ì Ê«‰« ⁄»œﬂ Ê«‰« ⁄·Ì ⁄Âœﬂ ÊÊ⁄œﬂ 
+      „« «” ÿ⁄  «⁄Ê– »ﬂ „‰ ‘— „« ’‰⁄  «»Ê¡ ·ﬂ »‰⁄„ ﬂ ⁄·Ì Ê«»Ê¡ »–‰»Ì ›«€›— ·Ì 
+      ›«‰Â ·« Ì€›— «·–‰Ê» «·« «‰ * </P></MARQUEE>
+                </td>
+                <td style=" background-color: #99ccff; width: 186px; height: 21px;">
+                </td>
+                <td style="width: 171px; height: 21px; background-color: #99ccff">
+                </td>
+                
+            </tr>
+        </table> 
+    </div></center>
+    </form>
+</body>
+</html>

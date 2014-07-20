@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="masteruser.master.cs" Inherits="masteruser" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>EESoft - ETST</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="style1" align="center">
+            <tr>
+                <td style="text-align: right">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align: right">
+                    <asp:Button ID="BtnLogout" runat="server" OnClick="BtnLogout_Click" Text="خروج المستخدم"
+                        Visible="False" Width="100px" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <asp:ContentPlaceHolder id="ContentPlaceHolderMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

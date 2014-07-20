@@ -1,0 +1,171 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Student.master.cs" Inherits="Student_Student" %>
+
+<%@ Register assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+   <script type="text/javascript" src="../Menu/stmenu.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+
+<style type="text/css">
+<!--
+body {
+	background-image: url(../images/background.gif);
+	background-repeat: repeat-x;
+	background-color: #F3EFE3;
+}
+#Layer1 {
+	position:absolute;
+	left:11px;
+	top:11px;
+	width:854px;
+	height:375px;
+	z-index:1;
+}
+#Layer2 {
+	position:absolute;
+	width:170px;
+	height:193px;
+	z-index:1;
+	top: 16px;
+	left: auto;
+	visibility: visible;
+}
+-->
+</style>
+<link href="../Menu/news.css" rel="stylesheet" type="text/css" />
+<link href="../Menu/header.css" rel="stylesheet" type="text/css" />
+<link href="../Menu/content.css" rel="stylesheet" type="text/css" />
+<link href="../footer-text.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style5
+        {
+            width: 33%;
+            height: 56px;
+        }
+        .style6
+        {
+        }
+        </style>
+     <link type="text/css" href="../styles/StyleSheet.css" rel="Stylesheet" />
+</head>
+<body >
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+    </div>
+    
+         <table width="963" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="801" height="34">&nbsp;</td>
+    <td width="162" valign="top"><div id="Layer2">
+		<img src="../images/logo_small2.png" width="170" height="190" /></div></td>
+  </tr>
+  <tr>
+    <td height="104" valign="top" bgcolor="#FFFFFF"  dir="rtl" align="center" background="../images/header.gif">
+	    
+    <script type="text/javascript" src="Menu/els.js"></script>
+    </td>
+    <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr style="text-align:center">
+    <td height="835" colspan="2" valign="top"  bgcolor="#FFFFFF">
+    <p>&nbsp;</p>
+
+               <%-- <asp:Menu ID="Menu1" runat="server" BackColor="#FFFBD6" 
+                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" 
+                    ForeColor="#990000" Orientation="Horizontal" StaticSubMenuIndent="10px" 
+                    onmenuitemclick="Menu1_MenuItemClick" Height="16px" Width="385px">
+                    <StaticSelectedStyle BackColor="#FFCC66" />
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="#FFFBD6" />
+                    <DynamicSelectedStyle BackColor="#FFCC66" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                    <Items>
+                        <asp:MenuItem Text="النتائج" Value="النتائج">
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=1" Text="الترم الأول" 
+                                Value="الترم الأول"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=2" Text="الترم الثاني" 
+                                Value="الترم الثاني"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="TheResults.aspx?Term=3" Text="نتائج الأشهر" 
+                                Value="نتائج الأشهر"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Acountants.aspx" Text="الحسابات" Value="الحسابات">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="الجدول الدراسي" Value="فرع تاني" 
+                            NavigateUrl="StudentLectures.aspx">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="المتابعة اليومية" 
+                            Value="المتابعة اليومية">
+                            <asp:MenuItem NavigateUrl="GoingON.aspx" Text="الملاحظات" Value="الملاحظات">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="HomeWork.aspx" Text="الواجب المدرسي" 
+                                Value="الواجب المدرسي"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="شئون الطلاب" Value="شئون الطلاب">
+                            <asp:MenuItem Text="تفاصيل الطالب" Value="تفاصيل الطالب" 
+                                NavigateUrl="StudentDetails.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="المواهب والنشاطات" Value="المواهب والنشاطات" 
+                                NavigateUrl="StudentActiveties.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="السلوكيات والعقاب" Value="السلوكيات والعقاب" 
+                                NavigateUrl="StudentAtittudesPunish.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="مجموعات دراسية" Value="مجموعات دراسية" 
+                                NavigateUrl="theSubSubjectGroups.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="البطاقة العلاجية" Value="البطاقة العلاجية" 
+                                NavigateUrl="MedicalHis.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="الغياب" Value="الغياب" NavigateUrl="STAbsence.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>--%>
+	    <table class="style5">
+            <tr>
+                <td class="style6" rowspan="2">
+                    <asp:Image ID="GenderImg" runat="server" Height="82px" Width="85px" />
+                </td>
+                <td>
+	                    <asp:Label ID="StName" runat="server" Width="241px" Font-Bold="True" 
+                            Font-Size="Large" ForeColor="#990000" Font-Names="Arial" Height="30px"></asp:Label>
+                </td>
+                <td>
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Larger" Text="مرحبا"
+                    Width="65px"></asp:Label>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="style6" colspan="2">
+                
+                                      <asp:Button ID="Button14" runat="server"                                 Font-Bold="True" Font-Size="Medium" ForeColor="Navy" OnClick="Button14_Click"
+                                Text="تسجيل الخروج" Width="130px" />
+  
+	                 </td>
+            </tr>
+        </table>
+
+
+                
+                                      <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                                          &nbsp;</asp:ContentPlaceHolder>
+
+	</td>
+  </tr>
+  
+  <tr>
+    <td height="32" colspan="2" valign="top" background="../images/footer.jpg" class="footer-text">
+        copy right <span dir="rtl"><span dir="ltr">els-schools.com</span></span></td>
+  </tr>
+</table>   
+    
+    </form>
+</body>
+</html>

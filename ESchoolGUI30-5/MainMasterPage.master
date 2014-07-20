@@ -1,0 +1,90 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainMasterPage.master.cs" Inherits="EmpInterface_EmpMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Home Page</title>
+    <script type="text/javascript" src="Menu/stmenu.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+
+<style type="text/css">
+<!--
+body {
+	background-image: url(images/background.gif);
+	background-repeat: repeat-x;
+	background-color: #F3EFE3;
+}
+#Layer1 {
+	position:absolute;
+	left:11px;
+	top:11px;
+	width:854px;
+	height:375px;
+	z-index:1;
+}
+#Layer2 {
+	position:absolute;
+	width:170px;
+	height:193px;
+	z-index:1;
+	top: 16px;
+	left: auto;
+	visibility: visible;
+}
+-->
+</style>
+<link href="news.css" rel="stylesheet" type="text/css" />
+<link href="header.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.style3 {color: #333333}
+-->
+</style>
+<link href="content.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.style4 {color: #006600}
+-->
+</style>
+<link href="footer-text.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+    <form id="form1" runat="server">
+    <table width="963" border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="801" height="34">&nbsp;</td>
+    <td width="162" valign="top"><div id="Layer2">
+		<img src="images/logo_small2.png" width="170" height="190" /></div></td>
+  </tr>
+  <tr>
+    <td height="104" valign="top" bgcolor="#FFFFFF"  dir="rtl" align="center" background="images/header.gif">
+	    
+    <script type="text/javascript" src="Menu/els.js"></script>
+    </td>
+    <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr style="text-align:center">
+    <td height="835" colspan="2" valign="top" bgcolor="#FFFFFF">
+    <p>&nbsp;</p>
+	                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                        
+                      
+        </asp:contentplaceholder> 
+
+	</td>
+  </tr>
+  
+  <tr>
+    <td height="32" colspan="2" valign="top" background="images/footer.jpg" class="footer-text">copy right <span dir="rtl"><span dir="ltr">els-schools.com</span></span></td>
+  </tr>
+</table>
+
+
+    
+    </form>
+</body>
+</html>

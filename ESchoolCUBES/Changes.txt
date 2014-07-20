@@ -1,0 +1,36 @@
+* Changes
+ - Added Files/Folders
+    1- data\dlib\SL.mdb
+    2-Books
+    3-libimages
+    4-ResearchsFiles
+    5-data\QA\QualityAssurance.accdb
+    6-QAData
+    7-data\feedback.mdb
+    8-AUData
+    
+_______________________________________________________________
+ - Added funtions
+    1-MySchool\SLConnection
+    2-MySchool\LibraryConnection
+    3-MySchool\LibraryCodeConnection
+    4-MySchool\QAConnection
+    5-MySchool\feedbackConnection
+_______________________________________________________________
+ - Added Bins
+    1-AjaxControlToolkit.dll
+    2-Telerik.Web.UI.dll
+    3-Telerik.Web.UI.dll
+_______________________________________________________________
+ - Added to DB
+	1-DB = "library.mdb" / Table = "search" / Added 2 columns "Show, RelatedFile"
+	2-DB = "library.mdb" / Add new Table = "StuBooks"
+	3-BD - "QualityAssurance.accdb" / Add New DB with 1 table "QAMenu", DB File = data
+_______________________________________________________________
+ - Shortcut
+    1- SB		School Books
+    2- SL		School Lib
+    3- stu		Student
+    4- QA		Quality Assurance
+    5- FB		Feedback
+    6- AU		About Us

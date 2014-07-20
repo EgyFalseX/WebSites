@@ -1,0 +1,126 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="EESoftMaster.master.cs" Inherits="EESoftMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+<title>e-e-soft</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #1e1e1e;
+	background-image: url(images/line.gif);
+	background-repeat: repeat-x;
+}
+.logo {
+}
+#Layer1 {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:1;
+	top: 0px;
+	left: auto;
+}
+-->
+</style>
+<link href="font.css" rel="stylesheet" type="text/css" />
+<link href="font-title.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+a:hover {
+	color: #FF9900;
+	text-decoration: none;
+}
+a:link {
+	color: #FF9900;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #FF9900;
+}
+a:active {
+	text-decoration: none;
+	color: #FF9900;
+}
+-->
+</style>
+<link href="footer.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.style5 {
+	color: #000000;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 5 5 5 5;
+	padding: 5 5 5 5;
+}
+.style7 {
+	font-size: 1px;
+	color: #1E1E1E;
+}
+.style9 {color: #FF9900}
+-->
+</style>
+<link href="header-text.css" rel="stylesheet" type="text/css" />
+<link href="product-address.css" rel="stylesheet" type="text/css" />
+<link href="page3.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table width="980" height="828" border="0" align="center" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="383" height="53" valign="top"><div>
+      <div id="Layer1"><img src="images/logo.jpg" width="301" height="175" /></div>
+    </div></td>
+    <td width="573">&nbsp;</td>
+    <td width="24">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="35">&nbsp;</td>
+    <td valign="top"><div align="center">
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="482" height="35">
+        <param name="movie" value="load.swf" />
+        <param name="quality" value="high" />
+        <embed src="load.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="482" height="35"></embed>
+        </object>
+    </div></td>
+  <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="69">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="27" colspan="3" valign="top"> <p>&nbsp;</p></td>
+  </tr>
+  
+  <tr>
+    <td height="27" colspan="3" valign="top" bgcolor="#FF9900"><!--DWLayoutEmptyCell-->&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align: center" valign="top" bgcolor="#E5E5E5"><!--DWLayoutEmptyCell-->
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    
+    </asp:ContentPlaceHolder>
+    </td>
+  </tr>
+  <tr>
+    <td height="10" colspan="3" valign="top" bgcolor="#FF9900"><span class="style7">&#1586;</span></td>
+  </tr>
+  <tr>
+    <td height="44" colspan="3" valign="top" class="foot">copyright &copy; <a href="http://www.e-e-soft.com">e-e-soft.com</a></td>
+  </tr>
+</table>
+        
+    </div>
+    </form>
+</body>
+</html>
