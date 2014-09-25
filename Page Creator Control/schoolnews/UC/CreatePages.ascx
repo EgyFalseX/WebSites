@@ -1,4 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CreatePages.ascx.cs" Inherits="CreatePages" %>
+<%@ Register assembly="DevExpress.Web.ASPxHtmlEditor.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHtmlEditor" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxSpellChecker.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxSpellChecker" tagprefix="dx" %>
 <style type="text/css">
 
     .style11
@@ -10,8 +13,7 @@
         width: 645px;
     }
     </style>
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
- 
+
 <div dir="rtl"> 
     <table class="style11">
         <tr>
@@ -22,27 +24,17 @@
             </asp:Menu>
                 </td>
             <td dir="ltr" style="text-align: right" class="style1">
-                <asp:Label ID="Label2" runat="server" Text="المسار 1"></asp:Label>
+                
                 <br />
-            <textarea name="editor1" cols="20" rows="1">&lt;p&gt;<%=LoadPage(true) %>&lt;/p&gt;</textarea>
-			<script type="text/javascript">
-			    CKEDITOR.replace('editor1');
-			</script>
-            <br />
-                <br />
+                <dx:ASPxHtmlEditor ID="txt1" runat="server">
+                </dx:ASPxHtmlEditor>
                 </td>
         </tr>
         <tr>
             <td class="style12">
                 &nbsp;</td>
             <td dir="ltr" style="text-align: right" class="style1">
-                <asp:Label ID="Label1" runat="server" Text="المسار 2"></asp:Label>
-                <br />
-                <textarea name="editor2" cols="20" rows="1">&lt;p&gt;<%=LoadPage(false) %>&lt;/p&gt;</textarea><br />
-                <br />
-                &nbsp;<script type="text/javascript">
-			    CKEDITOR.replace('editor2');
-			</script></td>
+                </td>
         </tr>
         <tr>
             <td class="style12">
