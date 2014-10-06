@@ -15,11 +15,16 @@
             <td valign="top" align="center">
                 <dx:ASPxTreeList ID="ASPxTreeListData" runat="server"  AutoGenerateColumns="False" DataSourceID="dsTree" KeyFieldName="Id" ParentFieldName="ParentId" EnableCallbacks="False" OnFocusedNodeChanged="ASPxTreeListData_FocusedNodeChanged" Font-Bold="True">
                     <Columns>
+                        <dx:TreeListImageColumn Caption="." FieldName="Id" VisibleIndex="0">
+                            <PropertiesImage ImageUrlFormatString="images/FolderIcon.png" IsPng="True">
+                            </PropertiesImage>
+                            <EditFormSettings Visible="False" />
+                        </dx:TreeListImageColumn>
                         <dx:TreeListTextColumn Caption="مكتبة الفيديو" FieldName="VideoFolder" VisibleIndex="1">
                         </dx:TreeListTextColumn>
                     </Columns>
-                    <Settings GridLines="Both" ShowRoot="False" />
-                    <SettingsBehavior AllowFocusedNode="True" AutoExpandAllNodes="True" FocusNodeOnExpandButtonClick="False" FocusNodeOnLoad="False" ProcessSelectionChangedOnServer="True" ProcessFocusedNodeChangedOnServer="True" />
+                    <SettingsBehavior AllowFocusedNode="True" FocusNodeOnLoad="False" ProcessSelectionChangedOnServer="True" ProcessFocusedNodeChangedOnServer="True" />
+                    <Border BorderStyle="Solid" BorderWidth="1px" />
                 </dx:ASPxTreeList>
                 <asp:HiddenField runat="server" ID="HFId" />
                 <asp:AccessDataSource ID="dsTree" runat="server" DataFile="~/App_Data/GallaryData.mdb" DeleteCommand="DELETE FROM [VideoFolder] WHERE [Id] = ?" InsertCommand="INSERT INTO [VideoFolder] ([VideoFolder], [ParentId]) VALUES (?, ?)" SelectCommand="SELECT [Id], [VideoFolder], [ParentId] FROM [VideoFolder]" UpdateCommand="UPDATE [VideoFolder] SET [VideoFolder] = ?, [ParentId] = ? WHERE [Id] = ?">

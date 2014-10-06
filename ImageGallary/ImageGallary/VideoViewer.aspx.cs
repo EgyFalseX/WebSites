@@ -15,6 +15,10 @@ public partial class VideoViewer : System.Web.UI.Page
     protected void ASPxTreeListData_FocusedNodeChanged(object sender, EventArgs e)
     {
         object id = ASPxTreeListData.FocusedNode.GetValue("Id");
+        if (ASPxTreeListData.FocusedNode.HasChildren)
+        {
+            return;
+        }
         Response.Redirect("VideoCategoryContains.aspx?id=" + id);
 
     }

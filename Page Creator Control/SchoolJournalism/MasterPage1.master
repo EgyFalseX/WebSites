@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 93px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="text-align: right">
+    <table class="style1" align="right">
+                <tr>
+                    <td style="text-align: right">
+                        <a href="UC/Uploader.aspx">رفع صورة</a>&nbsp;<asp:HyperLink ID="HLHome" runat="server" Height="64px" ImageUrl="http://ms-hd-schools.com/school1/about/images/h.jpg" 
+                            NavigateUrl="http://school2.ms-hd-schools.com/desoftall/about/index.asp"
+							Target="I1"
+							Width="64px">الرئيسيه</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                            <p>
+                                &nbsp;</p>
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        
+        
+    </div>
+    </form>
+</body>
+</html>

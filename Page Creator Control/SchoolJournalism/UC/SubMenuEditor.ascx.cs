@@ -1,0 +1,128 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Data.OleDb;
+
+public partial class SubMenuEditor : System.Web.UI.UserControl
+{
+    #region -   Variables   -
+    string constr = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source= " + HttpContext.Current.Server.MapPath("./data/FlexibleData.mdb");
+    #endregion
+    #region -   Functions   -
+    private void LoadData()
+    {
+        using (OleDbDataAdapter da = new OleDbDataAdapter("SELECT SubMenuID, SubMenuTitle FROM SubMenu", constr))
+        {
+            DataTable dt = new DataTable("FX2012");
+            da.Fill(dt);
+            DDLItems.DataSource = dt;
+            ViewState["dt"] = dt;
+        }
+        DDLItems.DataBind();
+    }
+    #endregion
+    #region - Event Handlers -
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+            LoadData();
+
+    }
+    protected void DDLItems_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (DDLItems.SelectedValue == string.Empty)
+            return;
+        DataRow row = ((DataTable)ViewState["dt"]).Rows[DDLItems.SelectedIndex];
+        TxtEdit.Text = row["SubMenuTitle"].ToString();
+
+    }
+    protected void IBAdd_Click(object sender, ImageClickEventArgs e)
+    {
+        LblMsg.Text = string.Empty;
+        if (TxtAdd.Text == string.Empty)
+            return;
+
+        OleDbConnection Con = new OleDbConnection(constr);
+        OleDbCommand cmd = new OleDbCommand(String.Format(@"Insert Into SubMenu (SubMenuTitle) VALUES ('{0}')", TxtAdd.Text), Con);
+        try
+        {
+            Con.Open();
+            cmd.ExecuteNonQuery();
+            LblMsg.Text = "تم الاضافه";
+            LblMsg.ForeColor = System.Drawing.Color.Green;
+            TxtAdd.Text = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            LblMsg.Text = ex.Message.ToString();
+            LblMsg.ForeColor = System.Drawing.Color.Red;
+        }
+        Con.Close();
+        LoadData();
+    }
+    protected void IBEdit_Click(object sender, ImageClickEventArgs e)
+    {
+        LblMsg.Text = string.Empty;
+        if (DDLItems.SelectedIndex < 0 || TxtEdit.Text.Length == 0)
+        {
+            LblMsg.Text = "من فضلك اختار عنصر وادخل التغير ثم اضغط تعديل";
+            return;
+        }
+        OleDbConnection Con = new OleDbConnection(constr);
+        OleDbCommand cmd = new OleDbCommand(String.Format(@"Update SubMenu Set SubMenuTitle = '{0}' Where SubMenuID = {1}",
+        TxtEdit.Text, DDLItems.SelectedValue), Con);
+        try
+        {
+            Con.Open();
+            cmd.ExecuteNonQuery();
+            LblMsg.Text = "تم التعديل";
+            LblMsg.ForeColor = System.Drawing.Color.Green;
+            TxtEdit.Text = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            LblMsg.Text = ex.Message.ToString();
+            LblMsg.ForeColor = System.Drawing.Color.Red;
+        }
+        Con.Close();
+        LoadData();
+    }
+    protected void IBDelete_Click(object sender, ImageClickEventArgs e)
+    {
+        LblMsg.Text = string.Empty;
+        if (DDLItems.SelectedIndex < 0)
+        {
+            LblMsg.Text = "من فضلك اختار عنصر ثم اضغط حذف";
+            return;
+        }
+        OleDbConnection Con = new OleDbConnection(constr);
+        OleDbCommand cmd = new OleDbCommand(String.Format("Delete From SubMenu Where SubMenuID = {0}", DDLItems.SelectedValue), Con);
+        try
+        {
+            Con.Open();
+            cmd.ExecuteNonQuery();
+            LblMsg.Text = "تم الحذف";
+            LblMsg.ForeColor = System.Drawing.Color.Green;
+        }
+        catch (Exception ex)
+        {
+            LblMsg.Text = ex.Message.ToString();
+            LblMsg.ForeColor = System.Drawing.Color.Red;
+        }
+        Con.Close();
+        LoadData();
+    }
+    bool ReturnValue()
+    {
+        return false;
+    }
+    #endregion         #region -   Variables   -
+    
+}
