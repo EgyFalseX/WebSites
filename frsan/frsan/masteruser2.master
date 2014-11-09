@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="masteruser2.master.cs" Inherits="masteruser" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>فرسان الثقافة - مدارس كريم الخاصة</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 102px;
+            height: 66px;
+        }
+        .style5
+        {
+            height: 24px;
+            font-weight: bold;
+            color: #000080;
+            width: 82px;
+        }
+        .style9
+        {
+            width: 82px;
+            height: 29px;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+    <div>
+        <table class="style1" align="center">
+        <tr>
+                <td align="center" class="style9">
+                    <asp:ImageButton ID="ImageButton2" runat="server" Height="33px" 
+                        ImageUrl="~/frsan/images/Requests.png" style="text-align: center" 
+                        Width="44px" PostBackUrl="~/frsan/ProjectViewer.aspx" />
+                </td>
+            </tr>
+        <tr>
+                <td align="center" class="style5" valign="middle">
+                    الرئيسية</td>
+            </tr>
+            </table>
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolderMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

@@ -50,7 +50,7 @@
                 onrowinserted="GVEditor_RowInserted" Font-Bold="True" 
                 oncancelrowediting="GVEditor_CancelRowEditing" 
                 onrowdeleting="GVEditor_RowDeleting" 
-                onstartrowediting="GVEditor_StartRowEditing">
+                onstartrowediting="GVEditor_StartRowEditing" Theme="SoftOrange">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -100,7 +100,7 @@ s.cpShowPopup = undefined;
                         <PropertiesImage ImageHeight="32px" ImageUrlFormatString="Assets/DownloadCenterImages/{0}" 
                             ImageWidth="32px">
                         </PropertiesImage>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings CaptionLocation="Top" />
                         <DataItemTemplate>
                             <dx:ASPxHyperLink ID="HLlink" runat="server" NavigateUrl='<%# Eval("link", "Assets/DownloadCenterImages/{0}") %>' Text="تحميل" />
                         </DataItemTemplate>
@@ -130,45 +130,51 @@ s.cpShowPopup = undefined;
                         </EditItemTemplate>
                     </dx:GridViewDataImageColumn>
                     <dx:GridViewDataComboBoxColumn Caption="المتابع" FieldName="code_al_fasl" VisibleIndex="2">
-                        <PropertiesComboBox DataSourceID="DScode_fasl" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_al_fasl" ValueField="code_al_fasl">
+                        <PropertiesComboBox DataSourceID="DScode_fasl" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_al_fasl" ValueField="code_al_fasl" Width="200px">
                             <Columns>
                                 <dx:ListBoxColumn FieldName="name_al_fasl" />
                             </Columns>
                         </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings CaptionLocation="Top" />
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="المؤسسة" FieldName="alsofof_code" VisibleIndex="1">
-                        <PropertiesComboBox DataSourceID="DSalsofof" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="alsofof_name" ValueField="alsofof_code">
+                        <PropertiesComboBox DataSourceID="DSalsofof" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="alsofof_name" ValueField="alsofof_code" Width="200px">
                             <Columns>
                                 <dx:ListBoxColumn FieldName="alsofof_name" />
                             </Columns>
                         </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings CaptionLocation="Top" />
                     </dx:GridViewDataComboBoxColumn>
-                    <dx:GridViewDataComboBoxColumn Caption="نوع الزيارة" FieldName="id_type_prog" VisibleIndex="3">
-                        <PropertiesComboBox DataSourceID="DStype_prog" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_prog" ValueField="type_prog_id">
+                    <dx:GridViewDataComboBoxColumn Caption="نوع الزياة" FieldName="id_type_prog" VisibleIndex="3">
+                        <PropertiesComboBox DataSourceID="DStype_prog" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_prog" ValueField="type_prog_id" Width="200px">
                             <Columns>
                                 <dx:ListBoxColumn FieldName="name_prog" />
                             </Columns>
                         </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings CaptionLocation="Top" />
                     </dx:GridViewDataComboBoxColumn>
-                    <dx:GridViewDataTextColumn Caption="ملخص التقرير" FieldName="name_prog" 
-                        VisibleIndex="5">
-                        <EditFormSettings ColumnSpan="2" />
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn Caption="تاريخ الزيارة" FieldName="date_up" VisibleIndex="4">
-                        <EditFormSettings ColumnSpan="2" />
-                    </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataMemoColumn Caption="رقم الايصال" FieldName="Description" VisibleIndex="6">
-                        <EditFormSettings ColumnSpan="2" RowSpan="2" />
+                    <dx:GridViewDataMemoColumn Caption="ملخص التقرير" FieldName="name_prog" VisibleIndex="5">
+                        <PropertiesMemoEdit Height="150px" Rows="3" Width="200px">
+                        </PropertiesMemoEdit>
+                        <EditFormSettings CaptionLocation="Top" ColumnSpan="2" />
                     </dx:GridViewDataMemoColumn>
+                    <dx:GridViewDataDateColumn Caption="تاريخ الزيارة" FieldName="date_up" VisibleIndex="4">
+                        <PropertiesDateEdit Width="200px">
+                        </PropertiesDateEdit>
+                        <EditFormSettings CaptionLocation="Top" />
+                    </dx:GridViewDataDateColumn>
+                    <dx:GridViewDataSpinEditColumn Caption="رقم الاستمارة" FieldName="Description" VisibleIndex="6">
+                        <PropertiesSpinEdit DisplayFormatString="g" Width="200px">
+                        </PropertiesSpinEdit>
+                        <EditFormSettings CaptionLocation="Top" RowSpan="2" />
+                    </dx:GridViewDataSpinEditColumn>
                     <dx:GridViewDataHyperLinkColumn Caption="التفاصيل" FieldName="id_prog" VisibleIndex="7">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="DetailViewer.aspx?id={0}" TextFormatString="التفاصيل">
                         </PropertiesHyperLinkEdit>
+                        <EditFormSettings CaptionLocation="Top" Visible="False" />
                     </dx:GridViewDataHyperLinkColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
@@ -183,7 +189,6 @@ s.cpShowPopup = undefined;
                     <Summary AllPagesText="صفحات :  {0} - {1} ({2} عناصر)" Position="Right" 
                         Text="صفحه {0} of {1} ({2} عنصر)" />
                 </SettingsPager>
-                <SettingsEditing Mode="PopupEditForm" />
                 <Settings ShowFilterBar="Visible" ShowFilterRow="True" ShowFilterRowMenu="True" 
                     ShowFooter="True" ShowGroupPanel="True" ShowHeaderFilterButton="True" 
                     ShowTitlePanel="True" />
@@ -199,23 +204,15 @@ s.cpShowPopup = undefined;
                     HeaderFilterShowNonBlanks="اظهار غير الفارغ" 
                     PopupEditFormCaption="صفحة المحرر" />
                 <SettingsPopup>
-                    <EditForm AllowResize="True" HorizontalAlign="Center" Modal="True" />
+                    <EditForm AllowResize="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="Above" />
                 </SettingsPopup>
-                <Images SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css">
-                    <LoadingPanelOnStatusBar Url="../App_Themes/PlasticBlue/GridView/gvLoadingOnStatusBar.gif">
-                    </LoadingPanelOnStatusBar>
-                    <LoadingPanel Url="../App_Themes/PlasticBlue/GridView/Loading.gif">
-                    </LoadingPanel>
-                </Images>
-                <ImagesFilterControl>
-                    <LoadingPanel Url="../App_Themes/PlasticBlue/Editors/Loading.gif">
-                    </LoadingPanel>
-                </ImagesFilterControl>
-                <Styles CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
+                <Styles 
                     CssPostfix="PlasticBlue">
                     <Header ImageSpacing="10px" SortingImageSpacing="10px" Font-Bold="False" 
                         Font-Size="Medium">
                     </Header>
+                    <EditForm Font-Size="Medium">
+                    </EditForm>
                 </Styles>
                 <StylesPager>
                     <CurrentPageNumber Font-Bold="False">
@@ -229,6 +226,12 @@ s.cpShowPopup = undefined;
                     <ProgressBar Height="25px">
                     </ProgressBar>
                 </StylesEditors>
+                <StylesPopup>
+                    <EditForm>
+                        <Content Font-Size="Medium">
+                        </Content>
+                    </EditForm>
+                </StylesPopup>
             </dx:ASPxGridView>
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="~/App_Data/egycsfolow.mdb" 
@@ -294,7 +297,7 @@ s.cpShowPopup = undefined;
     PopupVerticalAlign="WindowCenter" RightToLeft="True" 
     SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css" Height="120px" 
     Width="300px" style="text-align: center" 
-    Font-Bold="False">
+    Font-Bold="False" Theme="SoftOrange">
     <LoadingPanelImage Url="../App_Themes/PlasticBlue/Web/dvLoading.gif">
     </LoadingPanelImage>
     <CloseButtonStyle>

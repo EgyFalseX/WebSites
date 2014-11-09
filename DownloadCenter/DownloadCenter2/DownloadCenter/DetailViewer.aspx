@@ -13,7 +13,7 @@
 
 <table align="center">
     <tr>
-        <td dir="ltr">
+        <td dir="ltr" colspan="2">
             <dx:ASPxComboBox ID="CBExporter" runat="server" 
                 CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
                 onbuttonclick="CBExporter_ButtonClick" 
@@ -40,7 +40,28 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2" style="text-align: center">
+            <asp:HyperLink ID="HyperLink1" runat="server" Font-Size="Large" NavigateUrl="~/DownloadCenter/centerEditor.aspx">رجوع للمكتبة</asp:HyperLink>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            <asp:Label ID="lblParentName" runat="server" Text="Label"></asp:Label>
+        </td>
+        <td style="text-align: right">
+            <asp:Label ID="lblParentName0" runat="server" Text="المؤسسة"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: right">
+            <asp:Label ID="lblNumber" runat="server" Text="Label"></asp:Label>
+        </td>
+        <td style="text-align: right">
+            <asp:Label ID="lblParentName1" runat="server" Text="رقم الاستمارة"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
             <dx:ASPxGridView ID="GVEditor" runat="server" AutoGenerateColumns="False" 
                 Caption="البيــــــــــا نـــــــــــــــات" DataSourceID="DSData" 
                 KeyFieldName="aa" RightToLeft="True" 
@@ -50,7 +71,7 @@
                 onrowinserted="GVEditor_RowInserted" Font-Bold="True" 
                 oncancelrowediting="GVEditor_CancelRowEditing" 
                 onrowdeleting="GVEditor_RowDeleting" 
-                onstartrowediting="GVEditor_StartRowEditing">
+                onstartrowediting="GVEditor_StartRowEditing" Theme="SoftOrange">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -95,33 +116,45 @@ s.cpShowPopup = undefined;
                         <ClearFilterButton Visible="True">
                         </ClearFilterButton>
                     </dx:GridViewCommandColumn>
-                    <dx:GridViewDataComboBoxColumn Caption="نوع الزيارة" FieldName="type_prog_id" VisibleIndex="1">
-                        <PropertiesComboBox TextField="name_prog" ValueField="type_prog_id" Width="200px" DataSourceID="DStype_prog" DropDownStyle="DropDown">
+                    <dx:GridViewDataComboBoxColumn Caption="نوع المهمة" FieldName="type_prog_id" VisibleIndex="1">
+                        <PropertiesComboBox TextField="faslname" ValueField="faslcode" Width="200px" DataSourceID="DStype_prog" DropDownStyle="DropDown">
                         </PropertiesComboBox>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataTextColumn Caption="المهمة" FieldName="task" VisibleIndex="2">
                         <PropertiesTextEdit Width="200px">
                         </PropertiesTextEdit>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataDateColumn Caption="التاريخ المقدر الانتهاء" FieldName="datetofinsh" VisibleIndex="3">
                         <PropertiesDateEdit Width="200px">
                         </PropertiesDateEdit>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataDateColumn Caption="تاريخ الانتهاء" FieldName="finishdate" VisibleIndex="4">
                         <PropertiesDateEdit Width="200px">
                         </PropertiesDateEdit>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataCheckColumn Caption="تم الانتهاء" FieldName="finish" VisibleIndex="5">
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataCheckColumn>
-                    <dx:GridViewDataComboBoxColumn Caption="رقم المسئول" FieldName="empid" VisibleIndex="6">
+                    <dx:GridViewDataComboBoxColumn Caption="المسئول" FieldName="empid" VisibleIndex="6">
                         <PropertiesComboBox DataSourceID="DScode_fasl" TextField="name_al_fasl" ValueField="code_al_fasl" Width="200px" DropDownStyle="DropDown">
                         </PropertiesComboBox>
-                        <EditFormSettings ColumnSpan="2" />
+                        <EditFormSettings ColumnSpan="2" CaptionLocation="Top" />
+                        <EditCellStyle Font-Size="Large">
+                        </EditCellStyle>
                     </dx:GridViewDataComboBoxColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
@@ -136,7 +169,7 @@ s.cpShowPopup = undefined;
                     <Summary AllPagesText="صفحات :  {0} - {1} ({2} عناصر)" Position="Right" 
                         Text="صفحه {0} of {1} ({2} عنصر)" />
                 </SettingsPager>
-                <SettingsEditing Mode="PopupEditForm" />
+                <SettingsEditing EditFormColumnCount="4" />
                 <Settings ShowFilterBar="Visible" ShowFilterRow="True" ShowFilterRowMenu="True" 
                     ShowFooter="True" ShowGroupPanel="True" ShowHeaderFilterButton="True" 
                     ShowTitlePanel="True" />
@@ -152,7 +185,7 @@ s.cpShowPopup = undefined;
                     HeaderFilterShowNonBlanks="اظهار غير الفارغ" 
                     PopupEditFormCaption="صفحة المحرر" />
                 <SettingsPopup>
-                    <EditForm AllowResize="True" HorizontalAlign="Center" Modal="True" />
+                    <EditForm AllowResize="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="Above" />
                 </SettingsPopup>
                 <Images SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css">
                     <LoadingPanelOnStatusBar Url="../App_Themes/PlasticBlue/GridView/gvLoadingOnStatusBar.gif">
@@ -232,7 +265,7 @@ s.cpShowPopup = undefined;
                 DataFile="~/App_Data/egycsfolow.mdb" 
                 
                 
-                SelectCommand="SELECT [type_prog_id], [name_prog] FROM [type_prog]">
+                SelectCommand="SELECT [faslcode], [faslname] FROM [fasl]">
             </asp:AccessDataSource>
             <dx:ASPxGridViewExporter ID="ASPxGridViewExporterEditor" runat="server" 
                 FileName="ContactUSFX" GridViewID="GVEditor" PaperKind="A4">
@@ -249,7 +282,7 @@ s.cpShowPopup = undefined;
     PopupVerticalAlign="WindowCenter" RightToLeft="True" 
     SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css" Height="120px" 
     Width="300px" style="text-align: center" 
-    Font-Bold="False">
+    Font-Bold="False" Theme="SoftOrange">
     <LoadingPanelImage Url="../App_Themes/PlasticBlue/Web/dvLoading.gif">
     </LoadingPanelImage>
     <CloseButtonStyle>

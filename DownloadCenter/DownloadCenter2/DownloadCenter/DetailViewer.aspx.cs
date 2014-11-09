@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 public partial class centerEditor : System.Web.UI.Page
 {
@@ -14,6 +15,18 @@ public partial class centerEditor : System.Web.UI.Page
         //DSData.DataFile = MapPath(@"~/App_Data/" + sessionRetirementWeb.DatabaseName);
         if (!TheSessionsDownloadCenter.IsAuth)
             Response.Redirect("AdminLogin.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
+
+        if (Request.QueryString["id"] != null)
+        {
+            DataTable dt = MCDownloadCenter.LoadDataTable(@"Select Description,
+            (SELECT [alsofof_name] FROM [alsofof] WHERE [alsofof_code] = [center].alsofof_code) AS [alsofof_name]
+            FROM [center]", false);
+            if (dt.Rows.Count != 0)
+            {
+                lblParentName.Text = dt.Rows[0]["Description"].ToString();
+                lblNumber.Text = dt.Rows[0]["alsofof_name"].ToString();
+            }
+        }
         
     }
 
