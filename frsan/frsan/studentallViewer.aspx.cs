@@ -10,7 +10,7 @@ public partial class studentallViewer : System.Web.UI.Page
 {
     private void LoadData(string ProjectId)
     {
-        DataTable dtMain = MCfrsan.LoadDataTable(string.Format(@"SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.winner, studentall.autoid, tblsubject.subject, tblproject.project, '' AS Saf, '' AS stu_name
+        DataTable dtMain = MCfrsan.LoadDataTable(string.Format(@"SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.nesba, studentall.winner, studentall.autoid, tblsubject.subject, tblproject.project, '' AS Saf, '' AS stu_name
         FROM ((studentall INNER JOIN tblsubject ON studentall.subjectid = tblsubject.subjectid) INNER JOIN tblproject ON tblsubject.projectid = tblproject.projectid) WHERE studentall.tsfeat = -1 AND tblproject.projectid = {0}", ProjectId), false);
 
         DataTable dtStudentInfo = MCfrsan.LoadDataTable(@"SELECT stu_code, stu_name ,(SELECT alsofof_code FROM student_t WHERE stu_code = student.stu_code AND asase_code = (SELECT MAX(asase_code) FROM student_t)) AS alsofof_code FROM student", false, MCfrsan.ConnectionStringdataschool());

@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTEFollowUp" targetNamespace="http://tempuri.org/dsTEFollowUp.xsd" xmlns:mstns="http://tempuri.org/dsTEFollowUp.xsd" xmlns="http://tempuri.org/dsTEFollowUp.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\WorkArea\WebSites\TEFollowUp\TEFollowUp02\TEFollowUp\Data\TEFollow-up.mdb" IsAppSettingsProperty="false" Modifier="Assembly" Name="TEFollow-up.mdb" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="TEFollow-upConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TEFollow-upConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.TEFollow-upConnectionString.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="XRep01TableAdapter" GeneratorDataComponentClassName="XRep01TableAdapter" Name="XRep01" UserDataComponentName="XRep01TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tblformlesson.lessonid, tblempdata.empname AS Moshref, cdschool.schoolname, tblempdata.empname AS Teacher, cdsaf.saf, cdfasl.fasl, cdhesa.hesa, cdmada.madaname, tblformlesson.lessondate, 
+                         tblformlesson.lessonaddres, tblformlesson.place, tblformlesson.moshreftext
+FROM            (cdmada INNER JOIN
+                         (cdhesa INNER JOIN
+                         (cdfasl INNER JOIN
+                         (cdsaf INNER JOIN
+                         (cdschool INNER JOIN
+                         (tblempdata INNER JOIN
+                         tblformlesson ON tblempdata.empid = tblformlesson.moshrefid AND tblempdata.empid = tblformlesson.empid) ON cdschool.schoolid = tblformlesson.schoolid) ON cdsaf.safid = tblformlesson.safid) ON 
+                         cdfasl.faslid = tblformlesson.faslid) ON cdhesa.hesaid = tblformlesson.hesaid) ON cdmada.madaid = tblformlesson.madaid)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="lessonid" DataSetColumn="lessonid" />
+              <Mapping SourceColumn="Moshref" DataSetColumn="Moshref" />
+              <Mapping SourceColumn="schoolname" DataSetColumn="schoolname" />
+              <Mapping SourceColumn="Teacher" DataSetColumn="Teacher" />
+              <Mapping SourceColumn="saf" DataSetColumn="saf" />
+              <Mapping SourceColumn="fasl" DataSetColumn="fasl" />
+              <Mapping SourceColumn="hesa" DataSetColumn="hesa" />
+              <Mapping SourceColumn="madaname" DataSetColumn="madaname" />
+              <Mapping SourceColumn="lessondate" DataSetColumn="lessondate" />
+              <Mapping SourceColumn="lessonaddres" DataSetColumn="lessonaddres" />
+              <Mapping SourceColumn="place" DataSetColumn="place" />
+              <Mapping SourceColumn="moshreftext" DataSetColumn="moshreftext" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBylessonid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBylessonid" GeneratorSourceName="FillBylessonid" GetMethodModifier="Public" GetMethodName="GetDataBylessonid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBylessonid" UserSourceName="FillBylessonid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tblformlesson.lessonid, tblempdata.empname AS Moshref, cdschool.schoolname, tblempdata.empname AS Teacher, cdsaf.saf, cdfasl.fasl, cdhesa.hesa, cdmada.madaname, tblformlesson.lessondate, 
+                         tblformlesson.lessonaddres, tblformlesson.place, tblformlesson.moshreftext
+FROM            (cdhesa RIGHT OUTER JOIN
+                         (tblempdata RIGHT OUTER JOIN
+                         (cdsaf RIGHT OUTER JOIN
+                         (cdmada RIGHT OUTER JOIN
+                         (cdfasl RIGHT OUTER JOIN
+                         (cdschool RIGHT OUTER JOIN
+                         tblformlesson ON cdschool.schoolid = tblformlesson.schoolid) ON cdfasl.faslid = tblformlesson.faslid) ON cdmada.madaid = tblformlesson.madaid) ON cdsaf.safid = tblformlesson.safid) ON 
+                         tblempdata.empid = tblformlesson.moshrefid AND tblempdata.empid = tblformlesson.empid) ON cdhesa.hesaid = tblformlesson.hesaid)
+WHERE        (tblformlesson.lessonid = ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="lessonid" DataSourceName="tblformlesson" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="lessonid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="lessonid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblahdafTableAdapter" GeneratorDataComponentClassName="tblahdafTableAdapter" Name="tblahdaf" UserDataComponentName="tblahdafTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectName="tblahdaf" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `tblahdaf` WHERE ((`hadafid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_hadafid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="hadafid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `tblahdaf` (`lessonid`, `hadaf`) VALUES (?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="lessonid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="lessonid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="hadaf" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="hadaf" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        hadafid, lessonid, hadaf
+FROM            tblahdaf</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `tblahdaf` SET `lessonid` = ?, `hadaf` = ? WHERE ((`hadafid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="lessonid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="lessonid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="hadaf" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="hadaf" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_hadafid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="hadafid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="hadafid" DataSetColumn="hadafid" />
+              <Mapping SourceColumn="lessonid" DataSetColumn="lessonid" />
+              <Mapping SourceColumn="hadaf" DataSetColumn="hadaf" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectName="tblahdaf" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBylessonid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBylessonid" GeneratorSourceName="FillBylessonid" GetMethodModifier="Public" GetMethodName="GetDataBylessonid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBylessonid" UserSourceName="FillBylessonid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        hadafid, lessonid, hadaf
+FROM            tblahdaf
+WHERE lessonid = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="lessonid" DataSourceName="tblahdaf" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="lessonid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="lessonid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbllessonmoshrekTableAdapter" GeneratorDataComponentClassName="tbllessonmoshrekTableAdapter" Name="tbllessonmoshrek" UserDataComponentName="tbllessonmoshrekTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbllessonmoshrek.moshrekid, tbllessonmoshrek.lessonid, tblempdata.empname, cdtakasos.takasosname
+FROM            ((tbllessonmoshrek INNER JOIN
+                         tblempdata ON tbllessonmoshrek.empid = tblempdata.empid) INNER JOIN
+                         cdtakasos ON tblempdata.takasosid = cdtakasos.takasosid)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="moshrekid" DataSetColumn="moshrekid" />
+              <Mapping SourceColumn="lessonid" DataSetColumn="lessonid" />
+              <Mapping SourceColumn="empname" DataSetColumn="empname" />
+              <Mapping SourceColumn="takasosname" DataSetColumn="takasosname" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBylessonid" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBylessonid" GeneratorSourceName="FillBylessonid" GetMethodModifier="Public" GetMethodName="GetDataBylessonid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBylessonid" UserSourceName="FillBylessonid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        tbllessonmoshrek.moshrekid, tbllessonmoshrek.lessonid, tblempdata.empname, cdtakasos.takasosname
+FROM            ((tbllessonmoshrek INNER JOIN
+                         tblempdata ON tbllessonmoshrek.empid = tblempdata.empid) INNER JOIN
+                         cdtakasos ON tblempdata.takasosid = cdtakasos.takasosid)
+WHERE tbllessonmoshrek.lessonid = ?</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="lessonid" DataSourceName="tbllessonmoshrek" DataTypeServer="DbType.Int32" DbType="Int32" Direction="Input" ParameterName="lessonid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="lessonid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="XRep01ParamTableAdapter" GeneratorDataComponentClassName="XRep01ParamTableAdapter" Name="XRep01Param" UserDataComponentName="XRep01ParamTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectName="tblformlesson" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        lessonid, lessonaddres, lessondate
+FROM            tblformlesson</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="lessonid" DataSetColumn="lessonid" />
+              <Mapping SourceColumn="lessonaddres" DataSetColumn="lessonaddres" />
+              <Mapping SourceColumn="lessondate" DataSetColumn="lessondate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cdehteagatTableAdapter" GeneratorDataComponentClassName="cdehteagatTableAdapter" Name="cdehteagat" UserDataComponentName="cdehteagatTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectName="cdehteagat" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `cdehteagat` WHERE ((`ehteagatid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ehteagatid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ehteagatid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `cdehteagat` (`ehteagat`) VALUES (?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="ehteagat" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ehteagat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ehteagatid, ehteagat FROM cdehteagat</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `cdehteagat` SET `ehteagat` = ? WHERE ((`ehteagatid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="ehteagat" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ehteagat" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ehteagatid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ehteagatid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ehteagatid" DataSetColumn="ehteagatid" />
+              <Mapping SourceColumn="ehteagat" DataSetColumn="ehteagat" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cdesaleepTableAdapter" GeneratorDataComponentClassName="cdesaleepTableAdapter" Name="cdesaleep" UserDataComponentName="cdesaleepTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectName="cdesaleep" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `cdesaleep` WHERE ((`esaleepid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_esaleepid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="esaleepid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `cdesaleep` (`esaleep`) VALUES (?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="esaleep" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="esaleep" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT esaleepid, esaleep FROM cdesaleep</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `cdesaleep` SET `esaleep` = ? WHERE ((`esaleepid` = ?))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="esaleep" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="esaleep" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_esaleepid" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="esaleepid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="esaleepid" DataSetColumn="esaleepid" />
+              <Mapping SourceColumn="esaleep" DataSetColumn="esaleep" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="XRep02TableAdapter" GeneratorDataComponentClassName="XRep02TableAdapter" Name="XRep02" UserDataComponentName="XRep02TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TEFollow-up.mdb" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT tblehteagat.ehid, tblehteagat.yearid, tblehteagat.empid, tblehteagat.eh1, tblehteagat.eh2, tblehteagat.eh3, tblehteagat.eh4, tblehteagat.eh5, tblehteagat.eh6, tblehteagat.es1, tblehteagat.es2, tblehteagat.es3, tblehteagat.es4, tblehteagat.es5, tblehteagat.es6, cdyear.yearname, tblempdata.empname, cdschool.schoolname, cdtakasos.takasosname, cdmada.madaname, tblempdata.datework FROM ((((cdmada RIGHT OUTER JOIN tblempdata ON cdmada.madaid = tblempdata.madaid) LEFT OUTER JOIN cdtakasos ON tblempdata.takasosid = cdtakasos.takasosid) LEFT OUTER JOIN cdschool ON tblempdata.schoolid = cdschool.schoolid) RIGHT OUTER JOIN (tblehteagat LEFT OUTER JOIN cdyear ON tblehteagat.yearid = cdyear.yearid) ON tblempdata.empid = tblehteagat.empid)
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ehid" DataSetColumn="ehid" />
+              <Mapping SourceColumn="yearid" DataSetColumn="yearid" />
+              <Mapping SourceColumn="empid" DataSetColumn="empid" />
+              <Mapping SourceColumn="eh1" DataSetColumn="eh1" />
+              <Mapping SourceColumn="eh2" DataSetColumn="eh2" />
+              <Mapping SourceColumn="eh3" DataSetColumn="eh3" />
+              <Mapping SourceColumn="eh4" DataSetColumn="eh4" />
+              <Mapping SourceColumn="eh5" DataSetColumn="eh5" />
+              <Mapping SourceColumn="eh6" DataSetColumn="eh6" />
+              <Mapping SourceColumn="es1" DataSetColumn="es1" />
+              <Mapping SourceColumn="es2" DataSetColumn="es2" />
+              <Mapping SourceColumn="es3" DataSetColumn="es3" />
+              <Mapping SourceColumn="es4" DataSetColumn="es4" />
+              <Mapping SourceColumn="es5" DataSetColumn="es5" />
+              <Mapping SourceColumn="es6" DataSetColumn="es6" />
+              <Mapping SourceColumn="yearname" DataSetColumn="yearname" />
+              <Mapping SourceColumn="empname" DataSetColumn="empname" />
+              <Mapping SourceColumn="schoolname" DataSetColumn="schoolname" />
+              <Mapping SourceColumn="takasosname" DataSetColumn="takasosname" />
+              <Mapping SourceColumn="madaname" DataSetColumn="madaname" />
+              <Mapping SourceColumn="datework" DataSetColumn="datework" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTEFollowUp" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsTEFollowUp" msprop:Generator_UserDSName="dsTEFollowUp">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="XRep01" msprop:Generator_TableClassName="XRep01DataTable" msprop:Generator_TableVarName="tableXRep01" msprop:Generator_TablePropName="XRep01" msprop:Generator_RowDeletingName="XRep01RowDeleting" msprop:Generator_RowChangingName="XRep01RowChanging" msprop:Generator_RowEvHandlerName="XRep01RowChangeEventHandler" msprop:Generator_RowDeletedName="XRep01RowDeleted" msprop:Generator_UserTableName="XRep01" msprop:Generator_RowChangedName="XRep01RowChanged" msprop:Generator_RowEvArgName="XRep01RowChangeEvent" msprop:Generator_RowClassName="XRep01Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="lessonid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnlessonid" msprop:Generator_ColumnPropNameInRow="lessonid" msprop:Generator_ColumnPropNameInTable="lessonidColumn" msprop:Generator_UserColumnName="lessonid" type="xs:int" minOccurs="0" />
+              <xs:element name="Moshref" msprop:Generator_ColumnVarNameInTable="columnMoshref" msprop:Generator_ColumnPropNameInRow="Moshref" msprop:Generator_ColumnPropNameInTable="MoshrefColumn" msprop:Generator_UserColumnName="Moshref" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="schoolname" msprop:Generator_ColumnVarNameInTable="columnschoolname" msprop:Generator_ColumnPropNameInRow="schoolname" msprop:Generator_ColumnPropNameInTable="schoolnameColumn" msprop:Generator_UserColumnName="schoolname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Teacher" msprop:Generator_ColumnVarNameInTable="columnTeacher" msprop:Generator_ColumnPropNameInRow="Teacher" msprop:Generator_ColumnPropNameInTable="TeacherColumn" msprop:Generator_UserColumnName="Teacher" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saf" msprop:Generator_ColumnVarNameInTable="columnsaf" msprop:Generator_ColumnPropNameInRow="saf" msprop:Generator_ColumnPropNameInTable="safColumn" msprop:Generator_UserColumnName="saf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fasl" msprop:Generator_ColumnVarNameInTable="columnfasl" msprop:Generator_ColumnPropNameInRow="fasl" msprop:Generator_ColumnPropNameInTable="faslColumn" msprop:Generator_UserColumnName="fasl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="hesa" msprop:Generator_ColumnVarNameInTable="columnhesa" msprop:Generator_ColumnPropNameInRow="hesa" msprop:Generator_ColumnPropNameInTable="hesaColumn" msprop:Generator_UserColumnName="hesa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="madaname" msprop:Generator_ColumnVarNameInTable="columnmadaname" msprop:Generator_ColumnPropNameInRow="madaname" msprop:Generator_ColumnPropNameInTable="madanameColumn" msprop:Generator_UserColumnName="madaname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lessondate" msprop:Generator_ColumnVarNameInTable="columnlessondate" msprop:Generator_ColumnPropNameInRow="lessondate" msprop:Generator_ColumnPropNameInTable="lessondateColumn" msprop:Generator_UserColumnName="lessondate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="lessonaddres" msprop:Generator_ColumnVarNameInTable="columnlessonaddres" msprop:Generator_ColumnPropNameInRow="lessonaddres" msprop:Generator_ColumnPropNameInTable="lessonaddresColumn" msprop:Generator_UserColumnName="lessonaddres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="place" msprop:Generator_ColumnVarNameInTable="columnplace" msprop:Generator_ColumnPropNameInRow="place" msprop:Generator_ColumnPropNameInTable="placeColumn" msprop:Generator_UserColumnName="place" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="moshreftext" msprop:Generator_ColumnVarNameInTable="columnmoshreftext" msprop:Generator_ColumnPropNameInRow="moshreftext" msprop:Generator_ColumnPropNameInTable="moshreftextColumn" msprop:Generator_UserColumnName="moshreftext" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblahdaf" msprop:Generator_TableClassName="tblahdafDataTable" msprop:Generator_TableVarName="tabletblahdaf" msprop:Generator_RowChangedName="tblahdafRowChanged" msprop:Generator_TablePropName="tblahdaf" msprop:Generator_RowDeletingName="tblahdafRowDeleting" msprop:Generator_RowChangingName="tblahdafRowChanging" msprop:Generator_RowEvHandlerName="tblahdafRowChangeEventHandler" msprop:Generator_RowDeletedName="tblahdafRowDeleted" msprop:Generator_RowClassName="tblahdafRow" msprop:Generator_UserTableName="tblahdaf" msprop:Generator_RowEvArgName="tblahdafRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="hadafid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnhadafid" msprop:Generator_ColumnPropNameInRow="hadafid" msprop:Generator_ColumnPropNameInTable="hadafidColumn" msprop:Generator_UserColumnName="hadafid" type="xs:int" />
+              <xs:element name="lessonid" msprop:Generator_ColumnVarNameInTable="columnlessonid" msprop:Generator_ColumnPropNameInRow="lessonid" msprop:Generator_ColumnPropNameInTable="lessonidColumn" msprop:Generator_UserColumnName="lessonid" type="xs:int" minOccurs="0" />
+              <xs:element name="hadaf" msprop:Generator_ColumnVarNameInTable="columnhadaf" msprop:Generator_ColumnPropNameInRow="hadaf" msprop:Generator_ColumnPropNameInTable="hadafColumn" msprop:Generator_UserColumnName="hadaf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbllessonmoshrek" msprop:Generator_TableClassName="tbllessonmoshrekDataTable" msprop:Generator_TableVarName="tabletbllessonmoshrek" msprop:Generator_RowChangedName="tbllessonmoshrekRowChanged" msprop:Generator_TablePropName="tbllessonmoshrek" msprop:Generator_RowDeletingName="tbllessonmoshrekRowDeleting" msprop:Generator_RowChangingName="tbllessonmoshrekRowChanging" msprop:Generator_RowEvHandlerName="tbllessonmoshrekRowChangeEventHandler" msprop:Generator_RowDeletedName="tbllessonmoshrekRowDeleted" msprop:Generator_RowClassName="tbllessonmoshrekRow" msprop:Generator_UserTableName="tbllessonmoshrek" msprop:Generator_RowEvArgName="tbllessonmoshrekRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="moshrekid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnmoshrekid" msprop:Generator_ColumnPropNameInRow="moshrekid" msprop:Generator_ColumnPropNameInTable="moshrekidColumn" msprop:Generator_UserColumnName="moshrekid" type="xs:int" minOccurs="0" />
+              <xs:element name="lessonid" msprop:Generator_ColumnVarNameInTable="columnlessonid" msprop:Generator_ColumnPropNameInRow="lessonid" msprop:Generator_ColumnPropNameInTable="lessonidColumn" msprop:Generator_UserColumnName="lessonid" type="xs:int" minOccurs="0" />
+              <xs:element name="empname" msprop:Generator_ColumnVarNameInTable="columnempname" msprop:Generator_ColumnPropNameInRow="empname" msprop:Generator_ColumnPropNameInTable="empnameColumn" msprop:Generator_UserColumnName="empname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="takasosname" msprop:Generator_ColumnVarNameInTable="columntakasosname" msprop:Generator_ColumnPropNameInRow="takasosname" msprop:Generator_ColumnPropNameInTable="takasosnameColumn" msprop:Generator_UserColumnName="takasosname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="XRep01Param" msprop:Generator_TableClassName="XRep01ParamDataTable" msprop:Generator_TableVarName="tableXRep01Param" msprop:Generator_TablePropName="XRep01Param" msprop:Generator_RowDeletingName="XRep01ParamRowDeleting" msprop:Generator_RowChangingName="XRep01ParamRowChanging" msprop:Generator_RowEvHandlerName="XRep01ParamRowChangeEventHandler" msprop:Generator_RowDeletedName="XRep01ParamRowDeleted" msprop:Generator_UserTableName="XRep01Param" msprop:Generator_RowChangedName="XRep01ParamRowChanged" msprop:Generator_RowEvArgName="XRep01ParamRowChangeEvent" msprop:Generator_RowClassName="XRep01ParamRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="lessonid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnlessonid" msprop:Generator_ColumnPropNameInRow="lessonid" msprop:Generator_ColumnPropNameInTable="lessonidColumn" msprop:Generator_UserColumnName="lessonid" type="xs:int" />
+              <xs:element name="lessonaddres" msprop:Generator_ColumnVarNameInTable="columnlessonaddres" msprop:Generator_ColumnPropNameInRow="lessonaddres" msprop:Generator_ColumnPropNameInTable="lessonaddresColumn" msprop:Generator_UserColumnName="lessonaddres" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lessondate" msprop:Generator_ColumnVarNameInTable="columnlessondate" msprop:Generator_ColumnPropNameInRow="lessondate" msprop:Generator_ColumnPropNameInTable="lessondateColumn" msprop:Generator_UserColumnName="lessondate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cdehteagat" msprop:Generator_TableClassName="cdehteagatDataTable" msprop:Generator_TableVarName="tablecdehteagat" msprop:Generator_RowChangedName="cdehteagatRowChanged" msprop:Generator_TablePropName="cdehteagat" msprop:Generator_RowDeletingName="cdehteagatRowDeleting" msprop:Generator_RowChangingName="cdehteagatRowChanging" msprop:Generator_RowEvHandlerName="cdehteagatRowChangeEventHandler" msprop:Generator_RowDeletedName="cdehteagatRowDeleted" msprop:Generator_RowClassName="cdehteagatRow" msprop:Generator_UserTableName="cdehteagat" msprop:Generator_RowEvArgName="cdehteagatRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ehteagatid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnehteagatid" msprop:Generator_ColumnPropNameInRow="ehteagatid" msprop:Generator_ColumnPropNameInTable="ehteagatidColumn" msprop:Generator_UserColumnName="ehteagatid" type="xs:int" />
+              <xs:element name="ehteagat" msprop:Generator_ColumnVarNameInTable="columnehteagat" msprop:Generator_ColumnPropNameInRow="ehteagat" msprop:Generator_ColumnPropNameInTable="ehteagatColumn" msprop:Generator_UserColumnName="ehteagat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cdesaleep" msprop:Generator_TableClassName="cdesaleepDataTable" msprop:Generator_TableVarName="tablecdesaleep" msprop:Generator_RowChangedName="cdesaleepRowChanged" msprop:Generator_TablePropName="cdesaleep" msprop:Generator_RowDeletingName="cdesaleepRowDeleting" msprop:Generator_RowChangingName="cdesaleepRowChanging" msprop:Generator_RowEvHandlerName="cdesaleepRowChangeEventHandler" msprop:Generator_RowDeletedName="cdesaleepRowDeleted" msprop:Generator_RowClassName="cdesaleepRow" msprop:Generator_UserTableName="cdesaleep" msprop:Generator_RowEvArgName="cdesaleepRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="esaleepid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnesaleepid" msprop:Generator_ColumnPropNameInRow="esaleepid" msprop:Generator_ColumnPropNameInTable="esaleepidColumn" msprop:Generator_UserColumnName="esaleepid" type="xs:int" />
+              <xs:element name="esaleep" msprop:Generator_ColumnVarNameInTable="columnesaleep" msprop:Generator_ColumnPropNameInRow="esaleep" msprop:Generator_ColumnPropNameInTable="esaleepColumn" msprop:Generator_UserColumnName="esaleep" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="XRep02" msprop:Generator_TableClassName="XRep02DataTable" msprop:Generator_TableVarName="tableXRep02" msprop:Generator_TablePropName="XRep02" msprop:Generator_RowDeletingName="XRep02RowDeleting" msprop:Generator_RowChangingName="XRep02RowChanging" msprop:Generator_RowEvHandlerName="XRep02RowChangeEventHandler" msprop:Generator_RowDeletedName="XRep02RowDeleted" msprop:Generator_UserTableName="XRep02" msprop:Generator_RowChangedName="XRep02RowChanged" msprop:Generator_RowEvArgName="XRep02RowChangeEvent" msprop:Generator_RowClassName="XRep02Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ehid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnehid" msprop:Generator_ColumnPropNameInRow="ehid" msprop:Generator_ColumnPropNameInTable="ehidColumn" msprop:Generator_UserColumnName="ehid" type="xs:int" minOccurs="0" />
+              <xs:element name="yearid" msprop:Generator_ColumnVarNameInTable="columnyearid" msprop:Generator_ColumnPropNameInRow="yearid" msprop:Generator_ColumnPropNameInTable="yearidColumn" msprop:Generator_UserColumnName="yearid" type="xs:int" minOccurs="0" />
+              <xs:element name="empid" msprop:Generator_ColumnVarNameInTable="columnempid" msprop:Generator_ColumnPropNameInRow="empid" msprop:Generator_ColumnPropNameInTable="empidColumn" msprop:Generator_UserColumnName="empid" type="xs:int" minOccurs="0" />
+              <xs:element name="eh1" msprop:Generator_ColumnVarNameInTable="columneh1" msprop:Generator_ColumnPropNameInRow="eh1" msprop:Generator_ColumnPropNameInTable="eh1Column" msprop:Generator_UserColumnName="eh1" type="xs:short" minOccurs="0" />
+              <xs:element name="eh2" msprop:Generator_ColumnVarNameInTable="columneh2" msprop:Generator_ColumnPropNameInRow="eh2" msprop:Generator_ColumnPropNameInTable="eh2Column" msprop:Generator_UserColumnName="eh2" type="xs:short" minOccurs="0" />
+              <xs:element name="eh3" msprop:Generator_ColumnVarNameInTable="columneh3" msprop:Generator_ColumnPropNameInRow="eh3" msprop:Generator_ColumnPropNameInTable="eh3Column" msprop:Generator_UserColumnName="eh3" type="xs:short" minOccurs="0" />
+              <xs:element name="eh4" msprop:Generator_ColumnVarNameInTable="columneh4" msprop:Generator_ColumnPropNameInRow="eh4" msprop:Generator_ColumnPropNameInTable="eh4Column" msprop:Generator_UserColumnName="eh4" type="xs:short" minOccurs="0" />
+              <xs:element name="eh5" msprop:Generator_ColumnVarNameInTable="columneh5" msprop:Generator_ColumnPropNameInRow="eh5" msprop:Generator_ColumnPropNameInTable="eh5Column" msprop:Generator_UserColumnName="eh5" type="xs:short" minOccurs="0" />
+              <xs:element name="eh6" msprop:Generator_ColumnVarNameInTable="columneh6" msprop:Generator_ColumnPropNameInRow="eh6" msprop:Generator_ColumnPropNameInTable="eh6Column" msprop:Generator_UserColumnName="eh6" type="xs:short" minOccurs="0" />
+              <xs:element name="es1" msprop:Generator_ColumnVarNameInTable="columnes1" msprop:Generator_ColumnPropNameInRow="es1" msprop:Generator_ColumnPropNameInTable="es1Column" msprop:Generator_UserColumnName="es1" type="xs:short" minOccurs="0" />
+              <xs:element name="es2" msprop:Generator_ColumnVarNameInTable="columnes2" msprop:Generator_ColumnPropNameInRow="es2" msprop:Generator_ColumnPropNameInTable="es2Column" msprop:Generator_UserColumnName="es2" type="xs:short" minOccurs="0" />
+              <xs:element name="es3" msprop:Generator_ColumnVarNameInTable="columnes3" msprop:Generator_ColumnPropNameInRow="es3" msprop:Generator_ColumnPropNameInTable="es3Column" msprop:Generator_UserColumnName="es3" type="xs:short" minOccurs="0" />
+              <xs:element name="es4" msprop:Generator_ColumnVarNameInTable="columnes4" msprop:Generator_ColumnPropNameInRow="es4" msprop:Generator_ColumnPropNameInTable="es4Column" msprop:Generator_UserColumnName="es4" type="xs:short" minOccurs="0" />
+              <xs:element name="es5" msprop:Generator_ColumnVarNameInTable="columnes5" msprop:Generator_ColumnPropNameInRow="es5" msprop:Generator_ColumnPropNameInTable="es5Column" msprop:Generator_UserColumnName="es5" type="xs:short" minOccurs="0" />
+              <xs:element name="es6" msprop:Generator_ColumnVarNameInTable="columnes6" msprop:Generator_ColumnPropNameInRow="es6" msprop:Generator_ColumnPropNameInTable="es6Column" msprop:Generator_UserColumnName="es6" type="xs:short" minOccurs="0" />
+              <xs:element name="yearname" msprop:Generator_ColumnVarNameInTable="columnyearname" msprop:Generator_ColumnPropNameInRow="yearname" msprop:Generator_ColumnPropNameInTable="yearnameColumn" msprop:Generator_UserColumnName="yearname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empname" msprop:Generator_ColumnVarNameInTable="columnempname" msprop:Generator_ColumnPropNameInRow="empname" msprop:Generator_ColumnPropNameInTable="empnameColumn" msprop:Generator_UserColumnName="empname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="schoolname" msprop:Generator_ColumnVarNameInTable="columnschoolname" msprop:Generator_ColumnPropNameInRow="schoolname" msprop:Generator_ColumnPropNameInTable="schoolnameColumn" msprop:Generator_UserColumnName="schoolname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="takasosname" msprop:Generator_ColumnVarNameInTable="columntakasosname" msprop:Generator_ColumnPropNameInRow="takasosname" msprop:Generator_ColumnPropNameInTable="takasosnameColumn" msprop:Generator_UserColumnName="takasosname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="madaname" msprop:Generator_ColumnVarNameInTable="columnmadaname" msprop:Generator_ColumnPropNameInRow="madaname" msprop:Generator_ColumnPropNameInTable="madanameColumn" msprop:Generator_UserColumnName="madaname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datework" msprop:Generator_ColumnVarNameInTable="columndatework" msprop:Generator_ColumnPropNameInRow="datework" msprop:Generator_ColumnPropNameInTable="dateworkColumn" msprop:Generator_UserColumnName="datework" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblahdaf" />
+      <xs:field xpath="mstns:hadafid" />
+    </xs:unique>
+    <xs:unique name="XRep01Param_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:XRep01Param" />
+      <xs:field xpath="mstns:lessonid" />
+    </xs:unique>
+    <xs:unique name="cdehteagat_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cdehteagat" />
+      <xs:field xpath="mstns:ehteagatid" />
+    </xs:unique>
+    <xs:unique name="cdesaleep_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cdesaleep" />
+      <xs:field xpath="mstns:esaleepid" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="XRep01LUE_tblahdaf" msdata:parent="XRep01" msdata:child="tblahdaf" msdata:parentkey="lessonid" msdata:childkey="lessonid" msprop:Generator_UserChildTable="tblahdaf" msprop:Generator_ChildPropName="GettblahdafRows" msprop:Generator_UserRelationName="XRep01LUE_tblahdaf" msprop:Generator_RelationVarName="relationXRep01LUE_tblahdaf" msprop:Generator_UserParentTable="XRep01" msprop:Generator_ParentPropName="XRep01LUERow" />
+      <msdata:Relationship name="XRep01LUE_tbllessonmoshrek" msdata:parent="XRep01" msdata:child="tbllessonmoshrek" msdata:parentkey="lessonid" msdata:childkey="lessonid" msprop:Generator_UserChildTable="tbllessonmoshrek" msprop:Generator_ChildPropName="GettbllessonmoshrekRows" msprop:Generator_UserRelationName="XRep01LUE_tbllessonmoshrek" msprop:Generator_RelationVarName="relationXRep01LUE_tbllessonmoshrek" msprop:Generator_UserParentTable="XRep01" msprop:Generator_ParentPropName="XRep01LUERow" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

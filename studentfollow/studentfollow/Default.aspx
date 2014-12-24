@@ -19,6 +19,12 @@
             <dx:NavBarGroup Text="المستخدمين" Name="groupUser">
                 <HeaderImage Url="images/userGroup.png">
                 </HeaderImage>
+                <Items>
+                    <dx:NavBarItem NavigateUrl="SpecialfollowViewer.aspx" Text="عرض المتابعات الخاصة">
+                    </dx:NavBarItem>
+                    <dx:NavBarItem NavigateUrl="GeneralfollowViewer.aspx" Text="عرض المتابعات العامة">
+                    </dx:NavBarItem>
+                </Items>
             </dx:NavBarGroup>
             <dx:NavBarGroup Text="المدير" Name="groupAdmin">
                 <HeaderImage Url="images/adminGroup.png">

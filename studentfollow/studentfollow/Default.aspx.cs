@@ -9,9 +9,12 @@ public partial class Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!TheSessionsstudentfollow.IsAuth)
-            Response.Redirect("AdminLogin.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
         ASPxNavBarMain.Groups[1].Visible = TheSessionsstudentfollow.IsAdmin;
+
+        //if (!TheSessionsstudentfollow.IsAuth)
+        //    Response.Redirect("AdminLogin.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
+        
+
     }
     
 }

@@ -12,11 +12,11 @@ public partial class master : System.Web.UI.MasterPage
     }
     protected void BackToMain_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/frsan/Default.aspx");
+        Response.Redirect("~/studentfollow/Default.aspx");
     }
     protected void BtnLogout_Click(object sender, EventArgs e)
     {
         TheSessionsstudentfollow.UserID = null;
-        Response.Redirect("~/frsan/AdminLogin.aspx");
+        Response.Redirect("~/studentfollow/AdminLogin.aspx");
     }
 }

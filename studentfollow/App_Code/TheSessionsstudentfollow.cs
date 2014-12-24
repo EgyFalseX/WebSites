@@ -131,6 +131,19 @@ public class TheSessionsstudentfollow
             HttpContext.Current.Session["alsofof_codestudentfollow"] = value;
         }
     }
+    public static string fasl_code
+    {
+        get
+        {
+            if (HttpContext.Current.Session["fasl_codestudentfollow"] != null)
+                return HttpContext.Current.Session["fasl_codestudentfollow"].ToString();
+            else return null;
+        }
+        set
+        {
+            HttpContext.Current.Session["fasl_codestudentfollow"] = value;
+        }
+    }
 
     public static int? EditIdAdaa
     {

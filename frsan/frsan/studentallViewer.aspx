@@ -18,7 +18,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" Runat="Server">
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="~/App_Data/frsan.mdb" 
-                SelectCommand="SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.winner, studentall.autoid, tblsubject.subject, tblproject.project, '' AS Saf, '' AS stu_name FROM ((studentall INNER JOIN tblsubject ON studentall.subjectid = tblsubject.subjectid) INNER JOIN tblproject ON tblsubject.projectid = tblproject.projectid) WHERE (studentall.tsfeat = - 1) AND (tblproject.projectid = ?)">
+                SelectCommand="SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.nesba, studentall.winner, studentall.autoid, tblsubject.subject, tblproject.project, '' AS Saf, '' AS stu_name FROM ((studentall INNER JOIN tblsubject ON studentall.subjectid = tblsubject.subjectid) INNER JOIN tblproject ON tblsubject.projectid = tblproject.projectid) WHERE (studentall.tsfeat = - 1) AND (tblproject.projectid = ?)">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="0" Name="?" QueryStringField="id" />
                 </SelectParameters>
@@ -41,7 +41,7 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="الصف">
+                                        <dx:LayoutItem Caption="الصف" ColSpan="2">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
                                                     <dx:ASPxLabel ID="ASPxFormLayout1_E3" runat="server" Font-Size="Small" Text='<%# Eval("Saf") %>' Theme="iOS">
@@ -49,15 +49,8 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Layout Item" RowSpan="5" ShowCaption="False" Height="96px">
-                                            <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                                    <dx:ASPxImage ID="ASPxFormLayout1_E1" runat="server" Height="96px" ImageUrl='<%# Eval("stid", "../desoft/database/photo/picstudent/{0}.jpg") %>' Width="96px">
-                                                    </dx:ASPxImage>
-                                                </dx:LayoutItemNestedControlContainer>
-                                            </LayoutItemNestedControlCollection>
-                                        </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="الموضوع" HorizontalAlign="Right" VerticalAlign="Top">
+                                        <dx:LayoutItem Caption="الموضوع" HorizontalAlign="Right" VerticalAlign="Top" 
+                                            ColSpan="2">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
                                                     <dx:ASPxLabel ID="ASPxFormLayout1_E4" runat="server" Font-Size="Small" Text='<%# Eval("subject") %>' Theme="iOS">
@@ -65,10 +58,32 @@
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Layout Item" HorizontalAlign="Right" ShowCaption="False" VerticalAlign="Top">
+                                        <dx:LayoutItem Caption="Layout Item" ShowCaption="False" Height="96px" 
+                                            RowSpan="4">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E7" runat="server" Font-Size="Small" NavigateUrl='<%# Eval("autoid", "studentPageViewer.aspx?id={0}") %>' Text="التفاصيل" Theme="iOS">
+                                                    <dx:ASPxImage ID="ASPxFormLayout1_E1" runat="server" Height="96px" 
+                                                        ImageUrl='<%# Eval("stid", "../desoft/database/photo/picstudent/{0}.jpg") %>' 
+                                                        Width="96px">
+                                                    </dx:ASPxImage>
+                                                </dx:LayoutItemNestedControlContainer>
+                                            </LayoutItemNestedControlCollection>
+                                        </dx:LayoutItem>
+                                        <dx:LayoutItem Caption="النسبة" HorizontalAlign="Right" VerticalAlign="Top">
+                                            <LayoutItemNestedControlCollection>
+                                                <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                                    <dx:ASPxLabel ID="ASPxFormLayout1_E8" runat="server" Font-Size="Small" Text='<%# Eval("nesba") %>' Theme="iOS">
+                                                </dx:ASPxLabel>
+                                                </dx:LayoutItemNestedControlContainer>
+                                            </LayoutItemNestedControlCollection>
+                                        </dx:LayoutItem>
+                                        <dx:LayoutItem Caption="Layout Item" ShowCaption="False" 
+                                            HorizontalAlign="Right" VerticalAlign="Top">
+                                            <LayoutItemNestedControlCollection>
+                                                <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
+                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E7" runat="server" Font-Size="Small" 
+                                                        NavigateUrl='<%# Eval("autoid", "studentPageViewer.aspx?id={0}") %>' 
+                                                        Text="التفاصيل" Theme="iOS">
                                                     </dx:ASPxHyperLink>
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
@@ -76,20 +91,28 @@
                                         <dx:LayoutItem Caption="Layout Item" HorizontalAlign="Right" ShowCaption="False" VerticalAlign="Top">
                                             <LayoutItemNestedControlCollection>
                                                 <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E5" runat="server" Font-Size="Small" NavigateUrl='<%# Eval("autoid", "CommentEditor.aspx?id={0}") %>' Text="اضف تعليق" Theme="iOS">
+                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E5" runat="server" Font-Size="Small" 
+                                                        NavigateUrl='<%# Eval("autoid", "CommentEditor.aspx?id={0}") %>' 
+                                                        Text="اضف تعليق" Theme="iOS">
                                                     </dx:ASPxHyperLink>
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
-                                        <dx:LayoutItem Caption="Layout Item" HorizontalAlign="Right" ShowCaption="False" VerticalAlign="Top">
+                                        <dx:LayoutItem Caption="Layout Item" HorizontalAlign="Right" 
+                                            ShowCaption="False" VerticalAlign="Top">
                                             <LayoutItemNestedControlCollection>
-                                                <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E6" runat="server" EnableTheming="True" Font-Size="Small" NavigateUrl='<%# Eval("autoid", "CommentViewer.aspx?id={0}") %>' Text="عرض التعليقات" Theme="iOS" style="direction: ltr">
+                                                <dx:LayoutItemNestedControlContainer runat="server" 
+                                                    SupportsDisabledAttribute="True">
+                                                    <dx:ASPxHyperLink ID="ASPxFormLayout1_E6" runat="server" EnableTheming="True" 
+                                                        Font-Size="Small" 
+                                                        NavigateUrl='<%# Eval("autoid", "CommentViewer.aspx?id={0}") %>' 
+                                                        style="direction: ltr" Text="عرض التعليقات" Theme="iOS">
                                                     </dx:ASPxHyperLink>
                                                 </dx:LayoutItemNestedControlContainer>
                                             </LayoutItemNestedControlCollection>
                                         </dx:LayoutItem>
                                     </Items>
+                                    <SettingsItems HorizontalAlign="Right" />
                                     <Styles>
                                         <LayoutGroupBox>
                                         </LayoutGroupBox>

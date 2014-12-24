@@ -117,4 +117,20 @@ public partial class studentallEditor : System.Web.UI.Page
 
         }
     }
+    protected void DSData_Inserting(object sender, SqlDataSourceCommandEventArgs e)
+    {
+        if (Convert.ToBoolean(e.Command.Parameters["tsfeat"].Value) == false && Convert.ToBoolean(e.Command.Parameters["winner"].Value) == true)
+        {
+            GVEditor.JSProperties["cpShowPopup"] = "لا يمكن تحديد الفائز بدون تصفيات";
+            e.Cancel = true;
+        }
+    }
+    protected void DSData_Updating(object sender, SqlDataSourceCommandEventArgs e)
+    {
+        if (Convert.ToBoolean(e.Command.Parameters["tsfeat"].Value) == false && Convert.ToBoolean(e.Command.Parameters["winner"].Value) == true)
+        {
+            GVEditor.JSProperties["cpShowPopup"] = "لا يمكن تحديد الفائز بدون تصفيات";
+            e.Cancel = true;
+        }
+    }
 }

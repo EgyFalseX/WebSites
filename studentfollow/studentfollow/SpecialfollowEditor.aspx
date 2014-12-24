@@ -105,7 +105,7 @@ s.cpShowPopup = undefined;
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataComboBoxColumn Caption="الطالب" FieldName="studentid" VisibleIndex="3">
-                        <PropertiesComboBox DataSourceID="DSStudent" DropDownStyle="DropDown" IncrementalFilteringMode="Contains" TextField="stu_name" ValueField="stu_code" EnableCallbackMode="True">
+                        <PropertiesComboBox DataSourceID="DSStudent" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="stu_name" ValueField="stu_code" EnableCallbackMode="True">
                             <Columns>
                                 <dx:ListBoxColumn FieldName="stu_name" />
                             </Columns>

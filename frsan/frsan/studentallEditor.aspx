@@ -178,7 +178,8 @@ s.cpShowPopup = undefined;
                             </table>
                         </EditItemTemplate>
                     </dx:GridViewDataComboBoxColumn>
-                    <dx:GridViewDataHyperLinkColumn Caption="التفاصيل" FieldName="autoid" VisibleIndex="8">
+                    <dx:GridViewDataHyperLinkColumn Caption="التفاصيل" FieldName="autoid" 
+                        VisibleIndex="11">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="SubjectStudentCreateDetails.aspx?id={0}" TextFormatString="التفاصيل">
                         </PropertiesHyperLinkEdit>
                         <EditFormSettings Visible="False" />
@@ -195,6 +196,14 @@ s.cpShowPopup = undefined;
                         <Settings AllowAutoFilter="True" AllowHeaderFilter="True" AllowSort="True" AutoFilterCondition="BeginsWith" HeaderFilterMode="CheckedList" ShowFilterRowMenuLikeItem="True" ShowInFilterControl="True" />
                         <EditFormSettings CaptionLocation="Top" />
                     </dx:GridViewDataComboBoxColumn>
+                    <dx:GridViewDataCheckColumn Caption="تصفيات" FieldName="tsfeat" 
+                        VisibleIndex="5">
+                    </dx:GridViewDataCheckColumn>
+                    <dx:GridViewDataCheckColumn Caption="الفائز" FieldName="winner" 
+                        VisibleIndex="9">
+                    </dx:GridViewDataCheckColumn>
+                    <dx:GridViewDataTextColumn Caption="النسبة" FieldName="nesba" VisibleIndex="7">
+                    </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -256,9 +265,9 @@ s.cpShowPopup = undefined;
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="~/App_Data/frsan.mdb" 
                 DeleteCommand="DELETE FROM [studentall] WHERE autoid = ?" 
-                InsertCommand="INSERT INTO [studentall] ([stid], [subjectid], [tsfeat], [winner], [Data_Path]) VALUES (?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.winner, studentall.Data_Path, studentall.autoid, tblproject.project, tblsubject.subject FROM ((studentall INNER JOIN tblsubject ON studentall.subjectid = tblsubject.subjectid) INNER JOIN tblproject ON tblsubject.projectid = tblproject.projectid)" 
-                UpdateCommand="UPDATE [studentall] SET [tsfeat] = ?, [winner] = ?, [Data_Path] = ?, [stid] = ?, [subjectid] =  ? WHERE autoid = ?">
+                InsertCommand="INSERT INTO [studentall] ([stid], [subjectid], [tsfeat],[nesba], [winner], [Data_Path]) VALUES (?,?, ?, ?, ?, ?)" 
+                SelectCommand="SELECT studentall.stid, studentall.subjectid, studentall.tsfeat, studentall.nesba, studentall.winner, studentall.Data_Path, studentall.autoid, tblproject.project, tblsubject.subject FROM ((studentall INNER JOIN tblsubject ON studentall.subjectid = tblsubject.subjectid) INNER JOIN tblproject ON tblsubject.projectid = tblproject.projectid)" 
+                UpdateCommand="UPDATE [studentall] SET [tsfeat] = ?,[nesba] = ?, [winner] = ?, [Data_Path] = ?, [stid] = ?, [subjectid] =  ? WHERE autoid = ?" OnInserting="DSData_Inserting" OnUpdating="DSData_Updating">
                 <DeleteParameters>
                     <asp:Parameter Name="autoid" Type="Int32" />
                 </DeleteParameters>
@@ -266,11 +275,13 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="stid" Type="Int32" />
                     <asp:Parameter Name="subjectid" Type="Int32" />
                     <asp:Parameter Name="tsfeat" Type="Boolean" />
+                    <asp:Parameter Name="nesba" Type="String" />
                     <asp:Parameter Name="winner" Type="Boolean" />
                     <asp:Parameter Name="Data_Path" Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="tsfeat" Type="Boolean" />
+                    <asp:Parameter Name="nesba" Type="String" />
                     <asp:Parameter Name="winner" Type="Boolean" />
                     <asp:Parameter Name="Data_Path" Type="String" />
                     <asp:Parameter Name="stid" Type="Int32" />

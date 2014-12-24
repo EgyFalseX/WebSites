@@ -14,7 +14,7 @@ public partial class UserLogin : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (TheSessionsstudentfollow.UserID == null)
+        if (TheSessionsstudentfollow.UserStudentID == null)
             PnlLogin.Visible = true;
         else
             PnlLogin.Visible = false;
