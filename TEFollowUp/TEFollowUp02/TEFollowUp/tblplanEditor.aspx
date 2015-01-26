@@ -198,7 +198,8 @@ s.cpShowPopup = undefined;
                 DataFile="Data/TEFollow-up.mdb" 
                 DeleteCommand="DELETE FROM [tblplan] WHERE [schoolid] = ? AND [safid] = ? AND [faslid] = ? AND (([datef] = ?) OR ([datef] IS NULL AND ? IS NULL)) AND [empid] = ? AND [hesaid] = ?" 
                 InsertCommand="INSERT INTO [tblplan] ([schoolid], [safid], [faslid], [datef], [empid], [hesaid], moshref, [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT planid, schoolid, safid, faslid, datef, empid, hesaid, userin, datein, moshref FROM tblplan WHERE (userin = ?)" 
+                SelectCommand="SELECT planid, schoolid, safid, faslid, datef, empid, hesaid, userin, datein, moshref FROM tblplan WHERE (userin = ?)
+ OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE       tblplan
 SET                schoolid = ?, safid = ?, faslid = ?, datef = ?, empid = ?, hesaid = ?, moshref = ?, userin = ?, datein = DATE()
 WHERE        planid = ?">
@@ -222,6 +223,7 @@ WHERE        planid = ?">
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="" Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="schoolid" Type="Int32" />

@@ -179,7 +179,8 @@ s.cpShowPopup = undefined;
                 DeleteCommand="DELETE FROM [tblempdata] WHERE [empid] = ?" 
                 InsertCommand="INSERT INTO [tblempdata] ([empname], [schoolid], [datework], [takasosid], [madaid], [moshref], [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, Date())" 
                 SelectCommand="SELECT [empid], [empname], [schoolid], [datework], [takasosid], [madaid], [moshref], [userin], [datein] FROM [tblempdata]
-WHERE userin = ?" 
+WHERE userin = ?
+ OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE [tblempdata] SET [empname] = ?, [schoolid] = ?, [datework] = ?, [takasosid] = ?, [madaid] = ?, [moshref] = ?, [userin] = ?, [datein] = Date() WHERE [empid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="empid" Type="Int32" />
@@ -195,6 +196,7 @@ WHERE userin = ?"
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="" Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="empname" Type="String" />

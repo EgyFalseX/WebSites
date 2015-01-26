@@ -17,7 +17,7 @@ public partial class UserEditor : System.Web.UI.Page
             Response.Redirect("AdminLogin.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
 
         if (!TheSessionsTEFollowUp.IsAdmin)
-            Response.Redirect("AccessDenied");
+            Response.Redirect("AccessDenied.aspx");
     }
 
     protected void CBExporter_ButtonClick(object source, DevExpress.Web.ASPxEditors.ButtonEditClickEventArgs e)

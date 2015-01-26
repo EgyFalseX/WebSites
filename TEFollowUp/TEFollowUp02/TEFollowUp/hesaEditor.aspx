@@ -52,7 +52,7 @@
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
                 onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="Aqua" 
                 EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" 
-                KeyboardSupport="True" Width="600px">
+                KeyboardSupport="True">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')

@@ -9,6 +9,7 @@ public partial class master : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        BtnLogout.Visible = TheSessionsTEFollowUp.IsAuth;
     }
     protected void BackToMain_Click(object sender, EventArgs e)
     {

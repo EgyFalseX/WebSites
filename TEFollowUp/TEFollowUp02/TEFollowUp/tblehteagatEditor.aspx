@@ -6,6 +6,11 @@
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxUploadControl" tagprefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" Runat="Server">
 
@@ -50,7 +55,7 @@
                 SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
                 CssPostfix="PlasticBlue" EnableTheming="True" 
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
-                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" Width="880px">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -105,50 +110,98 @@ s.cpShowPopup = undefined;
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 1" FieldName="eh1" VisibleIndex="4">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 2" FieldName="eh2" VisibleIndex="5">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 3" FieldName="eh3" VisibleIndex="6">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 4" FieldName="eh4" VisibleIndex="7">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 5" FieldName="eh5" VisibleIndex="8">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 6" FieldName="eh6" VisibleIndex="9">
                         <PropertiesComboBox DataSourceID="DSehteagatid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="ehteagatid" ValueField="ehteagatid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="ehteagatid" />
+                                <dx:ListBoxColumn FieldName="ehteagat" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 1" FieldName="es1" VisibleIndex="10">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 2" FieldName="es2" VisibleIndex="11">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 3" FieldName="es3" VisibleIndex="12">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 4" FieldName="es4" VisibleIndex="13">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 5" FieldName="es5" VisibleIndex="14">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسلوب 6" FieldName="es6" VisibleIndex="15">
                         <PropertiesComboBox DataSourceID="DSesaleepid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="esaleepid" ValueField="esaleepid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="esaleepid" />
+                                <dx:ListBoxColumn FieldName="esaleep" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                 </Columns>
@@ -166,7 +219,7 @@ s.cpShowPopup = undefined;
                 </SettingsPager>
                 <Settings ShowFilterBar="Visible" ShowFilterRow="True" ShowFilterRowMenu="True" 
                     ShowFooter="True" ShowGroupPanel="True" ShowHeaderFilterButton="True" 
-                    ShowTitlePanel="True" />
+                    ShowTitlePanel="True" HorizontalScrollBarMode="Auto" />
                 <SettingsText CommandCancel="الغاء" CommandClearFilter="مسح التصفيه" 
                     CommandDelete="حذف" CommandEdit="تعديل" CommandNew="جديد" CommandSelect="اختار" 
                     CommandUpdate="تحديث" ConfirmDelete="هل انت متأكد؟" 
@@ -274,6 +327,194 @@ s.cpShowPopup = undefined;
             <dx:ASPxGridViewExporter ID="ASPxGridViewExporterEditor" runat="server" 
                 FileName="ContactUSFX" GridViewID="GVEditor" PaperKind="A4">
             </dx:ASPxGridViewExporter>
+        </td>
+    </tr>
+    </table>
+    <p>
+    </p>
+    <table align="center">
+    <tr>
+        <td class="auto-style1">
+            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Font-Bold="True" Text="الاساليب">
+            </dx:ASPxLabel>
+        </td>
+        <td class="auto-style1">
+            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Font-Bold="True" Text="الاحتياجات">
+            </dx:ASPxLabel>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <dx:ASPxGridView ID="GVEditor1" runat="server" AutoGenerateColumns="False" 
+                Caption="البيــــــــــا نـــــــــــــــات" DataSourceID="DSesaleepid" RightToLeft="True" 
+                SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
+                CssPostfix="PlasticBlue" EnableTheming="True" 
+                onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                <ClientSideEvents EndCallback="function(s, e) {
+	
+	  if(typeof(s.cpShowPopup) != 'undefined')
+		{
+                popupeditor.SetContentHTML(s.cpShowPopup);
+				popupeditor.Show();
+		} 
+}" BeginCallback="function(s, e) {
+s.cpShowPopup = undefined;
+}" />
+                <TotalSummary>
+                    <dx:ASPxSummaryItem DisplayFormat="العـدد : {0}" FieldName="addno" 
+                        ShowInColumn="coname" ShowInGroupFooterColumn="coname" SummaryType="Count" />
+                </TotalSummary>
+                <Columns>
+                    <dx:GridViewDataTextColumn Caption="رقم" FieldName="esaleepid" VisibleIndex="0">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="اسم الاسلوب" FieldName="esaleep" VisibleIndex="1">
+                    </dx:GridViewDataTextColumn>
+                </Columns>
+                <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
+                    SortMode="DisplayText" ColumnResizeMode="Control" />
+                <SettingsPager ShowDefaultImages="False" PageSize="40">
+                    <AllButton Text="All">
+                    </AllButton>
+                    <NextPageButton Text="Next &gt;">
+                    </NextPageButton>
+                    <PrevPageButton Text="&lt; Prev">
+                    </PrevPageButton>
+                    <Summary AllPagesText="صفحات :  {0} - {1} ({2} عناصر)" Position="Right" 
+                        Text="صفحه {0} of {1} ({2} عنصر)" />
+                </SettingsPager>
+                <Settings ShowFilterBar="Visible" ShowFilterRowMenu="True" 
+                    ShowFooter="True" ShowHeaderFilterButton="True" 
+                    ShowTitlePanel="True" />
+                <SettingsText CommandCancel="الغاء" CommandClearFilter="مسح التصفيه" 
+                    CommandDelete="حذف" CommandEdit="تعديل" CommandNew="جديد" CommandSelect="اختار" 
+                    CommandUpdate="تحديث" ConfirmDelete="هل انت متأكد؟" 
+                    CustomizationWindowCaption="خيارات" EmptyDataRow="فارغ" EmptyHeaders="راس فارغ" 
+                    FilterBarClear="مسح التصفبه" FilterBarCreateFilter="صناعة تصفيه" 
+                    FilterControlPopupCaption="خيارات التصفيه" 
+                    GroupContinuedOnNextPage="تستكمل المجموعه في الصفحه القادمه" 
+                    GroupPanel="اسحب عمود ثم افلته هنا لصناعه مجموعه" 
+                    HeaderFilterShowAll="اظهار الكل" HeaderFilterShowBlanks="اظهار الفارغ" 
+                    HeaderFilterShowNonBlanks="اظهار غير الفارغ" 
+                    PopupEditFormCaption="صفحة المحرر" />
+                <SettingsPopup>
+                    <EditForm AllowResize="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="Above" />
+                </SettingsPopup>
+                <Images SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css">
+                    <LoadingPanelOnStatusBar Url="../App_Themes/PlasticBlue/GridView/gvLoadingOnStatusBar.gif">
+                    </LoadingPanelOnStatusBar>
+                    <LoadingPanel Url="../App_Themes/PlasticBlue/GridView/Loading.gif">
+                    </LoadingPanel>
+                </Images>
+                <ImagesFilterControl>
+                    <LoadingPanel Url="../App_Themes/PlasticBlue/Editors/Loading.gif">
+                    </LoadingPanel>
+                </ImagesFilterControl>
+                <Styles CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
+                    CssPostfix="PlasticBlue">
+                    <Header ImageSpacing="10px" SortingImageSpacing="10px" Font-Bold="False" 
+                        Font-Size="Medium">
+                    </Header>
+                </Styles>
+                <StylesPager>
+                    <CurrentPageNumber Font-Bold="False">
+                    </CurrentPageNumber>
+                    <PageNumber Font-Bold="False">
+                    </PageNumber>
+                </StylesPager>
+                <StylesEditors>
+                    <CalendarHeader Spacing="11px">
+                    </CalendarHeader>
+                    <ProgressBar Height="25px">
+                    </ProgressBar>
+                </StylesEditors>
+            </dx:ASPxGridView>
+        </td>
+        <td valign="top">
+            <dx:ASPxGridView ID="GVEditor0" runat="server" AutoGenerateColumns="False" 
+                Caption="البيــــــــــا نـــــــــــــــات" DataSourceID="DSehteagatid" RightToLeft="True" 
+                SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
+                CssPostfix="PlasticBlue" EnableTheming="True" 
+                onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                <ClientSideEvents EndCallback="function(s, e) {
+	
+	  if(typeof(s.cpShowPopup) != 'undefined')
+		{
+                popupeditor.SetContentHTML(s.cpShowPopup);
+				popupeditor.Show();
+		} 
+}" BeginCallback="function(s, e) {
+s.cpShowPopup = undefined;
+}" />
+                <TotalSummary>
+                    <dx:ASPxSummaryItem DisplayFormat="العـدد : {0}" FieldName="addno" 
+                        ShowInColumn="coname" ShowInGroupFooterColumn="coname" SummaryType="Count" />
+                </TotalSummary>
+                <Columns>
+                    <dx:GridViewDataTextColumn Caption="رقم" FieldName="ehteagatid" VisibleIndex="0">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="اسم الاحتياج" FieldName="ehteagat" VisibleIndex="1">
+                    </dx:GridViewDataTextColumn>
+                </Columns>
+                <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
+                    SortMode="DisplayText" ColumnResizeMode="Control" />
+                <SettingsPager ShowDefaultImages="False" PageSize="40">
+                    <AllButton Text="All">
+                    </AllButton>
+                    <NextPageButton Text="Next &gt;">
+                    </NextPageButton>
+                    <PrevPageButton Text="&lt; Prev">
+                    </PrevPageButton>
+                    <Summary AllPagesText="صفحات :  {0} - {1} ({2} عناصر)" Position="Right" 
+                        Text="صفحه {0} of {1} ({2} عنصر)" />
+                </SettingsPager>
+                <Settings ShowFilterBar="Visible" ShowFilterRowMenu="True" 
+                    ShowFooter="True" ShowHeaderFilterButton="True" 
+                    ShowTitlePanel="True" />
+                <SettingsText CommandCancel="الغاء" CommandClearFilter="مسح التصفيه" 
+                    CommandDelete="حذف" CommandEdit="تعديل" CommandNew="جديد" CommandSelect="اختار" 
+                    CommandUpdate="تحديث" ConfirmDelete="هل انت متأكد؟" 
+                    CustomizationWindowCaption="خيارات" EmptyDataRow="فارغ" EmptyHeaders="راس فارغ" 
+                    FilterBarClear="مسح التصفبه" FilterBarCreateFilter="صناعة تصفيه" 
+                    FilterControlPopupCaption="خيارات التصفيه" 
+                    GroupContinuedOnNextPage="تستكمل المجموعه في الصفحه القادمه" 
+                    GroupPanel="اسحب عمود ثم افلته هنا لصناعه مجموعه" 
+                    HeaderFilterShowAll="اظهار الكل" HeaderFilterShowBlanks="اظهار الفارغ" 
+                    HeaderFilterShowNonBlanks="اظهار غير الفارغ" 
+                    PopupEditFormCaption="صفحة المحرر" />
+                <SettingsPopup>
+                    <EditForm AllowResize="True" HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="Above" />
+                </SettingsPopup>
+                <Images SpriteCssFilePath="../App_Themes/PlasticBlue/{0}/sprite.css">
+                    <LoadingPanelOnStatusBar Url="../App_Themes/PlasticBlue/GridView/gvLoadingOnStatusBar.gif">
+                    </LoadingPanelOnStatusBar>
+                    <LoadingPanel Url="../App_Themes/PlasticBlue/GridView/Loading.gif">
+                    </LoadingPanel>
+                </Images>
+                <ImagesFilterControl>
+                    <LoadingPanel Url="../App_Themes/PlasticBlue/Editors/Loading.gif">
+                    </LoadingPanel>
+                </ImagesFilterControl>
+                <Styles CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
+                    CssPostfix="PlasticBlue">
+                    <Header ImageSpacing="10px" SortingImageSpacing="10px" Font-Bold="False" 
+                        Font-Size="Medium">
+                    </Header>
+                </Styles>
+                <StylesPager>
+                    <CurrentPageNumber Font-Bold="False">
+                    </CurrentPageNumber>
+                    <PageNumber Font-Bold="False">
+                    </PageNumber>
+                </StylesPager>
+                <StylesEditors>
+                    <CalendarHeader Spacing="11px">
+                    </CalendarHeader>
+                    <ProgressBar Height="25px">
+                    </ProgressBar>
+                </StylesEditors>
+            </dx:ASPxGridView>
         </td>
     </tr>
     </table>

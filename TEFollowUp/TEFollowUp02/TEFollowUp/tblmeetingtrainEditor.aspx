@@ -104,7 +104,7 @@ s.cpShowPopup = undefined;
                             </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
-                    <dx:GridViewDataDateColumn Caption="تاريخ" FieldName="datetrain" VisibleIndex="5">
+                    <dx:GridViewDataDateColumn Caption="تاريخ" FieldName="datetrain" VisibleIndex="4">
                         <PropertiesDateEdit DisplayFormatString="d/M/yyyy">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
@@ -122,6 +122,11 @@ s.cpShowPopup = undefined;
                             </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
+                    <dx:GridViewDataHyperLinkColumn Caption="عرض التقرير" FieldName="meetingtrainid" VisibleIndex="6">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="XRepViewer03.aspx?id={0}" TextFormatString="عرض التقرير">
+                        </PropertiesHyperLinkEdit>
+                        <EditFormSettings Visible="False" />
+                    </dx:GridViewDataHyperLinkColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -183,12 +188,12 @@ s.cpShowPopup = undefined;
                 </StylesEditors>
                 <Templates>
                     <DetailRow>
-                        <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0">
+                        <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="0" Width="600px">
                             <TabPages>
                                 <dx:TabPage Text="اهداف اللقاء">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditorTblahdaf0" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetinghadf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadfid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange">
+                                            <dx:ASPxGridView ID="GVEditorTblahdaf0" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetinghadf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadfid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -231,8 +236,11 @@ s.cpShowPopup = undefined;
                                                         <ClearFilterButton Visible="True">
                                                         </ClearFilterButton>
                                                     </dx:GridViewCommandColumn>
-                                                    <dx:GridViewDataTextColumn Caption="الهدف" FieldName="hadf" ShowInCustomizationForm="True" VisibleIndex="1">
-                                                    </dx:GridViewDataTextColumn>
+                                                    <dx:GridViewDataMemoColumn Caption="الهدف" FieldName="hadf" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                        <PropertiesMemoEdit Height="100px" Width="500px">
+                                                        </PropertiesMemoEdit>
+                                                        <EditFormSettings ColumnSpan="2" />
+                                                    </dx:GridViewDataMemoColumn>
                                                 </Columns>
                                                 <SettingsBehavior AllowFocusedRow="True" ColumnResizeMode="Control" ConfirmDelete="True" SortMode="DisplayText" />
                                                 <SettingsPager PageSize="40" ShowDefaultImages="False">
@@ -282,7 +290,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="التوصيات">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingtawseat" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="tawseaid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange">
+                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingtawseat" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="tawseaid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -325,8 +333,11 @@ s.cpShowPopup = undefined;
                                                         <ClearFilterButton Visible="True">
                                                         </ClearFilterButton>
                                                     </dx:GridViewCommandColumn>
-                                                    <dx:GridViewDataTextColumn Caption="توصيه" FieldName="tawsea" ShowInCustomizationForm="True" VisibleIndex="1">
-                                                    </dx:GridViewDataTextColumn>
+                                                    <dx:GridViewDataMemoColumn Caption="توصيه" FieldName="tawsea" ShowInCustomizationForm="True" VisibleIndex="1">
+                                                        <PropertiesMemoEdit Height="100px" Width="500px">
+                                                        </PropertiesMemoEdit>
+                                                        <EditFormSettings ColumnSpan="2" />
+                                                    </dx:GridViewDataMemoColumn>
                                                 </Columns>
                                                 <SettingsBehavior AllowFocusedRow="True" ColumnResizeMode="Control" ConfirmDelete="True" SortMode="DisplayText" />
                                                 <SettingsPager PageSize="40" ShowDefaultImages="False">
@@ -376,7 +387,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="المشاركون">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingemp" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange">
+                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingemp" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -481,7 +492,8 @@ s.cpShowPopup = undefined;
                 DataFile="Data/TEFollow-up.mdb" 
                 DeleteCommand="DELETE FROM [tblmeetingtrain] WHERE [meetingtrainid] = ?" 
                 InsertCommand="INSERT INTO [tblmeetingtrain] ([trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein]) VALUES (?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT [meetingtrainid], [trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein] FROM [tblmeetingtrain] WHERE ([userin] = ?)" 
+                SelectCommand="SELECT [meetingtrainid], [trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein] FROM [tblmeetingtrain] WHERE ([userin] = ?)
+ OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE [tblmeetingtrain] SET [trainingid] = ?, [moshrefid] = ?, [datetrain] = ?, [trainplace] = ?, [userin] = ?, [datein] = Date() WHERE [meetingtrainid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="meetingtrainid" Type="Int32" />
@@ -494,7 +506,8 @@ s.cpShowPopup = undefined;
                     <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
                 </InsertParameters>
                 <SelectParameters>
-                    <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" Type="Int32" />
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="trainingid" Type="Int32" />

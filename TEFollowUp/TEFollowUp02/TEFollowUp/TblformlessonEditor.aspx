@@ -53,7 +53,7 @@
                 SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
                 CssPostfix="PlasticBlue" EnableTheming="True" 
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
-                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" OnHtmlDataCellPrepared="GVEditor_HtmlDataCellPrepared">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -425,7 +425,8 @@ s.cpShowPopup = undefined;
                 DeleteCommand="DELETE FROM [tblformlesson] WHERE lessonid = ?" 
                 InsertCommand="INSERT INTO [tblformlesson] ([moshrefid], [schoolid], [empid], [safid], [faslid], [lessondate], [hesaid], [madaid], [place], [lessonaddres], [moshreftext], userin, [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE ())" 
                 SelectCommand="SELECT [lessonid], [moshrefid], [schoolid], [empid], [safid], [faslid], [lessondate], [hesaid], [madaid], [place], [lessonaddres], [moshreftext], [userin], [datein] FROM [tblformlesson]
-WHERE userin = ?" 
+WHERE userin = ?
+ OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE [tblformlesson] SET  [madaid] = ?, [place] = ?, [lessonaddres] = ?, [moshreftext] = ?, [userin] = ?, [datein] = Date(),  [moshrefid] = ?, [schoolid] = ?, [empid] = ?, [safid] = ?, [faslid] = ?, [lessondate] = ?, [hesaid] = ? WHERE [lessonid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="lessonid" Type="Int32" />
@@ -446,6 +447,7 @@ WHERE userin = ?"
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="" Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="madaid" Type="Int32" />

@@ -47,24 +47,6 @@
                         </LayoutItemNestedControlCollection>
                         <CaptionSettings Location="Top" />
                     </dx:LayoutItem>
-                    <dx:LayoutItem Caption="يستفاد من المعلم في" Height="120px">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                <dx:ASPxMemo ID="tbystfad" runat="server" Height="71px" Width="300px">
-                                </dx:ASPxMemo>
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                        <CaptionSettings Location="Top" />
-                    </dx:LayoutItem>
-                    <dx:LayoutItem Caption="توصيات" Height="120px">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                <dx:ASPxMemo ID="tbtawseat" runat="server" Height="71px" Width="300px">
-                                </dx:ASPxMemo>
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                        <CaptionSettings Location="Top" />
-                    </dx:LayoutItem>
                 </Items>
             </dx:ASPxFormLayout>
         </td>
@@ -81,8 +63,13 @@
         <td>
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 
-                SelectCommand="SELECT tblplan.planid, tblplan.datef, cdschool.schoolname, cdsaf.saf, cdfasl.fasl, tblempdata.empname, cdhesa.hesa FROM (((((tblplan LEFT OUTER JOIN tblempdata ON tblplan.empid = tblempdata.empid) LEFT OUTER JOIN cdschool ON tblplan.schoolid = cdschool.schoolid) LEFT OUTER JOIN cdhesa ON tblplan.hesaid = cdhesa.hesaid) LEFT OUTER JOIN cdsaf ON tblplan.safid = cdsaf.safid) LEFT OUTER JOIN cdfasl ON tblplan.faslid = cdfasl.faslid) WHERE (tblplan.moshref = ?)">
+                SelectCommand="SELECT tblplan.planid, 
+Format(tblplan.datef,'d/M/yyyy') AS datef
+, cdschool.schoolname, cdsaf.saf, cdfasl.fasl, tblempdata.empname, cdhesa.hesa FROM (((((tblplan LEFT OUTER JOIN tblempdata ON tblplan.empid = tblempdata.empid) LEFT OUTER JOIN cdschool ON tblplan.schoolid = cdschool.schoolid) LEFT OUTER JOIN cdhesa ON tblplan.hesaid = cdhesa.hesaid) LEFT OUTER JOIN cdsaf ON tblplan.safid = cdsaf.safid) LEFT OUTER JOIN cdfasl ON tblplan.faslid = cdfasl.faslid) 
+WHERE NOT EXISTS(SELECT planid FROM tbladdform WHERE planid = tblplan.planid) AND
+((tblplan.moshref = ?) OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true)">
                 <SelectParameters>
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                     <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
             </asp:AccessDataSource>

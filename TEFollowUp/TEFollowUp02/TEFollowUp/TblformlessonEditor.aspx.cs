@@ -75,4 +75,17 @@ public partial class TblformlessonEditor : System.Web.UI.Page
     {
         Session["lessonidEditor"] = (sender as DevExpress.Web.ASPxGridView.ASPxGridView).GetMasterRowKeyValue();
     }
+    protected void GVEditor_HtmlDataCellPrepared(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewTableDataCellEventArgs e)
+    {
+        if (e.DataColumn.FieldName == "moshreftext")
+        {
+            string text = e.CellValue == null ? string.Empty : e.CellValue.ToString();
+            if (!string.IsNullOrEmpty(text) && text.Length > 50)
+            {
+                e.Cell.Text = text.Substring(0, 50) + "...";
+                e.Cell.ToolTip = e.CellValue.ToString();
+            }
+        }
+
+    }
 }

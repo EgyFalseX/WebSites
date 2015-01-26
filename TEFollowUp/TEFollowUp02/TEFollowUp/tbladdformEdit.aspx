@@ -19,11 +19,14 @@
     <table align="center">
     <tr>
         <td style="text-align: center" class="auto-style1">
-                                <dx:ASPxComboBox runat="server" DataSourceID="DSData" TextField="formdate" ValueField="formid" Width="300px" ID="cbplanid0"><Columns>
-<dx:ListBoxColumn FieldName="formdate" Caption="التاريخ"></dx:ListBoxColumn>
-<dx:ListBoxColumn FieldName="ystfad" Caption="يستفاد في"></dx:ListBoxColumn>
-                                    <dx:ListBoxColumn Caption="توصيات" FieldName="tawseat" />
-</Columns>
+                                <dx:ASPxComboBox runat="server" DataSourceID="DSData" TextField="formdate" ValueField="formid" Width="300px" ID="cbplanid0" >
+                                    <Columns>
+                                        <dx:ListBoxColumn Caption="التاريخ" FieldName="formdate" />
+                                        <dx:ListBoxColumn Caption="المدرسه" FieldName="schoolname" />
+                                        <dx:ListBoxColumn Caption="الصف" FieldName="saf" />
+                                        <dx:ListBoxColumn Caption="فصل" FieldName="fasl" />
+                                        <dx:ListBoxColumn Caption="الاسم" FieldName="empname" />
+                                    </Columns>
 </dx:ASPxComboBox>
 
         </td>
@@ -35,12 +38,37 @@
         </td>
     </tr>
     <tr>
+        <td style="text-align: center" class="auto-style1">
+            <dx:ASPxButton ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="حذف" Width="100px">
+                <ClientSideEvents Click="function(s, e) {
+	 e.processOnServer = confirm('هل انت متأكد؟');
+}" />
+                <Image Url="images/delete.png">
+                </Image>
+            </dx:ASPxButton>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center" class="auto-style1">
+            <dx:ASPxButton ID="btnReport" runat="server" OnClick="btnReport_Click" Text="التقرير" Width="100px">
+                <Image Url="images/report.png">
+                </Image>
+            </dx:ASPxButton>
+        </td>
+    </tr>
+    <tr>
         <td>
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 
-                SelectCommand="SELECT formid, formdate, ystfad, tawseat FROM tbladdform
-WHERE userin = ?">
+                SelectCommand="SELECT qform.formid, qform.planid, qform.formdate, cdschool.schoolname, tblempdata.empname, cdsaf.saf, cdfasl.fasl
+FROM (((qform LEFT JOIN tblempdata ON qform.empid = tblempdata.empid) LEFT JOIN cdfasl ON qform.faslid = cdfasl.faslid) LEFT JOIN cdschool ON qform.school = cdschool.schoolid) LEFT JOIN cdsaf ON qform.saf = cdsaf.safid
+WHERE userin = ?
+ OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true
+OR EXISTS(SELECT planid FROM tblplan WHERE planid = tbladdform.planid AND moshref = ?)
+">
                 <SelectParameters>
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                     <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
             </asp:AccessDataSource>

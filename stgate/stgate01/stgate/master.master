@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="master.master.cs" Inherits="master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>EESoft - ETST</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body style="height: 84px">
+    <form id="form1" runat="server">
+    <div align="center">
+        <asp:Image ID="Image1" runat="server" Height="114px" 
+            ImageUrl="~/stgate/images/LoginIcon.png" Width="146px" />
+    </div>
+    <div align="center">
+
+        <font color="#000080"><b style="text-align: center">Through the&nbsp;log&nbsp;you can 
+        see&nbsp;all the&nbsp;data you need<br />
+        &nbsp;Can also be obtained&nbsp;on the details of&nbsp;the results and&nbsp;daily absence&nbsp;and all 
+        the data<br />
+        &nbsp;Interactive&nbsp;interest to&nbsp;the student and&nbsp;parent<span lang="en-us">s.</span></b></font></div>
+    <div>
+        <div style="text-align: center"><asp:Button ID="btnLogout" runat="server" Text="logout" Visible="False" Width="66px" OnClick="BtnLogout_Click" /></div>
+        
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolderMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    </body>
+</html>

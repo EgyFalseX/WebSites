@@ -16,7 +16,7 @@ public partial class tbladdformNew : System.Web.UI.Page
             Response.Redirect("AdminLogin.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
 
         //if (!TheSessionsTEFollowUp.IsAdmin)
-        //    Response.Redirect("AccessDenied");
+        //    Response.Redirect("AccessDenied.aspx");
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -25,12 +25,13 @@ public partial class tbladdformNew : System.Web.UI.Page
         try
         {
             con.Open();
-            cmd.CommandText = @"INSERT INTO tbladdform (planid, formdate, ystfad, tawseat, userin, datein) 
-            VALUES (@planid, @formdate, @ystfad, @tawseat, @userin, Date())";
+            //WHERE NOT EXISTS(SELECT planid FROM tbladdform WHERE planid = XXX.planid)
+            cmd.CommandText = @"INSERT INTO tbladdform (planid, formdate, userin, datein) 
+            VALUES (@planid, @formdate, @userin, Date())";
             OleDbParameter Pramplanid = new OleDbParameter("@planid", cbplanid.Value); cmd.Parameters.Add(Pramplanid);
             OleDbParameter Pramformdate = new OleDbParameter("@formdate", deformdate.Value); cmd.Parameters.Add(Pramformdate);
-            OleDbParameter Pramystfad = new OleDbParameter("@ystfad", tbystfad.Value); cmd.Parameters.Add(Pramystfad);
-            OleDbParameter Pramtawseat = new OleDbParameter("@tawseat", tbtawseat.Value); cmd.Parameters.Add(Pramtawseat);
+            //OleDbParameter Pramystfad = new OleDbParameter("@ystfad", tbystfad.Value); cmd.Parameters.Add(Pramystfad);
+            //OleDbParameter Pramtawseat = new OleDbParameter("@tawseat", tbtawseat.Value); cmd.Parameters.Add(Pramtawseat);
             OleDbParameter Pramuserin = new OleDbParameter("@userin", TheSessionsTEFollowUp.UserID); cmd.Parameters.Add(Pramuserin);
             cmd.ExecuteNonQuery();
             cmd.CommandText = @"SELECT @@Identity";
@@ -48,16 +49,12 @@ public partial class tbladdformNew : System.Web.UI.Page
             Pramformid.Value = formid; Pramrobrexedegree.Value = 0; Pramrobrexedescrption.Value = string.Empty;
 
             DataTable dt = MCTEFollowUp.LoadDataTable(@"SELECT robrexeid FROM cdrobrexelement", false);
-
             foreach (DataRow row in dt.Rows)
             {
                 Pramrobrexeid.Value = row["robrexeid"].ToString();
                 cmd.ExecuteNonQuery();
-
             }
-
             Response.Redirect("tbladdformdetailsEditor.aspx?id=" + formid);
-
         }
         catch (OleDbException ex)
         {

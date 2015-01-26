@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:content id="Content2" contentplaceholderid="ContentPlaceHolderMain" runat="Server">
     
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="100pt" 
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="50pt" 
         ForeColor="Red" Text="الدخول مرفوض"></asp:Label>
     
 </asp:content>
