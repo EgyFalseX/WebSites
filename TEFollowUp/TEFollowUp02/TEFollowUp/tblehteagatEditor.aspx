@@ -106,6 +106,9 @@ s.cpShowPopup = undefined;
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="اسم المعلم" FieldName="empid" VisibleIndex="3">
                         <PropertiesComboBox DataSourceID="DSempid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="empname" ValueField="empid">
+                            <Columns>
+                                <dx:ListBoxColumn FieldName="empname" />
+                            </Columns>
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="احتياج 1" FieldName="eh1" VisibleIndex="4">
@@ -267,7 +270,10 @@ s.cpShowPopup = undefined;
                 DataFile="Data/TEFollow-up.mdb" 
                 DeleteCommand="DELETE FROM [tblehteagat] WHERE [ehid] = ?" 
                 InsertCommand="INSERT INTO [tblehteagat] ([yearid], [empid], [eh1], [eh2], [eh3], [eh4], [eh5], [eh6], [es1], [es2], [es3], [es4], [es5], [es6], [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT [ehid], [yearid], [empid], [eh1], [eh2], [eh3], [eh4], [eh5], [eh6], [es1], [es2], [es3], [es4], [es5], [es6], [userin], [datein] FROM [tblehteagat]" 
+                SelectCommand="SELECT [ehid], [yearid], [empid], [eh1], [eh2], [eh3], [eh4], [eh5], [eh6], [es1], [es2], [es3], [es4], [es5], [es6], [userin], [datein] FROM [tblehteagat]
+WHERE userin = ?
+OR empid = ?
+OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE [tblehteagat] SET [yearid] = ?, [empid] = ?, [eh1] = ?, [eh2] = ?, [eh3] = ?, [eh4] = ?, [eh5] = ?, [eh6] = ?, [es1] = ?, [es2] = ?, [es3] = ?, [es4] = ?, [es5] = ?, [es6] = ?, [userin] = ?, [datein] = Date() WHERE [ehid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="ehid" Type="Int32" />
@@ -289,6 +295,11 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="es6" Type="Int16" />
                     <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
                 </InsertParameters>
+                <SelectParameters>
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter Name="?" SessionField="empidTEFollowUp" />
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
+                </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="yearid" Type="Int32" />
                     <asp:Parameter Name="empid" Type="Int32" />
@@ -314,7 +325,15 @@ s.cpShowPopup = undefined;
             </asp:AccessDataSource>
             <asp:AccessDataSource ID="DSempid" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 
-                SelectCommand="SELECT [empid], [empname] FROM [tblempdata]">
+                SelectCommand="SELECT [empid], [empname] FROM [tblempdata]
+WHERE
+((SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true)
+OR 
+(empid = ?)">
+                <SelectParameters>
+                    <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter Name="?" SessionField="empidTEFollowUp" />
+                </SelectParameters>
             </asp:AccessDataSource>
             <asp:AccessDataSource ID="DSehteagatid" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 

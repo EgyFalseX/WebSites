@@ -196,20 +196,19 @@ s.cpShowPopup = undefined;
             </dx:ASPxGridView>
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 
-                DeleteCommand="DELETE FROM [tblplan] WHERE [schoolid] = ? AND [safid] = ? AND [faslid] = ? AND (([datef] = ?) OR ([datef] IS NULL AND ? IS NULL)) AND [empid] = ? AND [hesaid] = ?" 
+                DeleteCommand="DELETE FROM [tblplan] WHERE planid = ?" 
                 InsertCommand="INSERT INTO [tblplan] ([schoolid], [safid], [faslid], [datef], [empid], [hesaid], moshref, [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT planid, schoolid, safid, faslid, datef, empid, hesaid, userin, datein, moshref FROM tblplan WHERE (userin = ?)
- OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
+                SelectCommand="SELECT planid, schoolid, safid, faslid, datef, empid, hesaid, userin, datein, moshref FROM tblplan 
+WHERE 
+((SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true)
+ OR (userin = ?)
+OR (moshref  = ?)
+" 
                 UpdateCommand="UPDATE       tblplan
 SET                schoolid = ?, safid = ?, faslid = ?, datef = ?, empid = ?, hesaid = ?, moshref = ?, userin = ?, datein = DATE()
 WHERE        planid = ?">
                 <DeleteParameters>
-                    <asp:Parameter Name="schoolid" Type="Int32" />
-                    <asp:Parameter Name="safid" Type="Int32" />
-                    <asp:Parameter Name="faslid" Type="Int32" />
-                    <asp:Parameter Name="datef" Type="DateTime" />
-                    <asp:Parameter Name="empid" Type="Int32" />
-                    <asp:Parameter Name="hesaid" Type="Int32" />
+                    <asp:Parameter Name="planid" Type="Int32" />
                 </DeleteParameters>
                 <InsertParameters>
                     <asp:Parameter Name="schoolid" Type="Int32" />
@@ -222,8 +221,9 @@ WHERE        planid = ?">
                     <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
                 </InsertParameters>
                 <SelectParameters>
-                    <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
                     <asp:SessionParameter DefaultValue="" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="" Name="?" SessionField="empidTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="schoolid" Type="Int32" />

@@ -58,7 +58,7 @@
                     <dx:TabPage Text="معاير التقييم">
                         <ContentCollection>
                             <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                <dx:ASPxGridView ID="GVEditor" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" ClientInstanceName="GVEditor" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSData" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="id" OnCustomCallback="GVEditor_CustomCallback" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="Aqua">
+                                <dx:ASPxGridView ID="GVEditor" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" ClientInstanceName="GVEditor" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSData" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="id" OnCustomCallback="GVEditor_CustomCallback" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="Aqua" Width="800px">
                                     <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -175,7 +175,7 @@ s.cpShowPopup = undefined;
                     <dx:TabPage Text="الأساليب">
                         <ContentCollection>
                             <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                <dx:ASPxGridView ID="GVEditorAsaleeb" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" ClientInstanceName="GVEditor" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSDataAsaleeb" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="waytakeemid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="Aqua" Width="600px">
+                                <dx:ASPxGridView ID="GVEditorAsaleeb" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSDataAsaleeb" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="waytakeemid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="Aqua" Width="600px">
                                     <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -367,7 +367,7 @@ WHERE  formid = ?"
                     <dx:LayoutItem Caption="Layout Item" ShowCaption="False">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                                <dx:ASPxButton ID="btnSave" runat="server" OnClick="btnSave_Click" Text="حفظ" Width="100px" AutoPostBack="False" ClientInstanceName="grid">
+                                <dx:ASPxButton ID="btnSave" runat="server" Text="حفظ" Width="100px" AutoPostBack="False" ClientInstanceName="grid">
                                     <ClientSideEvents Click="function(s, e) {
 	GVEditor.PerformCallback('post');
 }" />

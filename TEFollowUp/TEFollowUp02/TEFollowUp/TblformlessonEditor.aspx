@@ -53,7 +53,7 @@
                 SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
                 CssPostfix="PlasticBlue" EnableTheming="True" 
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
-                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" OnHtmlDataCellPrepared="GVEditor_HtmlDataCellPrepared">
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" OnHtmlDataCellPrepared="GVEditor_HtmlDataCellPrepared" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -225,7 +225,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="اهداف الدرس">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSTblahdaf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadafid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange">
+                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DSTblahdaf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadafid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -319,7 +319,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="المشاركون">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStbllessonmoshrek" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange">
+                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStbllessonmoshrek" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -426,6 +426,7 @@ s.cpShowPopup = undefined;
                 InsertCommand="INSERT INTO [tblformlesson] ([moshrefid], [schoolid], [empid], [safid], [faslid], [lessondate], [hesaid], [madaid], [place], [lessonaddres], [moshreftext], userin, [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, DATE ())" 
                 SelectCommand="SELECT [lessonid], [moshrefid], [schoolid], [empid], [safid], [faslid], [lessondate], [hesaid], [madaid], [place], [lessonaddres], [moshreftext], [userin], [datein] FROM [tblformlesson]
 WHERE userin = ?
+OR moshrefid = ?
  OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
                 UpdateCommand="UPDATE [tblformlesson] SET  [madaid] = ?, [place] = ?, [lessonaddres] = ?, [moshreftext] = ?, [userin] = ?, [datein] = Date(),  [moshrefid] = ?, [schoolid] = ?, [empid] = ?, [safid] = ?, [faslid] = ?, [lessondate] = ?, [hesaid] = ? WHERE [lessonid] = ?">
                 <DeleteParameters>
@@ -447,6 +448,7 @@ WHERE userin = ?
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="?" SessionField="UserIDTEFollowUp" />
+                    <asp:SessionParameter DefaultValue="" Name="?" SessionField="empidTEFollowUp" />
                     <asp:SessionParameter DefaultValue="" Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>

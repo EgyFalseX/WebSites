@@ -50,7 +50,7 @@
                 SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
                 CssPostfix="PlasticBlue" EnableTheming="True" 
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
-                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -115,6 +115,8 @@ s.cpShowPopup = undefined;
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataCheckColumn Caption="مشرف" FieldName="moshref" VisibleIndex="6">
                     </dx:GridViewDataCheckColumn>
+                    <dx:GridViewDataCheckColumn Caption="مدير" FieldName="moder" VisibleIndex="7">
+                    </dx:GridViewDataCheckColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -177,11 +179,11 @@ s.cpShowPopup = undefined;
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="Data/TEFollow-up.mdb" 
                 DeleteCommand="DELETE FROM [tblempdata] WHERE [empid] = ?" 
-                InsertCommand="INSERT INTO [tblempdata] ([empname], [schoolid], [datework], [takasosid], [madaid], [moshref], [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT [empid], [empname], [schoolid], [datework], [takasosid], [madaid], [moshref], [userin], [datein] FROM [tblempdata]
+                InsertCommand="INSERT INTO [tblempdata] ([empname], [schoolid], [datework], [takasosid], [madaid], [moshref], moder, [userin], [datein]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, Date())" 
+                SelectCommand="SELECT [empid], [empname], [schoolid], [datework], [takasosid], [madaid], [moshref], moder, [userin], [datein] FROM [tblempdata]
 WHERE userin = ?
  OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
-                UpdateCommand="UPDATE [tblempdata] SET [empname] = ?, [schoolid] = ?, [datework] = ?, [takasosid] = ?, [madaid] = ?, [moshref] = ?, [userin] = ?, [datein] = Date() WHERE [empid] = ?">
+                UpdateCommand="UPDATE [tblempdata] SET [empname] = ?, [schoolid] = ?, [datework] = ?, [takasosid] = ?, [madaid] = ?, [moshref] = ?, moder = ?, [userin] = ?, [datein] = Date() WHERE [empid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="empid" Type="Int32" />
                 </DeleteParameters>
@@ -192,6 +194,7 @@ WHERE userin = ?
                     <asp:Parameter Name="takasosid" Type="Int32" />
                     <asp:Parameter Name="madaid" Type="Int32" />
                     <asp:Parameter Name="moshref" Type="Boolean" />
+                    <asp:Parameter Name="moder" />
                     <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
                 </InsertParameters>
                 <SelectParameters>
@@ -205,6 +208,7 @@ WHERE userin = ?
                     <asp:Parameter Name="takasosid" Type="Int32" />
                     <asp:Parameter Name="madaid" Type="Int32" />
                     <asp:Parameter Name="moshref" Type="Boolean" />
+                    <asp:Parameter Name="moder" />
                     <asp:SessionParameter Name="userin" SessionField="UserIDTEFollowUp" Type="Int32" />
                     <asp:Parameter Name="empid" Type="Int32" />
                 </UpdateParameters>

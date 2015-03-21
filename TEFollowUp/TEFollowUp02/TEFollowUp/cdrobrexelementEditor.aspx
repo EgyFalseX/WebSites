@@ -98,7 +98,7 @@ s.cpShowPopup = undefined;
                         </ClearFilterButton>
                     </dx:GridViewCommandColumn>
                     <dx:GridViewDataTextColumn Caption="المعيار" FieldName="robrexe" 
-                        VisibleIndex="2" Width="150px">
+                        VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataComboBoxColumn Caption="بند التقييم" FieldName="elementtakeemid" VisibleIndex="1">
                         <PropertiesComboBox DataSourceID="DSelementtakeemid" DropDownStyle="DropDown" EnableCallbackMode="True" IncrementalFilteringMode="StartsWith" TextField="elementwaytakeem" ValueField="elementtakeemid">

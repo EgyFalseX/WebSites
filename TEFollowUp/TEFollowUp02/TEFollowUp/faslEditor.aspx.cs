@@ -18,6 +18,8 @@ public partial class UserEditor : System.Web.UI.Page
 
         if (!TheSessionsTEFollowUp.IsAdmin)
             Response.Redirect("AccessDenied.aspx");
+        if (TheSessionsTEFollowUp.guest)
+            GVEditor.Columns[0].Visible = false;
     }
 
     protected void CBExporter_ButtonClick(object source, DevExpress.Web.ASPxEditors.ButtonEditClickEventArgs e)

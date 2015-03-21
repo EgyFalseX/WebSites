@@ -52,7 +52,7 @@
                 SummaryText="الملخص" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" 
                 CssPostfix="PlasticBlue" EnableTheming="True" 
                 onrowdeleted="GVEditor_RowDeleted" onrowupdated="GVEditor_RowUpdated" 
-                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True">
+                onrowinserted="GVEditor_RowInserted" Font-Bold="True" Theme="SoftOrange" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" KeyboardSupport="True" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                 <ClientSideEvents EndCallback="function(s, e) {
 	
 	  if(typeof(s.cpShowPopup) != 'undefined')
@@ -193,7 +193,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="اهداف اللقاء">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditorTblahdaf0" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetinghadf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadfid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
+                                            <dx:ASPxGridView ID="GVEditorTblahdaf0" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetinghadf" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="hadfid" OnBeforePerformDataSelect="GVEditor_BeforePerformDataSelect" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -290,7 +290,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="التوصيات">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingtawseat" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="tawseaid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
+                                            <dx:ASPxGridView ID="GVEditorTblahdaf" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingtawseat" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="tawseaid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -387,7 +387,7 @@ s.cpShowPopup = undefined;
                                 <dx:TabPage Text="المشاركون">
                                     <ContentCollection>
                                         <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
-                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingemp" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px">
+                                            <dx:ASPxGridView ID="GVEditortbllessonmoshrek" runat="server" AutoGenerateColumns="False" Caption="البيــــــــــا نـــــــــــــــات" CssFilePath="../App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" DataSourceID="DStblmeetingemp" EnableCallbackAnimation="True" EnablePagingCallbackAnimation="True" EnableTheming="True" Font-Bold="True" KeyboardSupport="True" KeyFieldName="moshrekid" OnRowDeleted="GVEditor_RowDeleted" OnRowInserted="GVEditor_RowInserted" OnRowUpdated="GVEditor_RowUpdated" RightToLeft="True" SummaryText="الملخص" Theme="SoftOrange" Width="600px" OnCommandButtonInitialize="GVEditor_CommandButtonInitialize">
                                                 <ClientSideEvents BeginCallback="function(s, e) {
 s.cpShowPopup = undefined;
 }" EndCallback="function(s, e) {
@@ -492,8 +492,10 @@ s.cpShowPopup = undefined;
                 DataFile="Data/TEFollow-up.mdb" 
                 DeleteCommand="DELETE FROM [tblmeetingtrain] WHERE [meetingtrainid] = ?" 
                 InsertCommand="INSERT INTO [tblmeetingtrain] ([trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein]) VALUES (?, ?, ?, ?, ?, Date())" 
-                SelectCommand="SELECT [meetingtrainid], [trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein] FROM [tblmeetingtrain] WHERE ([userin] = ?)
- OR (SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true" 
+                SelectCommand="SELECT [meetingtrainid], [trainingid], [moshrefid], [datetrain], [trainplace], [userin], [datein] FROM [tblmeetingtrain] WHERE 
+((SELECT IsAdmin FROM FollowupUsers WHERE UserID = ?) = true)
+OR (moshrefid = ?)
+OR ([userin] = ?)" 
                 UpdateCommand="UPDATE [tblmeetingtrain] SET [trainingid] = ?, [moshrefid] = ?, [datetrain] = ?, [trainplace] = ?, [userin] = ?, [datein] = Date() WHERE [meetingtrainid] = ?">
                 <DeleteParameters>
                     <asp:Parameter Name="meetingtrainid" Type="Int32" />
@@ -507,6 +509,7 @@ s.cpShowPopup = undefined;
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" Type="Int32" />
+                    <asp:SessionParameter Name="?" SessionField="empidTEFollowUp" />
                     <asp:SessionParameter Name="?" SessionField="UserIDTEFollowUp" />
                 </SelectParameters>
                 <UpdateParameters>
