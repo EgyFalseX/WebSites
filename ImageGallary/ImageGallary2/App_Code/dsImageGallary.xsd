@@ -2,7 +2,7 @@
 <xs:schema id="dsImageGallary" targetNamespace="http://tempuri.org/dsMain.xsd" xmlns:mstns="http://tempuri.org/dsMain.xsd" xmlns="http://tempuri.org/dsMain.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="retdataloginConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="retdataloginConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.retdataloginConnectionString.ConnectionString" Provider="System.Data.OleDb" />
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="GallaryDataConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GallaryDataConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.GallaryDataConnectionString.ConnectionString" Provider="System.Data.OleDb" />
@@ -155,7 +155,7 @@ WHERE        (VideoLinks = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GallaryDataConnectionString (Web.config)" DbObjectName="VideoLinks" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetVCount" Modifier="Public" Name="GetVCount" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetVCount">
+              <DbSource ConnectionRef="GallaryDataConnectionString (Web.config)" DbObjectName="VideoLinks" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="GetVCount" Modifier="Public" Name="GetVCount" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetVCount">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOP 1 vcount FROM VideoLinks WHERE (VideoLinks = ?)</CommandText>
@@ -165,7 +165,7 @@ WHERE        (VideoLinks = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="GallaryDataConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateVCount" Modifier="Public" Name="UpdateVCount" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateVCount">
+              <DbSource ConnectionRef="GallaryDataConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateVCount" Modifier="Public" Name="UpdateVCount" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateVCount">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       VideoLinks
@@ -180,14 +180,26 @@ WHERE        (VideoLinks = ?)</CommandText>
             </Sources>
           </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="GallaryDataConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateOptionMainVideo" MethodsParameterType="CLR" Modifier="Public" Name="UpdateOptionMainVideo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateOptionMainVideo">
+            <UpdateCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>UPDATE       Options
+SET                MainVideoLink = ?</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="MainVideoLink" DataSourceName="Options" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="MainVideoLink" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="MainVideoLink" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </UpdateCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="dsImageGallary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsImageGallary" msprop:Generator_UserDSName="dsImageGallary">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="UserInfo" msprop:Generator_TableClassName="UserInfoDataTable" msprop:Generator_TableVarName="tableUserInfo" msprop:Generator_RowChangedName="UserInfoRowChanged" msprop:Generator_TablePropName="UserInfo" msprop:Generator_RowDeletingName="UserInfoRowDeleting" msprop:Generator_RowChangingName="UserInfoRowChanging" msprop:Generator_RowEvHandlerName="UserInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="UserInfoRowDeleted" msprop:Generator_RowClassName="UserInfoRow" msprop:Generator_UserTableName="UserInfo" msprop:Generator_RowEvArgName="UserInfoRowChangeEvent">
+        <xs:element name="UserInfo" msprop:Generator_TableClassName="UserInfoDataTable" msprop:Generator_TableVarName="tableUserInfo" msprop:Generator_TablePropName="UserInfo" msprop:Generator_RowDeletingName="UserInfoRowDeleting" msprop:Generator_RowChangingName="UserInfoRowChanging" msprop:Generator_RowEvHandlerName="UserInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="UserInfoRowDeleted" msprop:Generator_UserTableName="UserInfo" msprop:Generator_RowChangedName="UserInfoRowChanged" msprop:Generator_RowEvArgName="UserInfoRowChangeEvent" msprop:Generator_RowClassName="UserInfoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -209,7 +221,7 @@ WHERE        (VideoLinks = ?)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VideoLinks" msprop:Generator_TableClassName="VideoLinksDataTable" msprop:Generator_TableVarName="tableVideoLinks" msprop:Generator_RowChangedName="VideoLinksRowChanged" msprop:Generator_TablePropName="VideoLinks" msprop:Generator_RowDeletingName="VideoLinksRowDeleting" msprop:Generator_RowChangingName="VideoLinksRowChanging" msprop:Generator_RowEvHandlerName="VideoLinksRowChangeEventHandler" msprop:Generator_RowDeletedName="VideoLinksRowDeleted" msprop:Generator_RowClassName="VideoLinksRow" msprop:Generator_UserTableName="VideoLinks" msprop:Generator_RowEvArgName="VideoLinksRowChangeEvent">
+        <xs:element name="VideoLinks" msprop:Generator_TableClassName="VideoLinksDataTable" msprop:Generator_TableVarName="tableVideoLinks" msprop:Generator_TablePropName="VideoLinks" msprop:Generator_RowDeletingName="VideoLinksRowDeleting" msprop:Generator_RowChangingName="VideoLinksRowChanging" msprop:Generator_RowEvHandlerName="VideoLinksRowChangeEventHandler" msprop:Generator_RowDeletedName="VideoLinksRowDeleted" msprop:Generator_UserTableName="VideoLinks" msprop:Generator_RowChangedName="VideoLinksRowChanged" msprop:Generator_RowEvArgName="VideoLinksRowChangeEvent" msprop:Generator_RowClassName="VideoLinksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
