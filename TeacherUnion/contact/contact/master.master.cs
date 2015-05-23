@@ -13,11 +13,11 @@ public partial class master : System.Web.UI.MasterPage
     }
     protected void BackToMain_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Zamala/Default.aspx");
+        Response.Redirect("~/contact/Default.aspx");
     }
     protected void BtnLogout_Click(object sender, EventArgs e)
     {
         TheSessionscontact.UserID = null;
-        Response.Redirect("~/Zamala/Login.aspx");
+        Response.Redirect("~/contact/Login.aspx");
     }
 }

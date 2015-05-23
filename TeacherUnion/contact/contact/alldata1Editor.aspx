@@ -199,7 +199,8 @@ s.cpShowPopup = undefined;
                 FileName="ContactUSFX" GridViewID="GVEditor" PaperKind="A4">
             </dx:ASPxGridViewExporter>
             <asp:AccessDataSource ID="DSData" runat="server" DataFile="~/App_Data/contact.mdb" 
-                DeleteCommand="DELETE FROM [alldata] WHERE [id] = ?" InsertCommand="INSERT INTO [alldata] ( [sname], [jobid], [smobile], [mail], [stype], [syndicateId]) VALUES ( ?, ?, ?, ?, 1, ?)" SelectCommand="SELECT [id], [sname], [jobid], [smobile], [mail], [stype], [syndicateId] FROM [alldata] WHERE ([syndicateId] = ?)" 
+                DeleteCommand="DELETE FROM [alldata] WHERE [id] = ?" InsertCommand="INSERT INTO [alldata] ( [sname], [jobid], [smobile], [mail], [stype], [syndicateId]) VALUES ( ?, ?, ?, ?, 1, ?)" SelectCommand="SELECT [id], [sname], [jobid], [smobile], [mail], [stype], [syndicateId] FROM [alldata] WHERE ([syndicateId] = ?)
+And stype = 1" 
                 UpdateCommand="UPDATE [alldata] SET [sname] = ?, [jobid] = ?, [smobile] = ?, [mail] = ? WHERE [id] = ?" OnInserting="DSData_Inserting">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />

@@ -20,7 +20,9 @@
                 <HeaderImage Url="images/userGroup.png">
                 </HeaderImage>
                 <Items>
-                    <dx:NavBarItem NavigateUrl="alldata1Editor.aspx" Text="بيانات الاعضاء">
+                    <dx:NavBarItem NavigateUrl="alldata1Editor.aspx" Text="بيانات مجالس الفرعيات">
+                    </dx:NavBarItem>
+                    <dx:NavBarItem NavigateUrl="alldata3Editor.aspx" Text="بيانات مسؤلي الاتصال">
                     </dx:NavBarItem>
                 </Items>
             </dx:NavBarGroup>
