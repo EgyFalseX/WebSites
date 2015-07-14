@@ -60,26 +60,28 @@ s.cpShowPopup = undefined;
                 </TotalSummary>
                 <Columns>
                     <dx:GridViewDataTextColumn Caption="كود" FieldName="memberid" 
-                        VisibleIndex="0">
+                        VisibleIndex="1">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn Caption="تاريخ الحافظة" FieldName="datehafza" VisibleIndex="1">
+                    <dx:GridViewDataDateColumn Caption="تاريخ الحافظة" FieldName="datehafza" VisibleIndex="2">
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataTextColumn Caption="الاسم" FieldName="memname" 
-                        VisibleIndex="2">
+                        VisibleIndex="3">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="رقم الصرف" FieldName="sarf" VisibleIndex="3">
+                    <dx:GridViewDataTextColumn Caption="رقم الصرف" FieldName="sarf" VisibleIndex="4">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="كارت الفيزا" FieldName="visacard" VisibleIndex="4">
+                    <dx:GridViewDataTextColumn Caption="كارت الفيزا" FieldName="visacard" VisibleIndex="5">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="حافظة" FieldName="hafza" VisibleIndex="5">
+                    <dx:GridViewDataTextColumn Caption="حافظة" FieldName="hafza" VisibleIndex="6">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn Caption="تاريخ" FieldName="hafzadate" VisibleIndex="6">
+                    <dx:GridViewDataDateColumn Caption="تاريخ" FieldName="hafzadate" VisibleIndex="7">
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataTextColumn Caption="رقم قومي" FieldName="mnid" VisibleIndex="7">
+                    <dx:GridViewDataTextColumn Caption="رقم قومي" FieldName="mnid" VisibleIndex="8">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="الفرعية" FieldName="Syndicate" VisibleIndex="8">
+                    <dx:GridViewDataTextColumn Caption="الفرعية" FieldName="Syndicate" VisibleIndex="9">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="اللجنة" FieldName="SubCommitte" VisibleIndex="9">
+                    <dx:GridViewDataTextColumn Caption="اللجنة" FieldName="SubCommitte" VisibleIndex="10">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="مسلسل" FieldName="numm" VisibleIndex="0">
                     </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
@@ -142,7 +144,7 @@ s.cpShowPopup = undefined;
                DataFile="../../App_Data/visacard.mdb"
                 DeleteCommand="DELETE FROM [tblwarasa] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL))" 
                 InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId) WHERE (visa.SyndicateId = ?)" 
+                SelectCommand="SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte, visa.numm FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId) WHERE (visa.SyndicateId = ?)" 
                 UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ? WHERE ([memberid] = ?)" 
                 OnSelecting="DSData_Selecting">
                 <DeleteParameters>
