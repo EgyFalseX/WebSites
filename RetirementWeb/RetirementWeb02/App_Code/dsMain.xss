@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:cdSubCommitte" ZOrder="3" X="90" Y="115" Height="134" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:cdSyndicate" ZOrder="2" X="404" Y="138" Height="115" Width="214" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:UserInfo" ZOrder="1" X="229" Y="295" Height="267" Width="285" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:UserInfo" ZOrder="1" X="229" Y="295" Height="286" Width="285" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

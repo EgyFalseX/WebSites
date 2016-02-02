@@ -6,6 +6,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
+using System.Data.OleDb;
 
 /// <summary>
 /// Summary description for MC
@@ -179,6 +180,21 @@ public class mcRetirementWeb
                 //row[1] = "اختار";
                 if (EnableAddEmptyRow)
                     ReturnMe.Rows.InsertAt(row, 0);
+            }
+            catch (SqlException ex) { }
+        }
+
+        return ReturnMe;
+    }//Load Table From Database
+    public static DataTable LoadDataTable(string CommandString, string connectionstring)
+    {
+        DataTable ReturnMe = new DataTable("FX2011-05");
+        using (OleDbDataAdapter DA = new OleDbDataAdapter(CommandString, connectionstring))
+        {
+            try
+            {
+                DA.Fill(ReturnMe);
+                DataRow row = ReturnMe.NewRow();
             }
             catch (SqlException ex) { }
         }

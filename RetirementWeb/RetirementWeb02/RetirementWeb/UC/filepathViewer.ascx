@@ -161,7 +161,8 @@ s.cpShowPopup = undefined;
             <%--DataFile="../../App_Data/7.mdb"--%> 
             <asp:AccessDataSource ID="DSData" runat="server" 
                DataFile="../../App_Data/retdatalogin.mdb" 
-                SelectCommand="SELECT [fileid], [SyndicateId], [filename], [fllepath], [filedate] FROM [filepath] WHERE ([SyndicateId] = ?)" 
+                SelectCommand="SELECT [fileid], [SyndicateId], [filename], [fllepath], [filedate] FROM [filepath] WHERE ([SyndicateId] = ?)
+ORDER BY [filedate] DESC" 
                 OnSelecting="DSData_Selecting">
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="SyndicateId" 

@@ -47,6 +47,7 @@ public partial class visaViewer : System.Web.UI.UserControl
             GVEditor.JSProperties["cpShowPopup"] = e.Exception.Message;
         else
             GVEditor.JSProperties["cpShowPopup"] = "تم الاضـــافه ...";
+        
     }
     protected void GVEditor_RowUpdated(object sender, DevExpress.Web.Data.ASPxDataUpdatedEventArgs e)
     {
