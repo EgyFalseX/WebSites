@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="friendsMasterPage.master.cs" Inherits="Client_friendsMasterPage" %>
+
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+           <table align="center">
+            <tr>
+                <td>
+    
+                    <asp:Image ID="syndicateImage" runat="server" Height="200px" ImageUrl="~/contactsite/Images/Arrows-meeting-icon.png" Width="200px" />
+                </td>
+                <td>
+                    <asp:Image ID="leganImage" runat="server" Height="200px" ImageUrl="~/contactsite/Images/Arrows-icon.png" Width="200px" />
+    
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+    
+        <dx:ASPxButton ID="articlesASPxButton" runat="server" OnClick="syndicateASPxButton_Click" Text="المقالات" Theme="iOS" Width="200px" Enabled="False">
+        </dx:ASPxButton>
+                </td>
+                <td>
+        <dx:ASPxButton ID="personalDataASPxButton" runat="server" OnClick="leganASPxButton_Click" Text="البيانات الشخصية" Theme="iOS" Width="200px">
+        </dx:ASPxButton>
+    
+                </td>
+                <td>
+    
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+    
+                    &nbsp;</td>
+                <td>
+    
+                    &nbsp;</td>
+                <td>
+    
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

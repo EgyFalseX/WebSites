@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+
+
+public partial class CPSilderDetailsUserControl : System.Web.UI.UserControl
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            
+
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+                SliderClass s = new SliderClass();
+                s.ID = Convert.ToInt32(Request.QueryString["ID"]);
+
+                s.Contain = Server.MapPath("~\\UploadFiles\\Slider\\Details\\" + s.ID.ToString());
+                msgLabel.Text = s.UpdateDetails();
+                File.WriteAllText(s.Contain, ASPxHtmlEditor1.Html);
+           
+        }
+    }

@@ -71,6 +71,8 @@ s.cpShowPopup = undefined;
                     </dx:GridViewDataDateColumn>
                     <dx:GridViewDataTextColumn Caption="كود الفيزا" FieldName="memberid" VisibleIndex="0">
                     </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataDateColumn Caption="تاريخ رد الامانات للبنك" FieldName="amanatrdate" VisibleIndex="5">
+                    </dx:GridViewDataDateColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -131,9 +133,9 @@ s.cpShowPopup = undefined;
             <asp:AccessDataSource ID="DSData" runat="server" 
                DataFile="../../App_Data/visacard.mdb"
                 DeleteCommand="DELETE FROM [tblwarasa] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL))" 
-                InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT memberid, dofaa, memname, amanatmony, amanatdate FROM amanat WHERE (SyndicateId = ?)" 
-                UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ? WHERE ([memberid] = ?)" 
+                InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm], amanatrdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" 
+                SelectCommand="SELECT memberid, dofaa, memname, amanatmony, amanatdate, amanatrdate FROM amanat WHERE (SyndicateId = ?)" 
+                UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ?, amanatrdate = ? WHERE ([memberid] = ?)" 
                 OnSelecting="DSData_Selecting">
                 <DeleteParameters>
                     <asp:Parameter Name="memberid" Type="Int32" />
