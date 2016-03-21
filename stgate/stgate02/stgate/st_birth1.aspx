@@ -35,7 +35,7 @@ FROM (student INNER JOIN student_t ON student.stu_code = student_t.stu_code) WHE
                             EmptyDataText="لا يوجد بيانات" EnableCallbackAnimation="True" 
                             EnablePagingCallbackAnimation="True" EnableTheming="True" 
                             LoadingPanelText="جاري التحميل&amp;hellip;" style="margin-bottom: 0px" 
-                            Theme="iOS" Width="700px" ColumnCount="2">
+                            Theme="iOS" Width="700px" ColumnCount="2" OnPageIndexChanged="ASPxDataViewMain_PageIndexChanged">
                             <ItemTemplate>
                                 <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="2" 
                                     EnableTheming="True" RightToLeft="False" Theme="iOS" Font-Bold="False" 

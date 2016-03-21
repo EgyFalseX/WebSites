@@ -66,4 +66,9 @@ public partial class studentallViewer : System.Web.UI.Page
         
     }
 
+    protected void ASPxDataViewMain_PageIndexChanged(object sender, EventArgs e)
+    {
+
+
+    }
 }

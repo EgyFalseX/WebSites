@@ -165,10 +165,11 @@ s.cpShowPopup = undefined;
             <%--DataFile="../../App_Data/7.mdb"--%> 
             <asp:AccessDataSource ID="DSData" runat="server" 
                DataFile="../../App_Data/retdatalogin.mdb" 
-                SelectCommand="SELECT [rid], [sonid], [sonname], [SyndicateId], [SubCommitteId], [sarfnumber], [remark], [membername] FROM [stopsarf] WHERE ([SyndicateId] = ?)" 
+                SelectCommand="SELECT [rid], [sonid], [sonname], [SyndicateId], [SubCommitteId], [sarfnumber], [remark], [membername] FROM [stopsarf] WHERE (SubCommitteId = ? OR ? IS NULL)" 
                 OnSelecting="DSData_Selecting">
                 <SelectParameters>
-                    <asp:SessionParameter DefaultValue="0" Name="SyndicateId" SessionField="RetirementWebSyndicateId" Type="Int32" />
+                    <asp:SessionParameter DefaultValue="0" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" Type="Int32" />
+                    <asp:SessionParameter DefaultValue="" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
                 </SelectParameters>
             </asp:AccessDataSource>
             <asp:AccessDataSource ID="DScdSubCommitte" runat="server" 

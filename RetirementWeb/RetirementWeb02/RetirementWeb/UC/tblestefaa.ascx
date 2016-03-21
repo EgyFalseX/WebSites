@@ -179,11 +179,13 @@ s.cpShowPopup = undefined;
              <%--DataFile="../../App_Data/7.mdb"--%> 
             <asp:AccessDataSource ID="DSData" runat="server" 
                DataFile="../../App_Data/estifa.mdb" 
-                SelectCommand="SELECT esid, [estefaid], [memberid], [estefadate], [membername], [syndicateid], [subcommeteid], [remarkestefa], [sreplay], [closed], [sdatein], [sarfno] FROM [tblestefaa] WHERE ([syndicateid] = ?)" 
+                SelectCommand="SELECT esid, [estefaid], [memberid], [estefadate], [membername], [syndicateid], [subcommeteid], [remarkestefa], [sreplay], [closed], [sdatein], [sarfno] FROM [tblestefaa] WHERE ([syndicateid] = ?)  AND (subcommeteid = ? OR ? IS NULL)" 
                 UpdateCommand="UPDATE tblestefaa SET sreplay = ?, sdatein = DATE() WHERE esid = ?" 
                 OnSelecting="DSData_Selecting">
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="syndicateid" SessionField="RetirementWebSyndicateId" Type="Double" />
+                    <asp:SessionParameter DefaultValue="" Name="subcommeteid" SessionField="RetirementWebSubCommitteId" />
+                    <asp:SessionParameter Name="subcommeteid" SessionField="RetirementWebSubCommitteId" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="sreplay" />

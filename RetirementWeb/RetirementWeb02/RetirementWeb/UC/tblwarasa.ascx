@@ -175,7 +175,8 @@ s.cpShowPopup = undefined;
                DataFile="../../App_Data/7.mdb"
                 DeleteCommand="DELETE FROM [tblwarasa] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL))" 
                 InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT [memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm] FROM [tblwarasa]" 
+                SelectCommand="SELECT [memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm] FROM [tblwarasa]
+WHERE (SubCommitteId = ? OR ? IS NULL)" 
                 UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ? WHERE ([memberid] = ?)" 
                 OnSelecting="DSData_Selecting">
                 <DeleteParameters>
@@ -192,6 +193,10 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="delmember" Type="Boolean" />
                     <asp:Parameter Name="remm" Type="String" />
                 </InsertParameters>
+                <SelectParameters>
+                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
+                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
+                </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="membername" Type="String" />
                     <asp:Parameter Name="sarfno" Type="Int32" />

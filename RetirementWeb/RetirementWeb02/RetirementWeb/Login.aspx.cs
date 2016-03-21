@@ -36,6 +36,10 @@ public partial class Login : Page
         dsMain.UserInfoRow user = ds.UserInfo[0];
         sessionRetirementWeb.UserID = user.id.ToString();
         sessionRetirementWeb.SyndicateId = user.SyndicateId.ToString();
+        if (user.IsSubCommitteIdNull())
+            sessionRetirementWeb.SubCommitteId = null;
+        else
+            sessionRetirementWeb.SubCommitteId = user.SubCommitteId.ToString();
         sessionRetirementWeb.IsAdmin = user.isadmin;
         sessionRetirementWeb.DatabaseName = user.dataname;
         sessionRetirementWeb.UserName = user.name;

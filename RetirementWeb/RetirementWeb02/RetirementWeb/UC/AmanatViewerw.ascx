@@ -78,6 +78,8 @@ s.cpShowPopup = undefined;
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataDateColumn Caption="تاريخ رد الامانات للبنك" FieldName="amanatrdate" VisibleIndex="5">
                     </dx:GridViewDataDateColumn>
+                    <dx:GridViewDataTextColumn Caption="اللجنة" FieldName="SubCommitte" VisibleIndex="6">
+                    </dx:GridViewDataTextColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -139,7 +141,8 @@ s.cpShowPopup = undefined;
                DataFile="../../App_Data/visacardw.mdb"
                 DeleteCommand="DELETE FROM [tblwarasa] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL))" 
                 InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm], amanatrdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT memberid, dofaa, senddate, amanatdate, amanatmony, memname, amanatrdate FROM amanatw WHERE (SyndicateId = ?)" 
+                SelectCommand="SELECT amanatw.memberid, amanatw.dofaa, amanatw.senddate, amanatw.amanatdate, amanatw.amanatmony, amanatw.memname, amanatw.amanatrdate, amanatw.SubCommitteId, cdSubCommitte.SubCommitte FROM (amanatw INNER JOIN cdSubCommitte ON amanatw.SubCommitteId = cdSubCommitte.SubCommitteId) 
+WHERE (amanatw.SyndicateId = ?) AND (amanatw.SubCommitteId = ? OR ? IS NULL)" 
                 UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ?, amanatrdate = ? WHERE ([memberid] = ?)" 
                 OnSelecting="DSData_Selecting">
                 <DeleteParameters>
@@ -157,7 +160,9 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="remm" Type="String" />
                 </InsertParameters>
                 <SelectParameters>
-                    <asp:SessionParameter DefaultValue="0" Name="?" SessionField="RetirementWebSyndicateId" />
+                    <asp:SessionParameter DefaultValue="0" Name="SyndicateId" SessionField="RetirementWebSyndicateId" />
+                    <asp:SessionParameter DefaultValue="" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
+                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="membername" Type="String" />
