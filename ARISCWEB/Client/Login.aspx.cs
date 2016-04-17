@@ -10,6 +10,12 @@ using System.Web.UI.WebControls;
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Session["UserName"] == null) || (Session["Password"] == null))
+                Response.Redirect("../Admin/Login.aspx?RedirectURL=" + Server.UrlEncode(Request.Url.ToString()).ToString());
 
+            if ((bool)Session["IsAdmin"] != true)
+            {
+                Response.Redirect("../Default.aspx");
+            }
         }
     }

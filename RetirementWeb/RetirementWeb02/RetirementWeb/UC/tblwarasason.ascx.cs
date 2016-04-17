@@ -67,6 +67,18 @@ public partial class tblwarasason : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT tblwarasason.memberid, tblwarasason.sonid, tblwarasason.sontype, tblwarasason.sonname, tblwarasason.sonnid, tblwarasason.mosalsal, tblwarasason.useredit, tblwarasason.dateedit, tblwarasason.delson, tblwarasason.remm, tblwarasa.membername, cdSubCommitte.SubCommitte, tblwarasa.sarfno FROM ((tblwarasa LEFT OUTER JOIN cdSubCommitte ON tblwarasa.SubCommitteId = cdSubCommitte.SubCommitteId) RIGHT OUTER JOIN tblwarasason ON tblwarasa.memberid = tblwarasason.memberid) 
+WHERE tblwarasa.SyndicateId = {0} AND tblwarasa.SubCommitteId = {1}
+order by  tblwarasa.sarfno", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT tblwarasason.memberid, tblwarasason.sonid, tblwarasason.sontype, tblwarasason.sonname, tblwarasason.sonnid, tblwarasason.mosalsal, tblwarasason.useredit, tblwarasason.dateedit, tblwarasason.delson, tblwarasason.remm, tblwarasa.membername, cdSubCommitte.SubCommitte, tblwarasa.sarfno FROM ((tblwarasa LEFT OUTER JOIN cdSubCommitte ON tblwarasa.SubCommitteId = cdSubCommitte.SubCommitteId) RIGHT OUTER JOIN tblwarasason ON tblwarasa.memberid = tblwarasason.memberid) 
+WHERE tblwarasa.SyndicateId = {0}         
+order by  tblwarasa.sarfno", sessionRetirementWeb.SyndicateId);
+        }
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

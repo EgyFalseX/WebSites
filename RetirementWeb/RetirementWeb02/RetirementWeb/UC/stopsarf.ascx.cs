@@ -66,6 +66,15 @@ public partial class stopsarf : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT [rid], [sonid], [sonname], [SyndicateId], [SubCommitteId], [sarfnumber], [remark], [membername] FROM [stopsarf] 
+WHERE SyndicateId = {0} SubCommitteId = {1}", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT [rid], [sonid], [sonname], [SyndicateId], [SubCommitteId], [sarfnumber], [remark], [membername] FROM [stopsarf] WHERE SyndicateId = {0}", sessionRetirementWeb.SyndicateId);
+        }
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

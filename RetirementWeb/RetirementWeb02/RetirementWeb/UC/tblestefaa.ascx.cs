@@ -66,6 +66,16 @@ public partial class tblestefaa : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT esid, [estefaid], [memberid], [estefadate], [membername], [syndicateid], [subcommeteid], [remarkestefa], [sreplay], [closed], [sdatein], [sarfno] FROM [tblestefaa] 
+WHERE ([syndicateid] = {0})  AND (subcommeteid = {1})",sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT esid, [estefaid], [memberid], [estefadate], [membername], [syndicateid], [subcommeteid], [remarkestefa], [sreplay], [closed], [sdatein], [sarfno] FROM [tblestefaa]
+WHERE ([syndicateid] = {0})", sessionRetirementWeb.SyndicateId);
+        }
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

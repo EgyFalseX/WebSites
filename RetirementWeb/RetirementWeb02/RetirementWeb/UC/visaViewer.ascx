@@ -146,7 +146,7 @@ s.cpShowPopup = undefined;
                DataFile="../../App_Data/visacard.mdb"
                 DeleteCommand="DELETE FROM [tblwarasa] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL))" 
                 InsertCommand="INSERT INTO [tblwarasa] ([memberid], [membername], [sarfno], [SyndicateId], [SubCommitteId], [useredit], [dateedit], [delmember], [remm]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte, visa.numm, visa.activited FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId) WHERE (visa.SyndicateId = ?)  AND (visa.SubCommitteId = ? OR ? IS NULL)" 
+                SelectCommand="SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte, visa.numm, visa.activited FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId)" 
                 UpdateCommand="UPDATE [tblwarasa] SET [membername] = ?, [sarfno] = ?, [SyndicateId] = ?, [SubCommitteId] = ?, [useredit] = ?, [dateedit] = DATE(), [delmember] = ?, [remm] = ? WHERE ([memberid] = ?)" 
                 OnSelecting="DSData_Selecting">
                 <DeleteParameters>
@@ -163,11 +163,6 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="delmember" Type="Boolean" />
                     <asp:Parameter Name="remm" Type="String" />
                 </InsertParameters>
-                <SelectParameters>
-                    <asp:SessionParameter DefaultValue="0" Name="?" SessionField="RetirementWebSyndicateId" />
-                    <asp:SessionParameter DefaultValue="" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
-                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
-                </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="membername" Type="String" />
                     <asp:Parameter Name="sarfno" Type="Int32" />

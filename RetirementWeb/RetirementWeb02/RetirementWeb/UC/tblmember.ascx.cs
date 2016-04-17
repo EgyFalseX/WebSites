@@ -66,6 +66,16 @@ public partial class tblmember : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT [memberid], [membername], [sarfno], [mosalsal], [SyndicateId], [SubCommitteId], [mnid], [mobil], [useredit], [dateedit], [delmember], [remm] FROM [tblmember]
+WHERE SyndicateId = {0} AND SubCommitteId = {1}", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT [memberid], [membername], [sarfno], [mosalsal], [SyndicateId], [SubCommitteId], [mnid], [mobil], [useredit], [dateedit], [delmember], [remm] 
+FROM [tblmember] WHERE SyndicateId = {0}", sessionRetirementWeb.SyndicateId);
+        }
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

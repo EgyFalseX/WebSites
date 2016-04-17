@@ -184,7 +184,6 @@ s.cpShowPopup = undefined;
                 DeleteCommand="DELETE FROM [tblwarasason] WHERE (([memberid] = ?) OR ([memberid] IS NULL AND ? IS NULL)) AND (([sonid] = ?) OR ([sonid] IS NULL AND ? IS NULL))" 
                 InsertCommand="INSERT INTO [tblwarasason] ([memberid], [sonid], [sontype], [sonname], [sonnid], [mosalsal], [useredit], [dateedit], [delson], [remm]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" 
                 SelectCommand="SELECT tblwarasason.memberid, tblwarasason.sonid, tblwarasason.sontype, tblwarasason.sonname, tblwarasason.sonnid, tblwarasason.mosalsal, tblwarasason.useredit, tblwarasason.dateedit, tblwarasason.delson, tblwarasason.remm, tblwarasa.membername, cdSubCommitte.SubCommitte, tblwarasa.sarfno FROM ((tblwarasa LEFT OUTER JOIN cdSubCommitte ON tblwarasa.SubCommitteId = cdSubCommitte.SubCommitteId) RIGHT OUTER JOIN tblwarasason ON tblwarasa.memberid = tblwarasason.memberid) 
-WHERE (tblwarasa.SubCommitteId = ? OR ? IS NULL)
 order by  tblwarasa.sarfno
 " 
                 UpdateCommand="UPDATE [tblwarasason] SET [sontype] = ?, [sonname] = ?, [sonnid] = ?, [mosalsal] = ?, [useredit] = ?,  [delson] = ?, [remm] = ? WHERE 
@@ -206,10 +205,6 @@ order by  tblwarasa.sarfno
                     <asp:Parameter Name="delson" Type="Boolean" />
                     <asp:Parameter Name="remm" Type="String" />
                 </InsertParameters>
-                <SelectParameters>
-                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
-                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
-                </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="sontype" Type="Byte" />
                     <asp:Parameter Name="sonname" Type="String" />

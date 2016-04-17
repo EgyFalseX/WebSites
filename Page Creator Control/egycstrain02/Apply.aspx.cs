@@ -19,23 +19,23 @@ public partial class Apply : System.Web.UI.Page
         txtregestermobile.Value = string.Empty;
         txtregestermobile.Value = string.Empty;
         cbregestergov.Value = string.Empty;
-        txtregesteraddress.Value = string.Empty;
+        //txtregesteraddress.Value = string.Empty;
         cbcourseid.Value = string.Empty;
-        txtregestermsg.Value = string.Empty;
+        //txtregestermsg.Value = string.Empty;
     }
     protected void btnApply_Click(object sender, EventArgs e)
     {
         OleDbConnection con = new OleDbConnection(constr);
-        OleDbCommand cmd = new OleDbCommand("INSERT INTO tblregester(regestername, regesterbdate, regestermobile, regestermail, regestergov, regesteraddress, courseid, regestermsg, datein) VALUES (?,?,?,?,?,?,?,?,Date())", con);
+        OleDbCommand cmd = new OleDbCommand("INSERT INTO tblregester(regestername, regesterbdate, regestermobile, regestermail, regestergov, courseid, datein) VALUES (?,?,?,?,?,?,Date())", con);
         OleDbParameter pramregestername = new OleDbParameter("regestername", OleDbType.VarWChar);
         OleDbParameter pramregesterbdate = new OleDbParameter("regesterbdate", OleDbType.Date);
         OleDbParameter pramregestermobile = new OleDbParameter("regestermobile", OleDbType.VarWChar);
         OleDbParameter pramregestermail = new OleDbParameter("regestermail", OleDbType.VarWChar);
         OleDbParameter pramregestergov = new OleDbParameter("regestergov", OleDbType.Integer);
-        OleDbParameter pramregesteraddress = new OleDbParameter("regesteraddress", OleDbType.VarWChar);
+        //OleDbParameter pramregesteraddress = new OleDbParameter("regesteraddress", OleDbType.VarWChar);
         OleDbParameter pramrcourseid = new OleDbParameter("courseid", OleDbType.Integer);
-        OleDbParameter pramregestermsg = new OleDbParameter("regestermsg", OleDbType.VarWChar);
-        cmd.Parameters.AddRange(new OleDbParameter[] { pramregestername, pramregesterbdate, pramregestermobile, pramregestermail, pramregestergov, pramregesteraddress, pramrcourseid, pramregestermsg });
+        //OleDbParameter pramregestermsg = new OleDbParameter("regestermsg", OleDbType.VarWChar);
+        cmd.Parameters.AddRange(new OleDbParameter[] { pramregestername, pramregesterbdate, pramregestermobile, pramregestermail, pramregestergov, pramrcourseid });
         try
         {
             pramregestername.Value = txtregestername.Value;
@@ -43,9 +43,9 @@ public partial class Apply : System.Web.UI.Page
             pramregestermobile.Value = txtregestermobile.Value;
             pramregestermail.Value = txtregestermobile.Value;
             pramregestergov.Value = cbregestergov.Value;
-            pramregesteraddress.Value = txtregesteraddress.Value;
+            //pramregesteraddress.Value = txtregesteraddress.Value;
             pramrcourseid.Value = cbcourseid.Value;
-            pramregestermsg.Value = txtregestermsg.Value;
+            //pramregestermsg.Value = txtregestermsg.Value;
             
             con.Open(); cmd.ExecuteNonQuery(); con.Close();
 

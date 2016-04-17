@@ -66,6 +66,16 @@ public partial class visaViewer : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte, visa.numm, visa.activited FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId) 
+WHERE (visa.SyndicateId = {0}) AND (visa.SubCommitteId = {1})", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT visa.memberid, visa.datehafza, visa.memname, visa.sarf, visa.visacard, visa.hafza, visa.hafzadate, visa.mnid, cdSyndicate.Syndicate, cdSubCommitte.SubCommitte, visa.numm, visa.activited FROM ((visa INNER JOIN cdSyndicate ON visa.SyndicateId = cdSyndicate.SyndicateId) INNER JOIN cdSubCommitte ON visa.SubCommitteId = cdSubCommitte.SubCommitteId) 
+WHERE (visa.SyndicateId = {0})", sessionRetirementWeb.SyndicateId);
+        }
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

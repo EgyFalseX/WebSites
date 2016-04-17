@@ -68,7 +68,7 @@ s.cpShowPopup = undefined;
                         </ClearFilterButton>
                     </dx:GridViewCommandColumn>
                     <dx:GridViewDataImageColumn Caption="الرابط" FieldName="link" 
-                        VisibleIndex="10">
+                        VisibleIndex="9">
                         <PropertiesImage ImageHeight="32px" ImageUrlFormatString="Assets/DownloadCenterImages/{0}" 
                             ImageWidth="32px">
                         </PropertiesImage>
@@ -140,10 +140,14 @@ s.cpShowPopup = undefined;
                     <dx:GridViewDataMemoColumn Caption="رقم الوصل" FieldName="Description" VisibleIndex="6">
                         <EditFormSettings ColumnSpan="2" RowSpan="2" />
                     </dx:GridViewDataMemoColumn>
-                    <dx:GridViewDataHyperLinkColumn Caption="التفاصيل" FieldName="id_prog" VisibleIndex="8">
+                    <dx:GridViewDataHyperLinkColumn Caption="التفاصيل" FieldName="id_prog" VisibleIndex="7">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="DetailViewer.aspx?id={0}" TextFormatString="التفاصيل">
                         </PropertiesHyperLinkEdit>
                         <EditFormSettings Visible="False" />
+                    </dx:GridViewDataHyperLinkColumn>
+                    <dx:GridViewDataHyperLinkColumn Caption="رابط خارجي" FieldName="ExternalLink" VisibleIndex="11">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="http://{0}" Target="_blank" TextField="ExternalLink">
+                        </PropertiesHyperLinkEdit>
                     </dx:GridViewDataHyperLinkColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
@@ -209,7 +213,7 @@ s.cpShowPopup = undefined;
                 DataFile="~/App_Data/egycsfolow.mdb" 
                 DeleteCommand="DELETE FROM [center] WHERE [id_prog] = ?" 
                 InsertCommand="INSERT INTO [center] ( [code_al_fasl], [alsofof_code], [id_type_prog], [name_prog], [date_up], [Description], [link]) VALUES (?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link FROM center " 
+                SelectCommand="SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, ExternalLink, link FROM center" 
                 UpdateCommand="UPDATE [center] SET [code_al_fasl] = ?, [alsofof_code] = ?, [id_type_prog] = ?, [name_prog] = ?, [date_up] = ?, [Description] = ?, [link] = ? WHERE [id_prog] = ?" 
                 OnSelecting="DSData_Selecting" oninserting="DSData_Inserting" 
                 onupdating="DSData_Updating">

@@ -89,18 +89,6 @@
                 </LayoutItemNestedControlCollection>
                 <CaptionSettings Location="Top" />
             </dx:LayoutItem>
-            <dx:LayoutItem Caption="العنوان">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                        <dx:ASPxTextBox ID="txtregesteraddress" runat="server" Font-Size="Medium" TabIndex="5" Theme="SoftOrange" Width="300px">
-                            <ValidationSettings ValidationGroup="vg">
-                                <RequiredField ErrorText="يجب ادخال العنوان" IsRequired="True" />
-                            </ValidationSettings>
-                        </dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-                <CaptionSettings Location="Top" />
-            </dx:LayoutItem>
             <dx:LayoutItem Caption="الدورة التدريبية">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
@@ -113,18 +101,6 @@
                             </ValidationSettings>
                         </dx:ASPxComboBox>
                         <asp:AccessDataSource ID="dsCourse" runat="server" DataFile="Data/FlexibleData.mdb" SelectCommand="SELECT [courseid], [coursename] FROM [cdcourse]"></asp:AccessDataSource>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-                <CaptionSettings Location="Top" />
-            </dx:LayoutItem>
-            <dx:LayoutItem Caption="رسالة">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server" SupportsDisabledAttribute="True">
-                        <dx:ASPxMemo ID="txtregestermsg" runat="server" Font-Size="Medium" Height="71px" TabIndex="7" Theme="SoftOrange" Width="300px">
-                            <ValidationSettings ValidationGroup="vg">
-                                <RequiredField ErrorText="يجب ادخال الرسالة" />
-                            </ValidationSettings>
-                        </dx:ASPxMemo>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
                 <CaptionSettings Location="Top" />

@@ -67,6 +67,17 @@ public partial class AmanatViewer : System.Web.UI.UserControl
     
     protected void DSData_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            e.Command.CommandText = string.Format(@"SELECT amanat.memberid, amanat.dofaa, amanat.memname, amanat.amanatmony, amanat.amanatdate, amanat.amanatrdate, amanat.SubCommitteId, cdSubCommitte.SubCommitte FROM (amanat INNER JOIN cdSubCommitte ON amanat.SubCommitteId = cdSubCommitte.SubCommitteId) 
+        WHERE (amanat.SyndicateId = {0}) AND (amanat.SubCommitteId = {1})", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+        }
+        else
+        {
+            e.Command.CommandText = string.Format(@"SELECT amanat.memberid, amanat.dofaa, amanat.memname, amanat.amanatmony, amanat.amanatdate, amanat.amanatrdate, amanat.SubCommitteId, cdSubCommitte.SubCommitte FROM (amanat INNER JOIN cdSubCommitte ON amanat.SubCommitteId = cdSubCommitte.SubCommitteId) 
+        WHERE (amanat.SyndicateId = {0})", sessionRetirementWeb.SyndicateId);
+        }
+        
     }
 
     protected void GVEditor_DataBinding(object sender, EventArgs e)

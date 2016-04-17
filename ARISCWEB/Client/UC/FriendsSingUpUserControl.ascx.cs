@@ -177,8 +177,16 @@ public partial class FriendsSingUpUserControl : System.Web.UI.UserControl
                 string pass = dt.Rows[0][1].ToString();
                 string mail = dt.Rows[0][2].ToString();
 
+                //change pic name
+                string[] paths = EventImageTextBox.Text.Split('/');
+                string newpath = "../" + EventImageTextBox.Text.Substring(0, EventImageTextBox.Text.LastIndexOf("/")) + "/" + fID + ".jpg";
+                File.Move(MapPath("../" + EventImageTextBox.Text), MapPath(newpath));
+                
+
                 friendsSqlDataSource.UpdateCommand = "update TBLFriends set username='" + user + "' where FriendID=" + fID.ToString();
                 friendsSqlDataSource.Update();
+
+
                 //if (ResultMsg != string.Empty)
                 //{
                   
@@ -193,7 +201,13 @@ public partial class FriendsSingUpUserControl : System.Web.UI.UserControl
             }
 
         }
-
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         private static void SendMail(string username,string password,string email)
         {
             MessagesClass contactUsMsgMethod = new MessagesClass();

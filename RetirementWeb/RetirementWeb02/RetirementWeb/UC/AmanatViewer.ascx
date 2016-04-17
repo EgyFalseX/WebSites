@@ -156,8 +156,8 @@ WHERE (amanat.SyndicateId = ?) AND (amanat.SubCommitteId = ? OR ? IS NULL)"
                 </InsertParameters>
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="SyndicateId" SessionField="RetirementWebSyndicateId" />
-                    <asp:SessionParameter DefaultValue="" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
-                    <asp:SessionParameter Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
+                    <asp:SessionParameter DefaultValue="0" Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
+                    <asp:SessionParameter DefaultValue="0"  Name="SubCommitteId" SessionField="RetirementWebSubCommitteId" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="membername" Type="String" />
