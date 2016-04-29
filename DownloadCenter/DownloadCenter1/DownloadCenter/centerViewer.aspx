@@ -140,6 +140,10 @@ s.cpShowPopup = undefined;
                     <dx:GridViewDataMemoColumn Caption="الوصف" FieldName="Description" VisibleIndex="7">
                         <EditFormSettings ColumnSpan="2" RowSpan="2" />
                     </dx:GridViewDataMemoColumn>
+                                        <dx:GridViewDataHyperLinkColumn Caption="رابط خارجي" FieldName="ExternalLink" VisibleIndex="11">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="http://{0}" Target="_blank" TextField="ExternalLink">
+                        </PropertiesHyperLinkEdit>
+                    </dx:GridViewDataHyperLinkColumn>
                 </Columns>
                 <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" 
                     SortMode="DisplayText" ColumnResizeMode="Control" />
@@ -203,9 +207,9 @@ s.cpShowPopup = undefined;
             <asp:AccessDataSource ID="DSData" runat="server" 
                 DataFile="~/App_Data/Download_Center.mdb" 
                 DeleteCommand="DELETE FROM [center] WHERE [id_prog] = ?" 
-                InsertCommand="INSERT INTO [center] ( [code_al_fasl], [alsofof_code], [id_type_prog], [name_prog], [date_up], [Description], [link]) VALUES (?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link FROM center " 
-                UpdateCommand="UPDATE [center] SET [code_al_fasl] = ?, [alsofof_code] = ?, [id_type_prog] = ?, [name_prog] = ?, [date_up] = ?, [Description] = ?, [link] = ? WHERE [id_prog] = ?" 
+                InsertCommand="INSERT INTO [center] ( [code_al_fasl], [alsofof_code], [id_type_prog], [name_prog], [date_up], [Description], [link], ExternalLink) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" 
+                SelectCommand="SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link, ExternalLink FROM center" 
+                UpdateCommand="UPDATE [center] SET [code_al_fasl] = ?, [alsofof_code] = ?, [id_type_prog] = ?, [name_prog] = ?, [date_up] = ?, [Description] = ?, [link] = ?, ExternalLink = ? WHERE [id_prog] = ?" 
                 OnSelecting="DSData_Selecting" oninserting="DSData_Inserting" 
                 onupdating="DSData_Updating">
                 <DeleteParameters>
@@ -219,6 +223,7 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="date_up" Type="String" />
                     <asp:Parameter Name="Description" Type="String" />
                     <asp:Parameter Name="link" Type="String" />
+                    <asp:Parameter Name="ExternalLink" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="code_al_fasl" Type="Byte" />
@@ -228,6 +233,7 @@ s.cpShowPopup = undefined;
                     <asp:Parameter Name="date_up" Type="String" />
                     <asp:Parameter Name="Description" Type="String" />
                     <asp:Parameter Name="link" Type="String" />
+                    <asp:Parameter Name="ExternalLink" />
                     <asp:Parameter Name="id_prog" Type="Int32" />
                 </UpdateParameters>
             </asp:AccessDataSource>
