@@ -12,6 +12,10 @@ public partial class attachViewer : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         //DSData.DataFile = MapPath(@"~/App_Data/" + sessionRetirementWeb.DatabaseName);
+        if (sessionRetirementWeb.SubCommitteId != null)
+        {
+            Response.Redirect("AccessDenied.aspx");
+        }
     }
 
     protected void CBExporter_ButtonClick(object source, DevExpress.Web.ASPxEditors.ButtonEditClickEventArgs e)

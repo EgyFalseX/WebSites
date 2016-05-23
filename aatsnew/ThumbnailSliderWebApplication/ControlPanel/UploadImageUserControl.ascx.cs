@@ -64,7 +64,7 @@ using System.Drawing.Imaging;
                             Directory.CreateDirectory(Server.MapPath("~/" + pathname));
 
                         string uploadDirectory = Server.MapPath("~/" + pathname);
-                        string imgName = DateTime.Now.ToString("d.M.yyyy HH.mm.ss.").Trim() + ImageFormat.Jpeg;
+                        string imgName = DateTime.Now.ToString("d_M_yyyy_HH_mm_ss.").Trim() + ImageFormat.Jpeg;
                         ViewState["saveInDBPath"] = pathname + imgName;
                         string path = uploadDirectory + imgName;
                         uc.PostedFile.SaveAs(path);
@@ -88,12 +88,12 @@ using System.Drawing.Imaging;
         protected bool IsImageDRight(Stream imagePath)
         {
             bool isRight = true;
-            System.Drawing.Image img = System.Drawing.Image.FromStream(imagePath);
-            if (img.Width != SetImageWidth || img.Height != SetImageHeight)
-            {
-                msgUploadASPxLabel.Text = "يجب أن تكون أبعاد الصورة كالأتي: الطول: " + SetImageHeight + " العرض: " + SetImageWidth;
-                isRight= false;
-            }
+            //System.Drawing.Image img = System.Drawing.Image.FromStream(imagePath);
+            //if (img.Width != SetImageWidth || img.Height != SetImageHeight)
+            //{
+            //    msgUploadASPxLabel.Text = "يجب أن تكون أبعاد الصورة كالأتي: الطول: " + SetImageHeight + " العرض: " + SetImageWidth;
+            //    isRight= false;
+            //}
             return isRight;
            
         }

@@ -127,7 +127,10 @@ public partial class CPSliderUserControl : System.Web.UI.UserControl
             if (e.CommandName == "DeleteCommand")
             {
                 keyValue = GridView1.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "key", "Confirm();", true);
+                
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "key", "Confirm();", true);
+                SqlDataSource1.DeleteParameters[0].DefaultValue = keyValue;
+                SqlDataSource1.Delete();
                 //Response.Write("<script type='text/javascript'> var x=window.confirm('هل أنت متأكد من الحذف؟'); if(x==false){ return;}</script>");
                
                 //GridView1.SelectedRow.Cells[]

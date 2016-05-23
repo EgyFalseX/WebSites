@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="masterVideo.master.cs" Inherits="masterVideo" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>EESoft - ETST</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    </head>
+<body>
+    <form id="form1" runat="server">
+    <div style="background-image: none; background-repeat: repeat; background-position: center center">
+        <table class="style1" align="center">
+            <tr>
+                <td style="text-align: center">
+                    <asp:ImageButton ID="ImageButton1" OnClick="BackToMain_Click"  src="http://aats-online.com/ImageGallary/images/home.png" runat="server" Width="53px" Height="41px" />
+                    </td>
+            </tr>
+            <tr>
+                <td style="text-align: right">
+                    <asp:Button ID="BtnLogout" runat="server" OnClick="BtnLogout_Click" Text="خروج المستخدم"
+                        Visible="False" Width="100px" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <asp:ContentPlaceHolder id="ContentPlaceHolderMain" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

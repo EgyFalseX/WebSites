@@ -19,7 +19,7 @@
                 hidden.value = "cancel";
             }
          
-            PageMethods.CallFunction();
+            //PageMethods.CallFunction();
         }
     </script>
 
@@ -109,9 +109,9 @@
 <p>
     <asp:Label ID="msgLabel" runat="server" Font-Bold="True" ForeColor="#009933"></asp:Label>
 </p>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Rotarordata.mdb;Persist Security Info=True" DeleteCommand="DELETE FROM [RotatorData] WHERE [ID] = ?" InsertCommand="INSERT INTO RotatorData(Caption, ImageLink, viewpage, Captione) VALUES (?, ?, ?, ?)" ProviderName="System.Data.OleDb" SelectCommand="SELECT * FROM [RotatorData]" UpdateCommand="UPDATE RotatorData SET Caption = ?, ImageLink = ?, viewpage = ?, Captione = ? WHERE (ID = ?)" OnInserted="SqlDataSource1_Inserted">
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Rotarordata.mdb;Persist Security Info=True" DeleteCommand="DELETE FROM RotatorData WHERE (ID = ?)" InsertCommand="INSERT INTO RotatorData(Caption, ImageLink, viewpage, Captione) VALUES (?, ?, ?, ?)" ProviderName="System.Data.OleDb" SelectCommand="SELECT * FROM [RotatorData]" UpdateCommand="UPDATE RotatorData SET Caption = ?, ImageLink = ?, viewpage = ?, Captione = ? WHERE (ID = ?)" OnInserted="SqlDataSource1_Inserted">
     <DeleteParameters>
-        <asp:Parameter Name="id" Type="Byte" />
+        <asp:Parameter Name="ID" Type="Byte" />
     </DeleteParameters>
     <InsertParameters>
         <asp:Parameter Name="Caption" Type="String" />
@@ -175,7 +175,11 @@
                 <asp:Image ID="Image1" runat="server" Height="80px" ImageUrl='<%# "~/"+Eval("ImageLink") %>' Width="110px" />
             </ItemTemplate>
         </asp:TemplateField>
-        <asp:CommandField SelectText="التفاصيل" ShowSelectButton="True" />
+        <asp:TemplateField HeaderText="التفاصيل">
+            <ItemTemplate>
+                <asp:HyperLink ID="HyperLink1" runat="server" Text="التفاصيل"  NavigateUrl='<%# Eval("ID", "CreatePages.aspx?ID={0}") %>'></asp:HyperLink>
+            </ItemTemplate>
+        </asp:TemplateField>
                 <asp:CommandField CancelText="تراجع" EditText="تعديل" ShowEditButton="True" UpdateText="حفظ" />
 
         <asp:ButtonField CommandName="DeleteCommand" Text="حذف" />

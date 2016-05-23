@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100px;
+            border-style: solid;
+            border-width: 1px;
+        }
+        #form1
+        {
+            width: 911px;
+            height: 34px;
+            text-align: right;
+        }
+        .auto-style1 {
+            height: 32px;
+        }
+    </style>
+</head>
+<body style="width: 917px">
+    <form id="form1" runat="server" dir="rtl">
+                        <asp:HyperLink ID="HLHome0" runat="server" Height="33px" 
+                            NavigateUrl="~/aatsnew/Digitallibrary.html" Target="_top" 
+                            Width="48px" Font-Bold="True" ImageUrl="~/Digitallibrary/images/arrow.png" style="text-align: center">عودة</asp:HyperLink>
+    <table align="right" style="height: 48px; width: 47px">
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+    </table>
+        <table class="style1" align="center">
+        <tr>
+            <td style="text-align: center" align="center" class="auto-style1">
+              <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+              </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    </form>
+    
+</body>
+</html>

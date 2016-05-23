@@ -69,7 +69,7 @@ public partial class stopsarf : System.Web.UI.UserControl
         if (sessionRetirementWeb.SubCommitteId != null)
         {
             e.Command.CommandText = string.Format(@"SELECT [rid], [sonid], [sonname], [SyndicateId], [SubCommitteId], [sarfnumber], [remark], [membername] FROM [stopsarf] 
-WHERE SyndicateId = {0} SubCommitteId = {1}", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
+WHERE SyndicateId = {0} AND SubCommitteId = {1}", sessionRetirementWeb.SyndicateId, sessionRetirementWeb.SubCommitteId);
         }
         else
         {

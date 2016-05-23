@@ -14,7 +14,7 @@ public class ThumbnailSliderWebApplication_PathesClass
     private OleDbConnection conn;
     public ThumbnailSliderWebApplication_PathesClass()
     {
-        cmd = new OleDbCommand(new ThumbnailSliderWebApplication_DBConnectClass("DB.mdb").ToString());
+        cmd = new OleDbCommand(new ThumbnailSliderWebApplication_DBConnectClass("Rotarordata.mdb").ToString());
         conn = ThumbnailSliderWebApplication_DBConnectClass.conn;
         cmd.Connection = conn;
     }

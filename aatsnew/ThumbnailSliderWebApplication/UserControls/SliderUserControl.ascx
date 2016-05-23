@@ -28,7 +28,7 @@
     string x;
     foreach (System.Data.DataRow row in dt.Rows)
     {
-        x = "<a href='MainNewsDetails.aspx?ID=" + row["ID"] + "' target='_blank'><img src='" + row["ImageLink"] + "' data-thumb='" + row["ImageLink"] + "' alt='" + row["Caption"] + "' title='" + row["Caption"] + "' /></a>";
+        x = "<a href='ViewDetails.aspx?id=" + row["ID"] + "' target='_blank'><img src='../" + row["ImageLink"] + "' data-thumb='" + row["ImageLink"] + "' alt='" + row["Caption"] + "' title='" + row["Caption"] + "' /></a>";
         Response.Write(x);
     }
     
