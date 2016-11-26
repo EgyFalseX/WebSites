@@ -65,11 +65,11 @@ public partial class centerViewer : System.Web.UI.Page
     {
         if (TheSessionsDownloadCenter.IsAdmin)
         {
-            e.Command.CommandText = @"SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link FROM center ";
+            e.Command.CommandText = @"SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link, ExternalLink FROM center ";
         }
         else
         {
-            e.Command.CommandText = string.Format(@"SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link
+            e.Command.CommandText = string.Format(@"SELECT id_prog, code_al_fasl, alsofof_code, id_type_prog, name_prog, date_up, Description, link, ExternalLink
             FROM center
             WHERE alsofof_code = " + TheSessionsDownloadCenter.alsofof_code);
         }
