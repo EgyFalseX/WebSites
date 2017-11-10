@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: center">
-                        <dx:ASPxUploadControl runat="server" ShowProgressPanel="True" ShowUploadButton="True" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Width="350px" CssPostfix="PlasticBlue" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" Font-Size="12pt" ID="UCFile" OnFileUploadComplete="UCFile_FileUploadComplete" UploadMode="Advanced" Visible="False" AddUploadButtonsHorizontalPosition="Center">
+                        <dx:ASPxUploadControl runat="server" ShowProgressPanel="True" ShowUploadButton="True" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Width="350px" CssPostfix="PlasticBlue" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" Font-Size="12pt" ID="UCFile" OnFileUploadComplete="UCFile_FileUploadComplete" Visible="False" AddUploadButtonsHorizontalPosition="Center">
                             <ValidationSettings GeneralErrorText="فشل التحميل بسبب خطــاء داخلي" NotAllowedFileExtensionErrorText="امتداد الملف غير مسموح به" MaxFileSizeErrorText="الملف اكبر من 50 كيلوبايت برجاء رفع ملف اصغر من 50 كيلوبايت" MultiSelectionErrorText="خطاء في نوع الملف :  {0} files are invalid because they exceed the allowed file size ({1}) or their extensions are not allowed. These files have been removed from selection, so they will not be uploaded. 
 
 {2}">
