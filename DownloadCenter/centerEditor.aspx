@@ -102,7 +102,7 @@ s.cpShowPopup = undefined;
                         </PropertiesImage>
                         <EditFormSettings ColumnSpan="2" />
                         <DataItemTemplate>
-                            <dx:ASPxHyperLink ID="HLlink" runat="server" NavigateUrl='<%# Eval("link", "{0}") %>' Text="تحميل" Target="_blank" />
+                            <dx:ASPxHyperLink ID="HLlink" runat="server" NavigateUrl='<%# Eval("link", "Assets/DownloadCenterImages/{0}") %>' Text="تحميل" />
                         </DataItemTemplate>
                         <EditItemTemplate>
                             <dx:ASPxUploadControl ID="ASPxUploadControl1" runat="server" CssFilePath="App_Themes/DevEx/{0}/styles.css"
@@ -136,36 +136,27 @@ s.cpShowPopup = undefined;
                     <dx:GridViewDataComboBoxColumn Caption="الفصل الدراسي" FieldName="code_al_fasl" VisibleIndex="2">
                         <PropertiesComboBox DataSourceID="DScode_fasl" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_al_fasl" ValueField="code_al_fasl">
                             <Columns>
-                                
-<dx:ListBoxColumn FieldName="name_al_fasl" />
-                            
-</Columns>
-                        
-</PropertiesComboBox>
+                                <dx:ListBoxColumn FieldName="name_al_fasl" />
+                            </Columns>
+                        </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
                         <EditFormSettings ColumnSpan="2" />
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="الصف الدراسي" FieldName="alsofof_code" VisibleIndex="1">
                         <PropertiesComboBox DataSourceID="DSalsofof" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="alsofof_name" ValueField="alsofof_code">
                             <Columns>
-                                
-<dx:ListBoxColumn FieldName="alsofof_name" />
-                            
-</Columns>
-                        
-</PropertiesComboBox>
+                                <dx:ListBoxColumn FieldName="alsofof_name" />
+                            </Columns>
+                        </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
                         <EditFormSettings ColumnSpan="2" />
                     </dx:GridViewDataComboBoxColumn>
                     <dx:GridViewDataComboBoxColumn Caption="نوع البرنامج" FieldName="id_type_prog" VisibleIndex="3">
                         <PropertiesComboBox DataSourceID="DStype_prog" DropDownStyle="DropDown" IncrementalFilteringMode="StartsWith" TextField="name_prog" ValueField="type_prog_id">
                             <Columns>
-                                
-<dx:ListBoxColumn FieldName="name_prog" />
-                            
-</Columns>
-                        
-</PropertiesComboBox>
+                                <dx:ListBoxColumn FieldName="name_prog" />
+                            </Columns>
+                        </PropertiesComboBox>
                         <Settings AutoFilterCondition="BeginsWith" />
                         <EditFormSettings ColumnSpan="2" />
                     </dx:GridViewDataComboBoxColumn>
@@ -244,9 +235,7 @@ s.cpShowPopup = undefined;
                 DataFile="~/App_Data/Download_Center.mdb" 
                 DeleteCommand="DELETE FROM [center] WHERE [id_prog] = ?" 
                 InsertCommand="INSERT INTO [center] ( [code_al_fasl], [alsofof_code], [id_type_prog], [name_prog], [date_up], [Description], [link]) VALUES (?, ?, ?, ?, ?, ?, ?)" 
-                SelectCommand="SELECT center.id_prog, center.code_al_fasl, center.alsofof_code, center.id_type_prog, center.name_prog, center.date_up, center.Description
-, iif(Mid (center.link, 1, 6) = &quot;attach&quot;, &quot;Assets/DownloadCenterImages/&quot; + center.link, center.link ) AS link 
-FROM center ORDER BY center.id_prog DESC;" 
+                SelectCommand="SELECT center.id_prog, center.code_al_fasl, center.alsofof_code, center.id_type_prog, center.name_prog, center.date_up, center.Description, center.link FROM center ORDER BY center.id_prog DESC;" 
                 UpdateCommand="UPDATE [center] SET [code_al_fasl] = ?, [alsofof_code] = ?, [id_type_prog] = ?, [name_prog] = ?, [date_up] = ?, [Description] = ?, [link] = ? WHERE [id_prog] = ?" 
                 OnSelecting="DSData_Selecting" oninserting="DSData_Inserting" 
                 onupdating="DSData_Updating">
